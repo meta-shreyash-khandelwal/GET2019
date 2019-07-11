@@ -1,2 +1,2 @@
 # GET2019
-It contains the assignments 
+It contains the main assignments 
