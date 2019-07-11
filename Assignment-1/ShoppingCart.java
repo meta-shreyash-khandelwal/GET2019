@@ -208,8 +208,8 @@ public class ShoppingCart {
 }
 
 /**
- * This class is defined to be used as custom ArrayList itemList It contains
- * different data types and use the getters and setters method
+ * This class is defined to be used as custom ArrayList itemList 
+ *It contains different data types and use the getters and setters method
  */
 class Item {
 	private char serialNo;
