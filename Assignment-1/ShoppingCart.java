@@ -1,4 +1,3 @@
-package varunk;
 
 import java.util.*;
 
@@ -7,7 +6,7 @@ import java.util.*;
  * item,updating items list,generating bills and display carts
  */
 public class ShoppingCart {
-	static Item firstObject;
+    static Item firstObject;
 	static Scanner in = new Scanner(System.in);
 	/**
 	 * Helps to add the items in the cart by using the ArrayList itemList defined
@@ -20,19 +19,31 @@ public class ShoppingCart {
 		System.out.println("Enter the serial number from the item from the above list");
 		serialNo = in.next().charAt(0);
 		// It helps in tracking where the cart is empty or not
+	try
+	{
 		if (checkIfCartEmpty(itemList, serialNo)) {
 			System.out.println("Select a valid option please !!");
 		} else {
+			
+			
 			System.out.println("Enter quantity of the item");
 			quantity = in.nextInt();
+			
 			for (int m = 0; m < itemList.size(); m++) {
 				firstObject = itemList.get(m);
-				if (firstObject.getserialno() == serialNo) {
-					firstObject.setquantity(quantity);
+				if (firstObject.getSerialNo() == serialNo) {
+					firstObject.setQuantity(quantity);
 				}
+			}}}
+			catch(Exception e)
+			{
+				System.out.println("Please enter integer value !!");	
 			}
+			
+			
+			
 		}
-	}
+	
 
 	/**
 	 * This method displays all the contents present in the cart and shows a message
@@ -42,7 +53,7 @@ public class ShoppingCart {
 		int check = 0;
 		for (int j = 0; j < itemList.size(); j++) {
 			firstObject = itemList.get(j);
-			if (firstObject.getquantity() != -1) {
+			if (firstObject.getQuantity() != -1) {
 				check = 1;
 			}
 		}
@@ -53,9 +64,9 @@ public class ShoppingCart {
 			System.out.println("Itemname" + "\t" + "Quantity" + "\t" + "Total Price");
 			for (int j = 0; j < itemList.size(); j++) {
 				firstObject = itemList.get(j);
-				if (firstObject.getquantity() != -1) {
-					System.out.println(firstObject.getitem() + "\t\t" + firstObject.getquantity() + "\t\t"
-							+ firstObject.getquantity() * firstObject.getprice());
+				if (firstObject.getQuantity() != -1) {
+					System.out.println(firstObject.getItem() + "\t\t" + firstObject.getQuantity() + "\t\t"
+							+ firstObject.getQuantity() * firstObject.getPrice());
 					check = 1;
 				}
 			}
@@ -72,8 +83,8 @@ public class ShoppingCart {
 		for (int a = 0; a < itemList.size(); a++) {
 			firstObject = itemList.get(a);
 			/* Displays only the items which are present in cart */
-			if (firstObject.getquantity() != -1) {
-				sum += firstObject.getquantity() * firstObject.getprice();
+			if (firstObject.getQuantity() != -1) {
+				sum += firstObject.getQuantity() * firstObject.getPrice();
 			}
 		}
 		return sum;
@@ -88,7 +99,7 @@ public class ShoppingCart {
 		int counter = 0;
 		for (int b = 0; b < itemListNew.size(); b++) {
 			firstObject = itemListNew.get(b);
-			if (firstObject.getserialno() == serialNo) {
+			if (firstObject.getSerialNo() == serialNo) {
 				counter = 1;
 			}
 		}
@@ -103,12 +114,12 @@ public class ShoppingCart {
 	 * changing the quantity of items which are present in the cart
 	 * @param itemList is the ArrayList containing items in cart
 	 */
-	public static void updateCartItems(ArrayList<Item> itemList) {
+    public static void updateCartItems(ArrayList<Item> itemList) {
 		int check = 0; // counter for checking if cart is empty
 		char serialNo; // serial no of item
                 for (int k = 0; k < itemList.size(); k++) {
 			firstObject = itemList.get(k);
-			if (firstObject.getquantity() != -1) {
+			if (firstObject.getQuantity() != -1) {
 				check = 1;
 			}
 		}
@@ -116,7 +127,7 @@ public class ShoppingCart {
 		if (check == 0) {
 			System.out.println("Sorry!! Your cart is empty");
 		} else {
-			int quantity; // Quantity of item
+            int quantity; // Quantity of item
 			int counter = 0;
 			System.out.println("Enter serial no of the item to update");
 			serialNo = in.next().charAt(0);
@@ -127,14 +138,14 @@ public class ShoppingCart {
 				quantity = in.nextInt();
 				for (int j1 = 0; j1 < itemList.size(); j1++) {
 					firstObject = itemList.get(j1);
-					if (firstObject.getserialno() == serialNo) {
+					if (firstObject.getSerialNo() == serialNo) {
 						counter = 1; /* Helps to find only those items which are in cart */
 						if (quantity == 0) {
 							firstObject.removeQuantity(-1);
-						} else if (firstObject.getquantity() > quantity) {/*Checks if the entered quantity item is less than the original*/
+						} else if (firstObject.getQuantity() > quantity) {/*Checks if the entered quantity item is less than the original*/
 							firstObject.removeQuantity(quantity);
 						} else { // System.out.println("HELLO");
-							firstObject.setquantity(quantity);/*For the complete removal of the item from the cart*/
+							firstObject.setQuantity(quantity);/*For the complete removal of the item from the cart*/
 						}
 					}
 				}
@@ -165,8 +176,8 @@ public class ShoppingCart {
 		System.out.println("Serial No   " + " ItemName	" + "        Price ");
 		for (int j = 0; j < itemList.size(); j++) {
 			firstObject = itemList.get(j);
-			System.out.println(firstObject.getserialno() + "         " + "    " + firstObject.getitem() + "\t\t"
-					+ firstObject.getprice());
+			System.out.println(firstObject.getSerialNo() + "         " + "    " + firstObject.getItem() + "\t\t"
+					+ firstObject.getPrice());
 		}
 		try {
 			System.out.println("Please Choose the option from the following");
@@ -176,7 +187,7 @@ public class ShoppingCart {
 			System.out.println("4 - Display Items ");
 			System.out.println("5 - Stop");
 			while (true) {
-				System.out.println("Please enter your choice from the lists");
+				System.out.println("Please enter your choice from the list given from 1-5");
 				choiceNumber = in.nextInt();
 				switch (choiceNumber) {
 				case 1:
@@ -213,34 +224,34 @@ public class ShoppingCart {
  */
 class Item {
 	private char serialNo;
-	private String Itemname;
+	private String itemName;
 	private double price;
 	private int quantity;
 
-	Item(char serialNo, String Itemname, double price, int quantity) {
-		this.Itemname = Itemname;
+	Item(char serialNo, String itemName, double price, int quantity) {
+		this.itemName = itemName;
 		this.price = price;
 		this.quantity = quantity;
 		this.serialNo = serialNo;
 	}
 
-	public String getitem() {
-		return Itemname;
+	public String getItem() {
+		return itemName;
 	}
 
-	public char getserialno() {
+	public char getSerialNo() {
 		return serialNo;
 	}
 
-	public double getprice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public int getquantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setquantity(int quantityOfItem) {
+	public void setQuantity(int quantityOfItem) {
 		if (quantity == -1) {
 			quantity = quantity + quantityOfItem + 1;
 		} else {
