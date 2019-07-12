@@ -1,6 +1,4 @@
-
 import java.util.*;
-
 /**
  * This program helps in performing tasks related to hopping carts namely adding
  * item,updating items list,generating bills and display carts
