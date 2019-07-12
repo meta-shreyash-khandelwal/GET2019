@@ -34,7 +34,8 @@ public class ShoppingCart {
 				if (firstObject.getSerialNo() == serialNo) {
 					firstObject.setQuantity(quantity);
 				}
-			}}}
+			}}
+    }
 			catch(Exception e)
 			{
 				System.out.println("Please enter integer value !!");	
