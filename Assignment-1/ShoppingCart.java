@@ -261,5 +261,4 @@ class Item {
 	public void removeQuantity(int quantityToRemove) {
 		quantity = quantityToRemove;
 	}
-
 }
