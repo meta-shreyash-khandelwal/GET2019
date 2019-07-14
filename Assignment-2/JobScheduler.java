@@ -1,7 +1,5 @@
-package varunk;
 import java.util.*;
 public class JobScheduler {
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int numberOfProcess = 0;
@@ -17,9 +15,7 @@ public class JobScheduler {
         System.out.println("Please Enter the arrival time in increasing order ");
         try
         {
-                
-        
-        for (int i = 0; i < numberOfProcess; i++) {
+         for (int i = 0; i < numberOfProcess; i++) {
             System.out.println("Enter Arrival Time and Burst Time of Process "
                             + (i + 1) + " ");
             for (int j = 0; j < 2; j++) {
@@ -95,7 +91,6 @@ class Process {
 		}
 
 		return turnaroundArray;
-
 	}
 /**
  * This method returns the waiting time of all processes using waiting time = turn around time-completion time
