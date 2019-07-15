@@ -250,6 +250,11 @@ public static boolean checking(String check)
 				System.out.println("The subtraction of these two Hexadecimal number is "
 								+ subtractionOfHexadecimal(firstNumber,
 										secondNumber, 16));
+					if(comparinggreaterHexadecimal(firstNumber,secondNumber)==false)
+				{
+					System.out.println("Further not possible");
+					throw new Exception("Not Further");
+				}
 				System.out.println("The multiplication of these two Hexadecimal number is "
 								+ multiplicationOfHexadecimal(firstNumber,
 										secondNumber, 16));
