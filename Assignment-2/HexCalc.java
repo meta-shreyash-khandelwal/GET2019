@@ -1,3 +1,4 @@
+package varun;
 import java.util.Scanner;
 /* An interface is provided for generalizing the methods for any base */
 interface conversion {
@@ -71,11 +72,11 @@ public class HexCalc {
  * @param base is the base in which the number are added
  * @return the addition value of first and second by converting them into decimal and vice-versa
  */
-	public static String additionOfHexadecimal(String first, String second,
+	public static String additionOfHexadecimal(String firstNo, String secondNo,
 			int base) {
 		int result = 0;
-		int firstNumber = hexadecimalToDecimal(first, base);
-		int secondNumber = hexadecimalToDecimal(second, base);
+		int firstNumber = hexadecimalToDecimal(firstNo, base);
+		int secondNumber = hexadecimalToDecimal(secondNo, base);
 		result = firstNumber + secondNumber;
 		return decimalToHexadecimal(result, 16);
 	}
@@ -119,8 +120,8 @@ public class HexCalc {
 	public static String divisionOfHexadecimal(String firstNo, String secondNo,
 			int base) {
 		int result = 0;
-		int firstNumber = hexadecimalToDecimal(first, base);
-		int secondNumber = hexadecimalToDecimal(second, base);
+		int firstNumber = hexadecimalToDecimal(firstNo, base);
+		int secondNumber = hexadecimalToDecimal(secondNo, base);
 		try {
 			result = firstNumber / secondNumber;
 		} catch (ArithmeticException e) {
