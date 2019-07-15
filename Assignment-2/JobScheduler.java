@@ -1,3 +1,4 @@
+package varun;
 import java.util.*;
 class Process {
 /**
@@ -86,6 +87,8 @@ class Process {
 public class JobScheduler {
 
 	public static void main(String[] args) {
+		try
+		{
 		Scanner in = new Scanner(System.in);
 		int numberOfProcess = 0;
 		System.out.println("Enter the number of process ");
@@ -104,6 +107,10 @@ public class JobScheduler {
 							+ (i + 1) + " ");
 			for (int j = 0; j < 2; j++) {
 				timeArray[i][j] = in.nextInt();
+				if(timeArray[i][j]<0)
+				{
+					throw new Exception("Invalid Exception !");
+				}
 			}
 		}
 		completionTimeArray = object.completionTime(timeArray, numberOfProcess);
@@ -123,4 +130,9 @@ public class JobScheduler {
 		System.out.println("The average waiting time is " + averageWaitingTimeSolution+" milliseconds");
 		System.out.println("The maximum value of waiting time is " + maximumWaitingTimeSolution+" milliseconds");
 	}
+		catch(Exception e)
+		{
+		System.out.println("Invalid Input entered Try Again !!");	
+		}
+}
 }
