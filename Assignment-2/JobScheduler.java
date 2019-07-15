@@ -1,5 +1,11 @@
 import java.util.*;
 class Process {
+/**
+ * This method finds the completion time of all the processes
+ * @param timeArray is the 2D array containing arrival time and burst time of all processes 
+ * @param numberOfProcess is the total number of processes
+ * @return the array containing completion time of all the processes
+ */
 	public int[] completionTime(int timeArray[][], int numberOfProcess) {
 		int completionArray[] = new int[numberOfProcess];
 		completionArray[0] = timeArray[0][0] + timeArray[0][1];
@@ -13,19 +19,30 @@ class Process {
 			}
 
 		}
-		return completionArray;
+	return completionArray;
 	}
-
-    public int[] turnAroundTime(int completionTimeArray[], int timeArray[][],
+/**
+ * This method calculates the turn around time of all process turn around time = completion time-arrival time 
+ * @param completionTimeArray contains the completion time of all the processes
+ * timeArray is the 2D array containing arrival time and burst time of all process 
+ * @param numberOfProcess is the total number of process
+ * @return the array containing turn around time of all the processes
+ */
+	public int[] turnAroundTime(int completionTimeArray[], int timeArray[][],
 			int numberOfProcess) {
-
 		int turnaroundArray[] = new int[numberOfProcess];
 		for (int j = 0; j < numberOfProcess; j++) {
 			turnaroundArray[j] = completionTimeArray[j] - timeArray[j][0];
 		}
 		return turnaroundArray;
 	}
-
+/**
+ * This method returns the waiting time of all processes using waiting time = turn around time-completion time
+ * @param turnAroundTimeArray contains an array of turn around time of all processes
+ * @param timeArray is the 2D array containing arrival time and burst time of all process 
+ * @param numberOfProcess is the total number of process
+ * @return an array containing waiting times of all the processes
+*/
 	public int[] waitingTime(int turnAroundTimeArray[], int timeArray[][],
 			int numberOfProcess) {
 
@@ -33,17 +50,28 @@ class Process {
 		for (int j = 0; j < numberOfProcess; j++) {
 			waitingArray[j] = turnAroundTimeArray[j] - timeArray[j][1];
 		}
+
 		return waitingArray;
 	}
-
+/**
+ * This method calculates the average of waiting time of all the processes
+ * @param waitingArray contains the waiting times of all processes
+ * @param numberOfProcess is the total number of process
+ * @return a double average value of waiting time in millisecond of all the processes
+ */
 	public double averageWaitingTime(int waitingArray[], int numberOfProcess) {
 		double average = 0.0;
 		for (int k = 0; k < numberOfProcess; k++) {
 			average = waitingArray[k] + average;
 		}
-		return average;
+		return average/numberOfProcess;
 	}
-
+/**
+ * This method calculates the maximum waiting time out of all process
+ * @param waitingArray contains the waiting times of all processes
+ * @param numberOfProcess is the total number of process
+ * @return a integer value which is maximum waiting time in millisecond
+ */
 	public int maximumWaitingTime(int waitingArray[], int numberOfProcess) {
 		int maximum = 0;
 		for (int i = 0; i < numberOfProcess; i++) {
@@ -56,6 +84,7 @@ class Process {
 	}
 }
 public class JobScheduler {
+
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int numberOfProcess = 0;
@@ -70,12 +99,10 @@ public class JobScheduler {
 		int timeArray[][] = new int[numberOfProcess][2];
 		// System.out.println("HI"+numberOfProcess);
 		System.out.println("Please Enter the arrival time in increasing order ");
-
 		for (int i = 0; i < numberOfProcess; i++) {
 			System.out.println("Enter Arrival Time and Burst Time of Process in millisec"
 							+ (i + 1) + " ");
 			for (int j = 0; j < 2; j++) {
-				// System.out.println("H dfgdfI"+i+"JJDS"+j);
 				timeArray[i][j] = in.nextInt();
 			}
 		}
@@ -88,13 +115,12 @@ public class JobScheduler {
 				waitingTimeArray, numberOfProcess);
 		averageWaitingTimeSolution = object.averageWaitingTime(
 				waitingTimeArray, numberOfProcess);
+		System.out.println("Completion time \t"+"TurnAround Time \t \t"+"Waiting Time");		
 		for (int x = 0; x < numberOfProcess; x++) {
-			System.out.println(completionTimeArray[x] + "     "
-					+ turnAroundTimeArray[x] + "    " + waitingTimeArray[x]
-					+ " ");
+			System.out.println(completionTimeArray[x] + "\t \t \t \t"
+					+ turnAroundTimeArray[x] + "\t \t \t \t" + waitingTimeArray[x]);
 		}
-		System.out.println("Average Is " + averageWaitingTimeSolution
-				/ numberOfProcess + " ms");
-		System.out.println("maximum is " + maximumWaitingTimeSolution + " ms");
+		System.out.println("The average waiting time is " + averageWaitingTimeSolution+" milliseconds");
+		System.out.println("The maximum value of waiting time is " + maximumWaitingTimeSolution+" milliseconds");
 	}
 }
