@@ -235,7 +235,7 @@ public static boolean checking(String check)
 				System.out.println("Please Enter two positive Hexadecimal String ! first greater than second");
 				firstNumber = in.next();
 				secondNumber = in.next();
-				if(checking(firstNumber)==false || checking(secondNumber)==false ||comparinggreaterHexadecimal(firstNumber,secondNumber)==false)
+				if(checking(firstNumber)==false || checking(secondNumber)==false)
 				{
 			throw new Exception("Invalid ");
 			    }
@@ -243,14 +243,13 @@ public static boolean checking(String check)
 								+ hexadecimalToDecimal(firstNumber, 16));
 				System.out.println("The decimal equivalent of second Hexadecimal number is "
 								+ hexadecimalToDecimal(secondNumber, 16));
-
 				System.out.println("The addition of these two Hexadecimal number is "
 								+ additionOfHexadecimal(firstNumber,
 										secondNumber, 16));
 				System.out.println("The subtraction of these two Hexadecimal number is "
 								+ subtractionOfHexadecimal(firstNumber,
 										secondNumber, 16));
-					if(comparinggreaterHexadecimal(firstNumber,secondNumber)==false)
+				if(comparinggreaterHexadecimal(firstNumber,secondNumber)==false)
 				{
 					System.out.println("Further not possible");
 					throw new Exception("Not Further");
