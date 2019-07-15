@@ -1,4 +1,3 @@
-package varun;
 import java.util.Scanner;
 /* An interface is provided for generalizing the methods for any base */
 interface conversion {
