@@ -60,7 +60,6 @@ public class HexCalc {
 		while (decimal != 0) {
 			sample = characterEquivalent(decimal % base) + sample;
 			decimal = decimal / base;
-
 		}
 		return sample;
 	}
@@ -149,7 +148,6 @@ public static boolean checking(String check)
 			return true;
 		else
 			return false;
-	
 }
 	
 /**
@@ -211,9 +209,7 @@ public static boolean checking(String check)
 			return true;
 		} else {
 			return false;
-
 		}
-
 	}
 
     public static void main(String[] args) {
@@ -230,14 +226,13 @@ public static boolean checking(String check)
 		option = in.nextInt();
 		
 		switch (option) {
-
-			case 1 :
+			    case 1 :
 				System.out.println("Please Enter two positive Hexadecimal String ! first greater than second");
 				firstNumber = in.next();
 				secondNumber = in.next();
 				if(checking(firstNumber)==false || checking(secondNumber)==false)
 				{
-			throw new Exception("Invalid ");
+			    throw new Exception("Invalid ");
 			    }
 				System.out.println("The decimal equivalent of first Hexadecimal number is "
 								+ hexadecimalToDecimal(firstNumber, 16));
@@ -261,14 +256,14 @@ public static boolean checking(String check)
 								+ divisionOfHexadecimal(firstNumber,
 										secondNumber, 16));
 				break;
-			case 2 :
+       			case 2 :
 				System.out.println("Please Enter two positive Hexadecimal String !");
 				firstNumber1 = in.next();
 				secondNumber1 = in.next();
 				if(checking(firstNumber1)==false || checking(secondNumber1)==false)
 				{
-			throw new Exception("Invalid ");
-			}
+			        throw new Exception("Invalid ");
+				}
 				
 				if (equalityOfHexadecimal(firstNumber1, secondNumber1)) {
 					System.out.println("These two Hexadecimal numbers are equal !!");
@@ -283,8 +278,9 @@ public static boolean checking(String check)
 				}
 				
 				break;
-			default :
+			    default :
 				System.out.println("Please choose the correct option !!");
+				main(args);
 		}
 		}
 		catch(Exception e)
