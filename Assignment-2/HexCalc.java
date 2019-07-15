@@ -11,6 +11,7 @@ interface conversion {
 	String divisionOfHexadecimal(String first, String second, int base);
 	boolean comparinggreaterHexadecimal(String first, String second);
 }
+/*Class takes only positive number it is assumed */
 public class HexCalc {
 /* It finds the integer equivalent of any character
  * @param value takes the character to be converted
@@ -43,7 +44,7 @@ public class HexCalc {
 	public static int hexadecimalToDecimal(String hexNumber, int base) {
 		int decimal = 0;
 		for (int i = hexNumber.length() - 1; i >= 0; i--) {
-			decimal += (int) (integerEquivalent(hexNumber.charAt(i))
+					decimal += (int) (integerEquivalent(hexNumber.charAt(i))
 					* Math.pow(base, hexNumber.length() - 1 - i));
 			}
 		return decimal;
@@ -61,9 +62,7 @@ public class HexCalc {
 			decimal = decimal / base;
 
 		}
-
 		return sample;
-
 	}
 /**
  * This method is responsible for adding two Hexadecimal numbers
@@ -130,6 +129,31 @@ public class HexCalc {
 
 		return decimalToHexadecimal(result, 16);
 	}
+	
+/**
+ * This method checks whether correct Hexadecimal String is added	
+ * @param check is the String to be checked for Exception
+ * @return the boolean true if correct String is added and false if incorrect Hexadecimal is passed
+ */
+	
+	
+	public static boolean checking(String check)
+	{
+		int count=0;
+		for(int i=0;i<check.length();i++)
+		{
+			if(check.charAt(i)>='F' || check.charAt(i)<'0')
+			{
+			count++;
+			}
+		}
+		if(count==0)
+			return true;
+		else
+			return false;
+		
+	}
+	
 /**
  * This method checks the equality of two Hexadecimal Numbers
  * @param first is the first Hexadecimal number
@@ -137,6 +161,11 @@ public class HexCalc {
  * @return the boolean true if the numbers are equals otherwise it returns the value false.
  */
 	public static boolean equalityOfHexadecimal(String first, String second) {
+		if(first==null && second==null)
+			return true;
+		if(first==null ||second==null)
+			return false;
+
 		return first.equals(second);
 	}
 /**
@@ -149,7 +178,13 @@ public class HexCalc {
 			String second) {
 		int counter1 = 0;
 		int counter2 = 0;
-
+		if(first==null && second!=null)
+			return false;
+		if(second==null && first!=null)
+		{
+			//System.out.println("FEER");
+			return true;
+		}
 		if (first.length() == second.length()) {
 			for (int i = 0; i < first.length(); i++) {
 				if (first.charAt(i) > second.charAt(i)) {
@@ -183,19 +218,29 @@ public class HexCalc {
 
 	}
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
+		String firstNumber = "";
+		String secondNumber = "";
+		String firstNumber1 = "";
+		String secondNumber1 = "";
+		
 		Scanner in = new Scanner(System.in);
 		int option = 0;
-		System.out.println("Please Enter 1 for Hexadecimal Arithmetic and 2 for Hexadecimal Comparision");
+		try
+		{
+		System.out.println("Please Enter 1 for Hexadecimal Arithmetic and 2 for Hexadecimal Comparision ");
 		option = in.nextInt();
+		
 		switch (option) {
 
 			case 1 :
-				String firstNumber = "";
-				String secondNumber = "";
 				System.out.println("Please Enter two positive Hexadecimal String ! first greater than second");
 				firstNumber = in.next();
 				secondNumber = in.next();
+				if(checking(firstNumber)==false || checking(secondNumber)==false)
+				{
+			throw new Exception("Invalid ");
+			    }
 				System.out.println("The decimal equivalent of first Hexadecimal number is "
 								+ hexadecimalToDecimal(firstNumber, 16));
 				System.out.println("The decimal equivalent of second Hexadecimal number is "
@@ -215,11 +260,14 @@ public class HexCalc {
 										secondNumber, 16));;
 				break;
 			case 2 :
-				String firstNumber1 = "";
-				String secondNumber1 = "";
-				System.out.println("Please Enter two positive Hexadecimal String ! first greater than second");
+				System.out.println("Please Enter two positive Hexadecimal String !");
 				firstNumber1 = in.next();
 				secondNumber1 = in.next();
+				if(checking(firstNumber)==false || checking(secondNumber)==false)
+				{
+			throw new Exception("Invalid ");
+			}
+				
 				if (equalityOfHexadecimal(firstNumber1, secondNumber1)) {
 					System.out.println("These two Hexadecimal numbers are equal !!");
 
@@ -235,6 +283,12 @@ public class HexCalc {
 				break;
 			default :
 				System.out.println("Please choose the correct option !!");
+		}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Invalid input entered Try Again !!");
+			main(args);
 		}
 
 	}
