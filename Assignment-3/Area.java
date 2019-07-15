@@ -50,28 +50,26 @@ public class Area {
 		int choice=0;
 		try
 		{
-		while(true)
-			{
+		while(true){
 		System.out.println("Enter the choice from followong ");
 		System.out.println("1 for calcuating area of Triangle ");
 		System.out.println("2 for calcuating area of Rectangle ");
 		System.out.println("3 for calcuating area of Square ");
 		System.out.println("4 for calcuating area of Circle");
 		System.out.println("5 for Exit");
-	    choice=in.nextInt();
-        switch(choice)
-{
+	       choice=in.nextInt();
+        switch(choice)  {
 	case 1:
 		System.out.println("Enter the base ");
-width=in.nextDouble();
+		width=in.nextDouble();
 		System.out.println("Enter the height ");
-height=in.nextDouble();
-System.out.println("The area of the triangle is "+areaOfTriange(width,height));
+		height=in.nextDouble();
+		System.out.println("The area of the triangle is "+areaOfTriange(width,height));
 		break;
 	case 2:
 		System.out.println("Enter the breadth ");
 		width=in.nextDouble();
-				System.out.println("Enter the length ");
+		System.out.println("Enter the length ");
 		height=in.nextDouble();
 		if(width <0 || height<0)
 		{
@@ -107,7 +105,7 @@ System.out.println("The area of the triangle is "+areaOfTriange(width,height));
 		}}
 		catch(Exception e)
 		{
-			System.out.println("Invalid Input entered ");
+		System.out.println("Invalid Input entered ");
 		}
 	}
 
