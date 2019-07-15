@@ -6,18 +6,17 @@ class Process {
  * @param numberOfProcess is the total number of processes
  * @return the array containing completion time of all the processes
  */
-	public int[] completionTime(int timeArray[][], int numberOfProcess) {
+  public int[] completionTime(int timeArray[][], int numberOfProcess) {
 		int completionArray[] = new int[numberOfProcess];
 		completionArray[0] = timeArray[0][0] + timeArray[0][1];
 		for (int i = 1; i < numberOfProcess; i++) {
-			if (timeArray[i][0] < timeArray[i - 1][1]) {
+			if (timeArray[i][0] <= completionArray[i-1]) {
 				completionArray[i] = completionArray[i - 1] + timeArray[i][1];
 			} else
 
 			{
 				completionArray[i] = timeArray[i][0] + timeArray[i][1];
 			}
-
 		}
 	return completionArray;
 	}
@@ -132,6 +131,7 @@ public class JobScheduler {
 		catch(Exception e)
 		{
 		System.out.println("Invalid Input entered Try Again !!");	
+		main(args);/* This statement will cause the main statements to run again */
 		}
 }
 }
