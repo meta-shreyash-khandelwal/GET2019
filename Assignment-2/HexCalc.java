@@ -5,11 +5,11 @@ interface conversion {
 	char characterEquivalent(int decimalValue);
 	int hexadecimalToDecimal(String hexNumber, int base);
 	String decimalToHexadecimal(int decimal, int base);
-	String additionOfHexadecimal(String first, String second, int base);
-	String subtractionOfHexadecimal(String first, String second, int base);
-	String multiplicationOfHexadecimal(String first, String second, int base);
-	String divisionOfHexadecimal(String first, String second, int base);
-	boolean comparinggreaterHexadecimal(String first, String second);
+	String additionOfHexadecimal(String firstNo, String secondNo, int base);
+	String subtractionOfHexadecimal(String firstNo, String secondNo, int base);
+	String multiplicationOfHexadecimal(String firstNo, String secondNo, int base);
+	String divisionOfHexadecimal(String firstNo, String secondNo, int base);
+	boolean comparinggreaterHexadecimal(String firstNo, String secondNo);
 }
 /*Class takes only positive number it is assumed */
 public class HexCalc {
@@ -235,7 +235,7 @@ public static boolean checking(String check)
 				System.out.println("Please Enter two positive Hexadecimal String ! first greater than second");
 				firstNumber = in.next();
 				secondNumber = in.next();
-				if(checking(firstNumber)==false || checking(secondNumber)==false)
+				if(checking(firstNumber)==false || checking(secondNumber)==false ||comparinggreaterHexadecimal(firstNumber,secondNumber)==false)
 				{
 			throw new Exception("Invalid ");
 			    }
