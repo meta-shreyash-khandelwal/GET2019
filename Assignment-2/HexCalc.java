@@ -124,7 +124,6 @@ public class HexCalc {
 			result = firstNumber / secondNumber;
 		} catch (ArithmeticException e) {
 			System.out.println("Attempted to divide by 0 !!");
-			main(args);
 		}
 
 		return decimalToHexadecimal(result, 16);
