@@ -246,16 +246,16 @@ public static boolean checking(String check)
 
 				System.out.println("The addition of these two Hexadecimal number is "
 								+ additionOfHexadecimal(firstNumber,
-										secondNumber, 16));;
+										secondNumber, 16));
 				System.out.println("The subtraction of these two Hexadecimal number is "
 								+ subtractionOfHexadecimal(firstNumber,
-										secondNumber, 16));;
+										secondNumber, 16));
 				System.out.println("The multiplication of these two Hexadecimal number is "
 								+ multiplicationOfHexadecimal(firstNumber,
-										secondNumber, 16));;
+										secondNumber, 16));
 				System.out.println("The division of these two Hexadecimal number is "
 								+ divisionOfHexadecimal(firstNumber,
-										secondNumber, 16));;
+										secondNumber, 16));
 				break;
 			case 2 :
 				System.out.println("Please Enter two positive Hexadecimal String !");
