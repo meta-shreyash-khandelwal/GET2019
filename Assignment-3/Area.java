@@ -1,4 +1,3 @@
-package varun;
 import java.util.*;
 /*This class calculates the area of different shapes*/
 public class Area {
