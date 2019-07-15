@@ -79,44 +79,44 @@ public class HexCalc {
 		result = firstNumber + secondNumber;
 		return decimalToHexadecimal(result, 16);
 	}
-	/**
-	 * This method is responsible for subtracting two Hexadecimal numbers
-	 * @param first is the first number in String to be subtracted
-	 * @param second is the second number in String to be subtracted
-	 * @param base is the base in which the number are subtracted
-	 * @return the difference value of first and second i.e. first -second
-	 */
-	public static String subtractionOfHexadecimal(String first, String second,
+/**
+ * This method is responsible for subtracting two Hexadecimal numbers
+ * @param first is the first number in String to be subtracted
+ * @param second is the second number in String to be subtracted
+ * @param base is the base in which the number are subtracted
+ * @return the difference value of first and second i.e. first -second
+ */
+	public static String subtractionOfHexadecimal(String firstNo, String secondNo,
 			int base) {
 		int result = 0;
-		int firstNumber = hexadecimalToDecimal(first, base);
-		int secondNumber = hexadecimalToDecimal(second, base);
+		int firstNumber = hexadecimalToDecimal(firstNo, base);
+		int secondNumber = hexadecimalToDecimal(secondNo, base);
 		result = firstNumber - secondNumber;
 		return decimalToHexadecimal(result, 16);
 	}
-	/**
-	 * This method is responsible for multiplication two Hexadecimal numbers
-	 * @param first is the first number in String to be multiplied
-	 * @param second is the second number in String to be multiplied
-	 * @param base is the base in which the number are multiplied
-	 * @return the multiplication value of first and second by converting them into decimal and vice-versa
-	 */
-	public static String multiplicationOfHexadecimal(String first,
-			String second, int base) {
+/**
+ * This method is responsible for multiplication two Hexadecimal numbers
+ * @param first is the first number in String to be multiplied
+ * @param second is the second number in String to be multiplied
+ * @param base is the base in which the number are multiplied
+ * @return the multiplication value of first and second by converting them into decimal and vice-versa
+ */
+	public static String multiplicationOfHexadecimal(String firstNo,
+			String secondNo, int base) {
 		int result = 0;
-		int firstNumber = hexadecimalToDecimal(first, base);
-		int secondNumber = hexadecimalToDecimal(second, base);
+		int firstNumber = hexadecimalToDecimal(firstNo, base);
+		int secondNumber = hexadecimalToDecimal(secondNo, base);
 		result = firstNumber * secondNumber;
 		return decimalToHexadecimal(result, 16);
 	}
-	/**
-	 * This method is responsible for division of two Hexadecimal numbers
-	 * @param first is the first number in String to which is dividend
-	 * @param second is the second number in String to be divisor
-	 * @param base is the base in which the number are divided
-	 * @return the divisor value i.e first/second in Hexadecimal String
-	 */
-	public static String divisionOfHexadecimal(String first, String second,
+/**
+ * This method is responsible for division of two Hexadecimal numbers
+ * @param first is the first number in String to which is dividend
+ * @param second is the second number in String to be divisor
+ * @param base is the base in which the number are divided
+ * @return the divisor value i.e first/second in Hexadecimal String
+ */
+	public static String divisionOfHexadecimal(String firstNo, String secondNo,
 			int base) {
 		int result = 0;
 		int firstNumber = hexadecimalToDecimal(first, base);
@@ -135,9 +135,7 @@ public class HexCalc {
  * @param check is the String to be checked for Exception
  * @return the boolean true if correct String is added and false if incorrect Hexadecimal is passed
  */
-	
-	
-	public static boolean checking(String check)
+public static boolean checking(String check)
 	{
 		int count=0;
 		for(int i=0;i<check.length();i++)
@@ -151,8 +149,8 @@ public class HexCalc {
 			return true;
 		else
 			return false;
-		
-	}
+	
+}
 	
 /**
  * This method checks the equality of two Hexadecimal Numbers
@@ -160,13 +158,13 @@ public class HexCalc {
  * @param second is the second Hexadecimal number
  * @return the boolean true if the numbers are equals otherwise it returns the value false.
  */
-	public static boolean equalityOfHexadecimal(String first, String second) {
-		if(first==null && second==null)
+	public static boolean equalityOfHexadecimal(String firstNo, String secondNo) {
+		if(firstNo==null && secondNo==null)
 			return true;
-		if(first==null ||second==null)
+		if(firstNo==null ||secondNo==null)
 			return false;
 
-		return first.equals(second);
+		return firstNo.equals(secondNo);
 	}
 /**
  * This method is responsible for comparing two Hexadecimal numbers
@@ -174,20 +172,20 @@ public class HexCalc {
  * @param second is the second Hexadecimal number
  * @return the value true if first>second and false if first<second
  */
-	public static boolean comparinggreaterHexadecimal(String first,
-			String second) {
+	public static boolean comparinggreaterHexadecimal(String firstNumber,
+			String secondNumber) {
 		int counter1 = 0;
 		int counter2 = 0;
-		if(first==null && second!=null)
+		if(firstNumber==null && secondNumber!=null)
 			return false;
-		if(second==null && first!=null)
+		if(secondNumber==null && firstNumber!=null)
 		{
 			//System.out.println("FEER");
 			return true;
 		}
-		if (first.length() == second.length()) {
-			for (int i = 0; i < first.length(); i++) {
-				if (first.charAt(i) > second.charAt(i)) {
+		if (firstNumber.length() == secondNumber.length()) {
+			for (int i = 0; i < firstNumber.length(); i++) {
+				if (firstNumber.charAt(i) > secondNumber.charAt(i)) {
 					counter1++;
 				}
 			}
@@ -202,9 +200,9 @@ public class HexCalc {
 		} else {
 		    /*This regular expression removes all the leading 0's from Hexadecimal number for unequal length comparision*/
 		    
-			first = first.replaceAll("^(\\s*0\\s*0\\s*)+", "");
-			second = second.replaceAll("^(\\s*0\\s*0\\s*)+", "");
-			if (first.length() > second.length()) {
+			firstNumber = firstNumber.replaceAll("^(\\s*0\\s*0\\s*)+", "");
+			secondNumber = secondNumber.replaceAll("^(\\s*0\\s*0\\s*)+", "");
+			if (firstNumber.length() > secondNumber.length()) {
 				counter2++;
 			}
 
