@@ -142,7 +142,7 @@ public class HexCalc {
 		int count=0;
 		for(int i=0;i<check.length();i++)
 		{
-			if(check.charAt(i)>='F' || check.charAt(i)<'0')
+			if(check.charAt(i)>'F' || check.charAt(i)<'0')
 			{
 			count++;
 			}
