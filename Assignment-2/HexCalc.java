@@ -263,7 +263,7 @@ public class HexCalc {
 				System.out.println("Please Enter two positive Hexadecimal String !");
 				firstNumber1 = in.next();
 				secondNumber1 = in.next();
-				if(checking(firstNumber)==false || checking(secondNumber)==false)
+				if(checking(firstNumber1)==false || checking(secondNumber1)==false)
 				{
 			throw new Exception("Invalid ");
 			}
