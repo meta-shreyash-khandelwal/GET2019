@@ -1,4 +1,3 @@
-package varun;
 import java.util.*;
 /*Assuming String to be not null and case sensitive*/
 public class StringOperation {
@@ -10,16 +9,16 @@ public class StringOperation {
 		Operation object = new Operation();
 		System.out.println("Enter the choice for String operation ");
 		System.out.println("Enter 1 for comparing two String  ");
-		System.out.println("Enter 2 for reversing two String ");
-		System.out.println("Enter 3 for changing the case of String ");
-		System.out.println("Enter 4 for finding the largest String ");
+		System.out.println("Enter 2 for reversing a String ");
+		System.out.println("Enter 3 for changing the case of a String ");
+		System.out.println("Enter 4 for finding the largest word from a String ");
 		System.out.println("Enter 5 for Exit ");
+		        try
+		        {
 				int choice=in.nextInt();
 				in.nextLine();
-		switch(choice)
-		{
-			case 1:
-				System.out.println("Enter the first String");
+		         if(choice==1) {
+		        System.out.println("Enter the first String");
 				firstString=in.next();
 				System.out.println("Enter the second String");
 				secondString=in.next();
@@ -30,32 +29,38 @@ public class StringOperation {
 				else
 				{
 					System.out.println("The entered Strings are not equal");
-				}
-			break;
-			case 2:
+				}}
+				else if(choice==2) {
 				System.out.println("Enter the String to be reversed");
-			    value=in.nextLine();
-			    break;
-			case 3:
+			    value=in.next();
+			    System.out.println("The reversed String is : "+object.reverseOfString(value));
+			   	}
+				else if(choice==3) {
 				System.out.println("Enter the String whose case is to be changed from lowercase to uppercase and vice-versa");
+				value=in.next();
+				System.out.println("The changed case of String is : "+object.changeCase(value));
+			   	}
+				else if(choice==4) {
+				System.out.println("Enter the Sentence for finding the largest String");
 				value=in.nextLine();
-				break;
-			case 4:
-				System.out.println("Enter the String for finding the largest String");
-				value=in.nextLine();
-				break;
-			default:
+				System.out.println("The largest word of sentence is : "+object.largestString(value));
+			   	}
+				else if(choice==5)
+				{
+				System.exit(0);
+				}
+				else {
 				System.out.println("Please choose the correct options only!! ");
-			}
-		
-		System.out.println(object.stringCompare("ODAY", "TODAY"));
-		System.out.println(object.reverseOfString("varun th"));
-		System.out.println(object.changeCase("TodAY is TheE"));
-		System.out.println(object.largestString("varun is dong goo"));
+			    main(args);
+				}}
+		        catch(Exception e)
+		        {
+		        System.out.println("Please choose valid values only!! ");
+				main(args);
+		        }
 	}
 
 }
-
 class Operation {
 /**
  * This method is used to compare two Strings
@@ -93,12 +98,10 @@ public String reverseOfString(String value) {
 		for (int j = 0; j < value.length(); j++) {
 			reversedValue = value.charAt(j) + reversedValue;
 		}
-
 		return reversedValue;
-
 	}
 /**
- * This method is used to change lowercase into uppercase and vice-versa
+ * This method is used to change lowerCase into upperCase and vice-versa
  * @param value is the String whose case is to be changed
  * @return the String with its case changed
  */
@@ -114,9 +117,7 @@ public String reverseOfString(String value) {
 			}
 
 		}
-
 		return result;
-
 	}
 /**
  * This method calculates the largest word in the given String	
@@ -127,7 +128,6 @@ public String reverseOfString(String value) {
 		value = value + " ";
 		String word = "";
 		String maximumString = "";
-
 		for (int k = 0; k < value.length(); k++) {
 			word = word + value.charAt(k);
 			// System.out.println("MAXX "+word);
@@ -138,11 +138,7 @@ public String reverseOfString(String value) {
 				}
 				word = "";
 			}
-
 		}
-
 		return maximumString;
-
 	}
-
 }
