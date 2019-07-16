@@ -57,55 +57,70 @@ public class Area {
 		System.out.println("3 for calcuating area of Square ");
 		System.out.println("4 for calcuating area of Circle");
 		System.out.println("5 for Exit");
-	       choice=in.nextInt();
-        switch(choice)  {
-	case 1:
+	    choice=in.nextInt();
+        if(choice==1)  {
 		System.out.println("Enter the base ");
 		width=in.nextDouble();
+		if(width <=0)/*Custom Exception thrown*/
+		{
+			System.out.println("Width cannot be negative or zero!! ");
+			throw new Exception("Invalid Input ");
+		}
 		System.out.println("Enter the height ");
 		height=in.nextDouble();
-		System.out.println("The area of the triangle is "+areaOfTriange(width,height));
-		break;
-	case 2:
+		if(height <=0)
+		{
+			System.out.println("Height cannot be negative or zero!! ");
+			throw new Exception("Invalid Input ");
+		}
+		System.out.println("The area of the triangle is "+areaOfTriange(width,height)+" units");}
+		else if(choice==2) {
 		System.out.println("Enter the breadth ");
 		width=in.nextDouble();
+		if(width <=0)
+		{
+			System.out.println("Width cannot be negative or zero!! ");
+			throw new Exception("Invalid Input ");
+		}
 		System.out.println("Enter the length ");
 		height=in.nextDouble();
-		if(width <0 || height<0)
+		if(height <=0)
 		{
+			System.out.println("Height cannot be negative or zero!! ");
 			throw new Exception("Invalid Input ");
 		}
-		
-		System.out.println("The area of the rectangle is "+areaOfRectangle(width,height));
-		break;
-	case 3:
+		System.out.println("The area of the rectangle is "+areaOfRectangle(width,height)+" units");	}
+		else if(choice ==3) {
 		System.out.println("Enter the side ");
 		width=in.nextDouble();
-		if(width <0)
+		if(width <=0)
 		{
+			System.out.println("Height cannot be negative or zero!! ");
 			throw new Exception("Invalid Input ");
 		}
-		System.out.println("The area of the square is "+areaOfSquare(width));
-		break;
-	case 4:
+		System.out.println("The area of the square is "+areaOfSquare(width)+" units");}
+		else if(choice ==4) {
 		System.out.println("Enter the radius ");
 		radius=in.nextDouble();
-		if(radius<0)
+		if(radius <0)
 		{
+			System.out.println("Radius cannot be negative or zero!! ");
 			throw new Exception("Invalid Input ");
 		}
-		System.out.println("The area of the circle is "+areaOfCircle(radius));
-		break;
-	case 5:
+		System.out.println("The area of the circle is "+areaOfCircle(radius)+" units");
+        }
+        else if(choice==5){
 		System.exit(0);
-		break;
-		default:
+        }
+        else {
 		System.out.println("Please choose the correct option");
+        main(args);
         }
 		}}
 		catch(Exception e)
 		{
-		System.out.println("Invalid Input entered ");
+		System.out.println("Invalid Input entered !! Try Again");
+		main(args);
 		}
 	}
 
