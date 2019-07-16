@@ -198,8 +198,8 @@ public static boolean checking(String check)
 		} else {
 		    /*This regular expression removes all the leading 0's from Hexadecimal number for unequal length comparision*/
 		    
-			firstNumber = firstNumber.replaceAll("^(\\s*0\\s*0\\s*)+", "");
-			secondNumber = secondNumber.replaceAll("^(\\s*0\\s*0\\s*)+", "");
+			firstNumber = firstNumber.replaceAll("^(\\s*0\\s*)+", "");
+			secondNumber = secondNumber.replaceAll("^(\\s*0\\s*)+", "");
 			if (firstNumber.length() > secondNumber.length()) {
 				counter2++;
 			}
