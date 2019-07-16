@@ -7,6 +7,11 @@ public class Marksheet {
 		{
 		System.out.println("Enter the total number of students ");
 		noOfStudents = in.nextInt();
+		if(noOfStudents<=0)
+		{
+			System.out.println("The number of students cannot be negative or zero");
+			throw new Exception("Invalid Number");
+		}
 		float gradesOfStudent[] = new float[noOfStudents];
 		System.out.println("Enter the grades of " + noOfStudents
 				+ " students between 0 to 100 ");
@@ -14,6 +19,7 @@ public class Marksheet {
 			gradesOfStudent[i] = in.nextFloat();
 			if(gradesOfStudent[i]<0 || gradesOfStudent[i]>100)
 			{
+				System.out.println("The grade should be between 0 to 100 only");
 				throw new Exception("Invalid input Entered !! ");
 			}
 		}
@@ -34,6 +40,7 @@ public class Marksheet {
 	catch(Exception e)
 	{
 		System.out.println("Invalid input entered !! Try Again ");
+		main(args);
 	}
 
 }}
@@ -92,7 +99,8 @@ class Student {
 			}
 
 		}
-
+		//System.out.println("PASSS "+passedStudents);
+		//System.out.println("Total "+((float) passedStudents / (float) gradesOfStudent.length));
 		return ((float) passedStudents / (float) gradesOfStudent.length) * 100;
 
 	}
