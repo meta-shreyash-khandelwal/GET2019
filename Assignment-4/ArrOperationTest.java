@@ -12,7 +12,8 @@ public class ArrOperationTest {
 		int arrayCheck[]=new int[]{7, 1, 4, 9, 7, 4, 1};
 		int k=ArrOperation.largestMirror(arrayCheck, arrayCheck.length);
 		assertEquals(2,k);
-	}	@Test
+	}	
+	@Test
 	public void testLargestMirror3() {
 		
 		int arrayCheck[]=new int[]{1, 2, 1, 4};
@@ -99,34 +100,29 @@ public class ArrOperationTest {
 	    int blank[]={};
 		ArrOperation.numberOfClumps(blank);	
 	}
-	
 	@Test(expected = AssertionError.class)
-	public void whenExceptionThrownLargestMirror() {
+	public void whenExceptionThrowninMirror() {
 	    int blank[]={};
-		ArrOperation.largestMirror(blank,blank.length);	
+		ArrOperation.largestMirror(blank,0);	
 	}
-	
 	@Test(expected = AssertionError.class)
 	public void whenExceptionFixXY() {
 	    int blank[]={};
 		ArrOperation.fixXY(blank,4,5);	
 	}
-	
 	@Test(expected = AssertionError.class)
 	public void fixXY1CheckExceptionLast() {
 		int arrayCheck[]=new int[]{5, 4, 9, 4, 9, 5,4};
-		//int arrayExpected[]=new int[]{9, 4, 5, 4, 5, 9};
 		int X=4;
 		int Y=5;
 		ArrOperation.fixXY(arrayCheck,X,Y);	
 		}
-	public void fixXY2CheckExceptionUnequal() {
+	@Test(expected = AssertionError.class)
+		public void fixXY2CheckExceptionUnequal() {
 		int arrayCheck[]=new int[]{4,5, 4, 9, 4, 9, 5};
-		//int arrayExpected[]=new int[]{9, 4, 5, 4, 5, 9};
-		int X=4;
+	    int X=4;
 		int Y=5;
 		ArrOperation.fixXY(arrayCheck,X,Y);	
 		}
-	
-	}
+		}
 	
