@@ -10,7 +10,7 @@ public class ArrOperation {
  * @param noOfElement is the length of inputArray
  * @return the size of largest mirror section in inputArray[]
  */
-	public static int largestMirror(int inputArray[], int noOfElement) {
+	public static int largestMirror(int inputArray[], int noOfElement)throws AssertionError {
 		if(inputArray==null || inputArray.length==0)
 		{
 		throw new AssertionError("Array is empty");
@@ -40,7 +40,7 @@ public class ArrOperation {
  * @param inputArray is the array in which no of clumps is to be found
  * @return an integer value containing the total number of clumps
  */
-	public static int numberOfClumps(int inputArray[]) {
+	public static int numberOfClumps(int inputArray[])throws AssertionError {
 		int current = -1;
 		int count = 0;
 		if(inputArray==null || inputArray.length==0)
@@ -68,7 +68,7 @@ public class ArrOperation {
  * @param y is an integer containing value of Y
  * @return an array such that every X is followed by Y
  */
-	public static int[] fixXY(int inputArray[], int x, int y) {
+	public static int[] fixXY(int inputArray[], int x, int y) throws AssertionError{
 		// int count=0;
 		int temporary = 0;
 		if(inputArray==null || inputArray.length==0)
@@ -119,7 +119,7 @@ public class ArrOperation {
  * @param inputArray is the array on which operation is to be performed
  * @return an integer of index if there is place to split otherwise returns -1
  */
-	public static int indexOfSplit(int inputArray[]) {
+	public static int indexOfSplit(int inputArray[])throws AssertionError {
 		if(inputArray==null || inputArray.length==0)
 		{
 		throw new AssertionError();
@@ -165,7 +165,6 @@ public class ArrOperation {
 			System.out.print(res[i] + " ");
 		}
 		//System.out.println("Length is clump " + numberOfClumps(arr));
-
 	}
 */
 }
