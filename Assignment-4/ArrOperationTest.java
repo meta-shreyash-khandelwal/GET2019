@@ -1,8 +1,5 @@
-package varunk;
 import static org.junit.Assert.*;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 public class ArrOperationTest {
 	@Test
 	public void testLargestMirror1() {
@@ -121,17 +118,15 @@ public class ArrOperationTest {
 		//int arrayExpected[]=new int[]{9, 4, 5, 4, 5, 9};
 		int X=4;
 		int Y=5;
-		ArrOperation.fixXY(arrayCheck,4,5);	
+		ArrOperation.fixXY(arrayCheck,X,Y);	
 		}
 	public void fixXY2CheckExceptionUnequal() {
 		int arrayCheck[]=new int[]{4,5, 4, 9, 4, 9, 5};
 		//int arrayExpected[]=new int[]{9, 4, 5, 4, 5, 9};
 		int X=4;
 		int Y=5;
-		ArrOperation.fixXY(arrayCheck,4,5);	
+		ArrOperation.fixXY(arrayCheck,X,Y);	
 		}
-	
-
 	
 	}
 	
