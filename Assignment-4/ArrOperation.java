@@ -1,4 +1,3 @@
-package varunk;
 //import java.util.*;
 /*This class performs certain operations on the array*/
 /*The array in the following program is assumed to be containing positive integer only*/
