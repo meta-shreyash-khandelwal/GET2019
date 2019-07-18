@@ -1,3 +1,4 @@
+package varunk;
 //import java.util.*;
 /*This class performs certain operations on the array*/
 /*The array in the following program is assumed to be containing positive integer only*/
@@ -10,10 +11,15 @@ public class ArrOperation {
  * @param noOfElement is the length of inputArray
  * @return the size of largest mirror section in inputArray[]
  */
-	public static int largestMirror(int inputArray[], int noOfElement)throws AssertionError {
+	public static int largestMirror(int inputArray[], int noOfElement){
+		try{
 		if(inputArray==null || inputArray.length==0)
 		{
 		throw new AssertionError("Array is empty");
+		}}
+		catch(Error e)
+		{
+			System.out.println("Array is Empty !!");
 		}
 		int reversedArray[] = new int[noOfElement];
 		for (int i = 0; i < noOfElement; i++) {
@@ -43,10 +49,15 @@ public class ArrOperation {
 	public static int numberOfClumps(int inputArray[])throws AssertionError {
 		int current = -1;
 		int count = 0;
-		if(inputArray==null || inputArray.length==0)
-		{
-		throw new AssertionError("Array is empty");
-		}
+		try{
+			if(inputArray==null || inputArray.length==0)
+			{
+			throw new AssertionError("Array is empty");
+			}}
+			catch(Error e)
+			{
+				System.out.println("Array is Empty !!");
+			}
 		for (int i = 0; i < inputArray.length - 1; i++) {
 			if (inputArray[i] == inputArray[i + 1] && current != inputArray[i]) {
 				count++;
@@ -87,20 +98,36 @@ public class ArrOperation {
 				sizeY++;
 			}
 		}
+		try{
 		if((sizeX!=sizeY))
 		{
 		throw new AssertionError("Unequal number of X and Y");	
 		}
+		}catch(Error r)
+		{
+		System.out.println("Unequal number of X and Y");
+		}
+		try
+		{
 		if((xLocation[sizeX-1]==inputArray.length-1))
 		{
 		throw new AssertionError("X occurs at the last position ");	
+		}}
+		catch(Error e)
+		{
+		System.out.println("X occurs at the last position");
 		}
 		for(int j=0;j<sizeX;j++)
-		{
+		{    try{
 			if((xLocation[j+1]-xLocation[j])==1)
 					{
 				throw new AssertionError("Adjacent values of X found");
 					}
+		}
+		catch(Error e)
+		{
+			System.out.println("Adjacent values found");
+		}
 		
 		}
 		for (int i = 0; i < sizeX; i++) {
@@ -150,21 +177,4 @@ public class ArrOperation {
 			return -1;
 		}
 	}
-	/*
-	public static void main(String[] args) {
-		int arr[] = { 1, 1, 1, 1, 1, 2, 3, 3, 4, 4, 1, 1 };
-		int X[] = { 7, 1, 4, 9, 7, 4, 1 };
-		int m = X.length;
-		int arr4[] = {1, 1, 1, 2, 1 };
-		int arr3[] = { 4,1, 4,4, 5,1, 5, 5, 4,5 };
-		int res[] = fixXY(arr3, 4, 5);
-		System.out.println("Length is " + largestMirror(X, m));
-		System.out.println("Length is clump " + numberOfClumps(arr));
-		System.out.println("Length of split " + indexOfSplit(arr4));
-		for (int i = 0; i < res.length; i++) {
-			System.out.print(res[i] + " ");
-		}
-		//System.out.println("Length is clump " + numberOfClumps(arr));
-	}
-*/
 }
