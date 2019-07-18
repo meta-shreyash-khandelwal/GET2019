@@ -1,8 +1,13 @@
-package varunk;
+interface ArrOperationInterface
+{int largestMirror(int inputArray[], int noOfElement);
+int numberOfClumps(int inputArray[]);	
+public int[] arrangeXY(int inputArray[], int x, int y);
+int indexOfSplit(int inputArray[]);
+}
 //import java.util.*;
 /*This class performs certain operations on the array*/
 /*The array in the following program is assumed to be containing positive integer only*/
-public class ArrOperation {
+public class ArrOperation implements ArrOperationInterface {
 /**
  * This method helps in finding the size of largest mirror section found in the array.
  * A mirror section Mirror section in an array is a group of contiguous elements such
@@ -11,15 +16,10 @@ public class ArrOperation {
  * @param noOfElement is the length of inputArray
  * @return the size of largest mirror section in inputArray[]
  */
-	public static int largestMirror(int inputArray[], int noOfElement){
-		try{
+	public int largestMirror(int inputArray[], int noOfElement){
 		if(inputArray==null || inputArray.length==0)
 		{
 		throw new AssertionError("Array is empty");
-		}}
-		catch(Error e)
-		{
-			System.out.println("Array is Empty !!");
 		}
 		int reversedArray[] = new int[noOfElement];
 		for (int i = 0; i < noOfElement; i++) {
@@ -46,19 +46,14 @@ public class ArrOperation {
  * @param inputArray is the array in which no of clumps is to be found
  * @return an integer value containing the total number of clumps
  */
-	public static int numberOfClumps(int inputArray[])throws AssertionError {
+	public int numberOfClumps(int inputArray[])throws AssertionError {
 		int current = -1;
 		int count = 0;
-		try{
 			if(inputArray==null || inputArray.length==0)
 			{
 			throw new AssertionError("Array is empty");
-			}}
-			catch(Error e)
-			{
-				System.out.println("Array is Empty !!");
 			}
-		for (int i = 0; i < inputArray.length - 1; i++) {
+			for (int i = 0; i < inputArray.length - 1; i++) {
 			if (inputArray[i] == inputArray[i + 1] && current != inputArray[i]) {
 				count++;
 				// System.out.println("Hello World in here"+count);
@@ -68,7 +63,6 @@ public class ArrOperation {
 				current = -1;
 			}
 		}
-		// System.out.println("Hello World "+count);
 		return count;
 	}
 /**
@@ -79,8 +73,7 @@ public class ArrOperation {
  * @param y is an integer containing value of Y
  * @return an array such that every X is followed by Y
  */
-	public static int[] fixXY(int inputArray[], int x, int y) throws AssertionError{
-		// int count=0;
+	public int[] arrangeXY(int inputArray[], int x, int y) {
 		int temporary = 0;
 		if(inputArray==null || inputArray.length==0)
 		{
@@ -98,24 +91,13 @@ public class ArrOperation {
 				sizeY++;
 			}
 		}
-		try{
 		if((sizeX!=sizeY))
 		{
 		throw new AssertionError("Unequal number of X and Y");	
 		}
-		}catch(Error r)
-		{
-		System.out.println("Unequal number of X and Y");
-		}
-		try
-		{
 		if((xLocation[sizeX-1]==inputArray.length-1))
 		{
 		throw new AssertionError("X occurs at the last position ");	
-		}}
-		catch(Error e)
-		{
-		System.out.println("X occurs at the last position");
 		}
 		for(int j=0;j<sizeX;j++)
 		{    try{
@@ -146,7 +128,7 @@ public class ArrOperation {
  * @param inputArray is the array on which operation is to be performed
  * @return an integer of index if there is place to split otherwise returns -1
  */
-	public static int indexOfSplit(int inputArray[])throws AssertionError {
+	public int indexOfSplit(int inputArray[])throws AssertionError {
 		if(inputArray==null || inputArray.length==0)
 		{
 		throw new AssertionError();
