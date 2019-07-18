@@ -1,4 +1,3 @@
-package varunk;
 /*It is assumed that all the numbers are positive integers*/
 public class HCFAndLCM {
 /**
@@ -36,13 +35,4 @@ public int lcmOfTwoNumber(int firstNumber,int secondNumber)
 		int gcdOfTwoNumber=hcfOfTwoNumber(firstNumber,secondNumber);
 		return productOfTwoNumber/gcdOfTwoNumber;
 		}
-}
-class Main
-{
-	public static void main(String args[])
-	{
-		HCFAndLCM obj=new HCFAndLCM();
-		System.out.println(obj.hcfOfTwoNumber(4,9));
-	}
-	
 }
