@@ -1,4 +1,3 @@
-package varunk;
 public class Search {
 /**
  * This method performs linear search on the array	
@@ -71,15 +70,4 @@ public class Search {
 		}
 		
 	}}
-class MainClass
-{
-public static void main(String[] args) {
-		// TODO Auto-generated method stub
-int arr[]={5,4,1,2,4,8};
-int arrs[]={1,2,6,6,6,8,9};
-Search s1=new Search();
-System.out.println("HEY"+s1.linearSearch(arr,74));
-System.out.println("HI"+s1.binarySearch(arrs,6));
-}
 
-}
