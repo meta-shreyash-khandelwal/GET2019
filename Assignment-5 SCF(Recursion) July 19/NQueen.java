@@ -7,6 +7,16 @@ class NQueen {
 	 * @param dimension is the Number of Queen
 	 */
 	private static void printSolution(int board[][], int dimension) {
+		try{
+			if(board.length == 0 || board == null)
+			{
+				throw new Exception("Empty Array");
+			}
+			}
+			catch(Exception e)
+			{
+				System.out.println("Empty Array passed");
+			}
 		for (int i = 0; i < dimension; i++) {
 			for (int j = 0; j < dimension; j++)
 				System.out.print(board[i][j] + " ");
@@ -24,6 +34,16 @@ class NQueen {
 	 */
 	private static boolean isSafePlace(int board[][], int row, int column,
 			int dimension) {
+		try{
+			if(board.length == 0 || board == null)
+			{
+				throw new Exception("Empty Array");
+			}
+			}
+			catch(Exception e)
+			{
+				System.out.println("Empty Array passed");
+			}
 		/* Checking row on left side of board */
 		for (int i = 0; i < column; i++)
 			if (board[row][i] == 1)
@@ -48,6 +68,16 @@ class NQueen {
 	private static boolean nQueen(int board[][], int startingColumn,
 			int dimension) {
 		// base case
+		try{
+			if(board.length == 0 || board == null)
+			{
+				throw new Exception("Empty Array");
+			}
+			}
+			catch(Exception e)
+			{
+				System.out.println("Empty Array passed");
+			}
 		if (startingColumn == dimension) {
 			printSolution(board, dimension);
 			check++;
@@ -74,6 +104,16 @@ class NQueen {
      */
 	public static boolean nQueenCheck(int board[][], int startingRow,
 			int dimension) {
+		try{
+		if(board.length == 0 || board == null)
+		{
+			throw new Exception("Empty Array");
+		}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Empty Array passed");
+		}
 		if (nQueen(board, startingRow, dimension) == false && check == 0) {
 			return false;
 		} else {
