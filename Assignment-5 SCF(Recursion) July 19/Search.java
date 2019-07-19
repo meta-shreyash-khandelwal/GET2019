@@ -18,7 +18,7 @@ public class Search {
 				inputArray.length - 1);
 	}
 	/**
-	 * This method performs the recursion for linear searching 
+	 * This method performs the recursion for linear searching
 	 * @param inputArray is the array in which element is to be searched
 	 * @param elementSearch is the element which is to be searched
 	 * @param indexOfElement is used for recursion
@@ -36,10 +36,11 @@ public class Search {
 					indexOfElement - 1);
 		}
 	}
+
 	/**
 	 * This element returns the index of element present by using Binary
 	 * Searching The array is assumed to be sorted and containing positive
-	 * integers 
+	 * integers
 	 * @param inputArray is the array in which element is to be searched
 	 * @param elementSearch is the element to be searched in array
 	 * @return the index at which element is found else return -1
@@ -54,17 +55,19 @@ public class Search {
 		} catch (Exception e) {
 			System.out.println("Empty array passed ");
 		}
-		return binarySearchRecursion(inputArray, 0,inputArray.length - 1,elementSearch);
+		return binarySearchRecursion(inputArray, 0, inputArray.length - 1,
+				elementSearch);
 	}
-    /**
-     * This method performs the recursion for purpose of binary Search		
-     * @param inputArray is the array in which element is to be searched
-     * @param lowerBound is the lower index of array
-     * @param upperBound is higher index of array
-     * @param elementSearch is the element to be searched in array
-     * @return the index at which element is present otherwise returns -1
-     */
-	
+
+	/**
+	 * This method performs the recursion for purpose of binary Search
+	 * @param inputArray is the array in which element is to be searched
+	 * @param lowerBound is the lower index of array
+	 * @param upperBound is higher index of array
+	 * @param elementSearch is the element to be searched in array
+	 * @return the index at which element is present otherwise returns -1
+	 */
+
 	public int binarySearchRecursion(int inputArray[], int lowerBound,
 			int upperBound, int elementSearch) {
 		try {
@@ -75,7 +78,12 @@ public class Search {
 		} catch (Exception e) {
 			System.out.println("Empty array passed ");
 		}
+		// int lowerBound=0;
+		// int upperBound=inputArray.length-1;
 		int middle = (lowerBound + upperBound) / 2;
+		// while(lowerBound<=upperBound && inputArray[middle]!=elementSearch)
+		// {
+		// middle=(lowerBound+upperBound)/2;
 		if (elementSearch < inputArray[middle]) {
 			return binarySearchRecursion(inputArray, lowerBound, middle - 1,
 					elementSearch);
@@ -90,3 +98,12 @@ public class Search {
 
 	}
 }
+/*
+ * class MainClass { public static void main(String[] args) { // TODO
+ * Auto-generated method stub int arr[] = { 5, 4, 1, 2, 4, 8 }; int arrs[] = {
+ * 1, 2, 6, 6, 6, 8, 9 }; Search s1 = new Search(); System.out.println("HEY" +
+ * s1.linearSearch(arr, 74)); //
+ * System.out.println("HI"+s1.binarySearch(arrs,6)); }
+ * 
+ * }
+ */
