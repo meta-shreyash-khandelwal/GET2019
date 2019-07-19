@@ -26,6 +26,14 @@ public class Search {
 	 */
 	public int linearSearchRecursion(int inputArray[], int elementSearch,
 			int indexOfElement) {
+		try {
+			if (inputArray.length == 0 || inputArray==null) {
+				System.out.println("Empty array passed ");
+				throw new Exception("Empty array");
+			}
+		} catch (Exception e) {
+			System.out.println("Empty array passed ");
+		}
 		if (indexOfElement == -1) {
 			return -1;
 		} // Element not found
@@ -48,7 +56,7 @@ public class Search {
 
 	public int binarySearch(int inputArray[], int elementSearch) {
 		try {
-			if (inputArray.length == 0) {
+			if (inputArray.length == 0 || inputArray==null) {
 				System.out.println("Empty array passed ");
 				throw new Exception("Empty array");
 			}
@@ -71,7 +79,7 @@ public class Search {
 	public int binarySearchRecursion(int inputArray[], int lowerBound,
 			int upperBound, int elementSearch) {
 		try {
-			if (inputArray.length == 0) {
+			if (inputArray.length == 0 || inputArray == null) {
 				System.out.println("Empty array passed ");
 				throw new Exception("Empty array");
 			}
@@ -101,9 +109,8 @@ public class Search {
 /*
  * class MainClass { public static void main(String[] args) { // TODO
  * Auto-generated method stub int arr[] = { 5, 4, 1, 2, 4, 8 }; int arrs[] = {
- * 1, 2, 6, 6, 6, 8, 9 }; Search s1 = new Search(); System.out.println("HEY" +
- * s1.linearSearch(arr, 74)); //
- * System.out.println("HI"+s1.binarySearch(arrs,6)); }
+ * 1, 2, 6, 6, 6, 8, 9 }; Search s1 = new Search(); System.out.println(s1.linearSearch(arr, 74));
+ * System.out.println(s1.binarySearch(arrs,6)); }
  * 
  * }
  */
