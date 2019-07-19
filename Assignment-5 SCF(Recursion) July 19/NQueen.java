@@ -1,102 +1,94 @@
-package varunk;
-class NQueen   
-{ 
-static int N = 4;  
-static int k = 1; 
+/*This class helps in finding the solutions for the N Queen problem*/
+class NQueen {
+	private static int check = 0;//Checking the possible solutions exists or not
+	/**
+	 * This method helps in printing solutions which exists for the N Queen where (1-Queen present 0-Queen Not present) 
+	 * @param board is the 2D array which is passed 
+	 * @param dimension is the Number of Queen
+	 */
+	private static void printSolution(int board[][], int dimension) {
+		for (int i = 0; i < dimension; i++) {
+			for (int j = 0; j < dimension; j++)
+				System.out.print(board[i][j] + " ");
+			System.out.println();
+		}
+		System.out.println("");
+	}
+	/**
+	 * This method checks if there is a safe place which exists in the board or not
+	 * @param board is the 2D array
+	 * @param row is the row in column
+	 * @param column is column value in 2D array
+	 * @param dimension is the Number of Queen (NQueen
+	 * @return the boolean true is there is safe place otherwise returns false
+	 */
+	private static boolean isSafePlace(int board[][], int row, int column,
+			int dimension) {
+		/* Checking row on left side of board */
+		for (int i = 0; i < column; i++)
+			if (board[row][i] == 1)
+				return false;
+		/* Checking upper diagonal on left side */
+		for (int i = row, j = column; i >= 0 && j >= 0; i--, j--)
+			if (board[i][j] == 1)
+				return false;
+		/* Checking lower diagonal on left side */
+		for (int i = row, j = column; j >= 0 && i < dimension; i++, j--)
+			if (board[i][j] == 1)
+				return false;
+		return true; /*If all the cases fail then return true indicating safe place */
+	}
+	/**
+	 * This is the method for implementing the NQueen problem using recursion
+	 * @param board is the 2D array
+	 * @param startingColumn is the beginning column value
+	 * @param dimension is the number of Queen
+	 * @return boolean true if solution exists otherwise returns the boolean false
+	 */
+	private static boolean nQueen(int board[][], int startingColumn,
+			int dimension) {
+		// base case
+		if (startingColumn == dimension) {
+			printSolution(board, dimension);
+			check++;
+			return true;
+		}
+		/*Consider this column and try placing this queen in all rows one by one*/
+		boolean result = false;
+		for (int i = 0; i < dimension; i++) {
+			if (isSafePlace(board, i, startingColumn, dimension)) {// Checking safe place for queen
+				board[i][startingColumn] = 1;
+				result = nQueen(board, startingColumn + 1, dimension); // Recursive call
+				board[i][startingColumn] = 0;// If no solution exists, then remove queen by backtracking
+			}
+		}
+		// If queen can not be place in any row in this column then return false
+		return result;
+	}
+    /**
+     * This method is used for checking N queen exists for any value N or not
+     * @param board  is the 2D array
+     * @param startingRow is the beginning row value
+     * @param dimension is the 2D value of array or number of Queen
+     * @return boolean true if solution exists otherwise returns the boolean false 
+     */
+	public static boolean nQueenCheck(int board[][], int startingRow,
+			int dimension) {
+		if (nQueen(board, startingRow, dimension) == false && check == 0) {
+			return false;
+		} else {
+			check = 0;
+			return true;
+		}
+	}
 /*
-static void printSolution(int board[][])  
-{  
-    System.out.printf("%d-\n", k++);  
-    for (int i = 0; i < N; i++)  
-    {  
-        for (int j = 0; j < N; j++)  
-            System.out.printf(" %d ", board[i][j]);  
-        System.out.printf("\n");  
-    }  
-    System.out.printf("\n");  
-} 
-*/ 
-/* A utility function to check if a queen can  
-be placed on board[row][col]. Note that this  
-function is called when "col" queens are  
-already placed in columns from 0 to col -1.  
-So we need to check only left side for  
-attacking queens */
-public static boolean isSafePlace(int board[][], int row, int column)  
-{  
-    int i, j;  
-    /* Check this row on left side of board*/
-    for (i = 0; i < column; i++)  
-        if (board[row][i] == 1)  
-            return false;  
-    /* Check upper diagonal on left side */
-    for (i = row, j = column; i >= 0 && j >= 0; i--, j--)  
-        if (board[i][j] == 1)  
-            return false;  
-    /* Check lower diagonal on left side */
-    for (i = row, j = column; j >= 0 && i < N; i++, j--)  
-        if (board[i][j] == 1)  
-            return false;  
-  
-    return true;  /*If all the cases fail then return true indicating safe place*/
-}  
-  
-/* A recursive utility function  
-to solve N Queen problem */
-public static boolean nQueen(int board[][], int startingColumn,int dimension)  
-{  
-    /* base case: If all queens are placed  
-    then return true */
-    if (startingColumn == dimension)  
-    {  
-        //printSolution(board);  
-        return true;  
-    }  
-  
-    /* Consider this column and try placing  
-    this queen in all rows one by one */
-    boolean result = false;  
-    for (int i = 0; i < dimension; i++)  
-    {  
-        /* Check if queen can be placed on board[i][startingColumn] */
-        if ( isSafePlace(board, i, startingColumn) )  
-        {  
-            board[i][startingColumn] = 1;  
-            // Make result true if any placement recursive call  
-            result = nQueen(board, startingColumn + 1,4);  
-            /* If placing queen in board[i][column] doesn't lead to a solution, then remove queen
-            board[i][startingColumn] = 0; */ //BACKTRACK  
-        }  
-    }  
-     // If queen can not be place in any row in this column then return false 
-    return result;  
-}  
-  
-/* This function solves the N Queen problem using  
-Backtracking. It mainly uses solveNQUtil() to  
-solve the problem. It returns false if queens  
-cannot be placed, otherwise return true and  
-prints placement of queens in the form of 1s.  
-Please note that there may be more than one  
-solutions, this function prints one of the  
-feasible solutions.*/
-/*
-static void solveNQ()  
-{  
-    int board[][] = new int[N][N];  
-  
-    if (solveNQUtil(board, 0,4) == false)  
-    {  
-        System.out.printf("Solution does not exist");  
-        return ;  
-    }  
-  
-    return ;  
-}  
-  
-// Driver code  
-public static void main(String[] args) 
-{ 
-    solveNQ(); 
-} */
-} 
+	public static void main(String[] args) {
+		int board[][] = new int[3][3];
+		if (nQueen(board, 0, 3) == false && check == 0) {
+			System.out.println("Solution does not exist");
+			// return ;
+		}
+		System.out.println("Return value  " + nQueenCheck(board, 0, 3));
+	}
+*/
+}
