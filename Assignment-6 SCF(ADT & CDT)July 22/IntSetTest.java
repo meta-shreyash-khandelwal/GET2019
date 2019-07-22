@@ -1,12 +1,10 @@
+package varunk;
 import java.util.*;
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 public class IntSetTest {
-
 	@Test
-	public void testSize() {
+	public void testSizeShouldReturn_SizeWhenInput_Set() {
 		Set<Integer> set1 = new HashSet<Integer>();
 		set1.add(1);
 		set1.add(10);
@@ -16,10 +14,9 @@ public class IntSetTest {
 		set1.add(15);
 		IntSet object=new IntSet(set1);
 		assertEquals(6,object.size());
-		
 	}
 	@Test
-	public void testMemberPresent() {
+	public void testMemberPresentShouldReturn_TrueWhenElementPresentInSet1() {
 		Set<Integer> set1 = new HashSet<Integer>();
 		set1.add(100);
 		set1.add(1);
@@ -30,9 +27,8 @@ public class IntSetTest {
 		assertFalse(object.isMember(6));
 		//assertTrue(object.isMember(60));
 	}
-	
 	@Test
-	public void testMemberPresent2() {
+	public void testMemberPresentShouldReturn_TrueWhenElementPresentInSet2() {
 		Set<Integer> set1 = new HashSet<Integer>();
 		set1.add(100);
 		set1.add(1);
@@ -44,7 +40,7 @@ public class IntSetTest {
 		//assertTrue(object.isMember(60));
 	}
 	@Test
-	public void testsubset1() {
+	public void testSubsetShouldReturn_TrueWhenSet2_Is_Subset_Of_Set1() {
 		Set<Integer> set1 = new HashSet<Integer>();
 		set1.add(100);
 		set1.add(1);
@@ -60,7 +56,7 @@ public class IntSetTest {
 		//assertTrue(object.isMember(60));
 	}
 	@Test
-	public void testsubset2() {
+	public void testSubsetShouldReturn_TrueWhenSet2_Is_Subset_Of_Set1_2() {
 		Set<Integer> set1 = new HashSet<Integer>();
 		set1.add(1);
 		set1.add(20);
@@ -75,9 +71,8 @@ public class IntSetTest {
 		assertFalse(object1.isSubSet(object2));//set2 subset of set1 or not
 		//assertTrue(object.isMember(60));
 	}
-	
 	@Test
-	public void testunion1() {
+	public void testUnionShouldReturn_Union_Of_Set2_And_Set1_1() {
 		Set<Integer> set1 = new HashSet<Integer>();
 		set1.add(30);
 		set1.add(40);
@@ -96,13 +91,9 @@ public class IntSetTest {
 		set3.add(50);
 		set3.add(80);
 		assertEquals(set3,object2.union(object1,object2));
-	
-		//assertTrue(object.isMember(60));
 	}
-	
-	
 	@Test
-	public void testunion2() {
+	public void testUnionShouldReturn_Union_Of_Set2_And_Set1_2() {
 		Set<Integer> set1 = new HashSet<Integer>();
 		set1.add(300);
 		set1.add(400);
@@ -123,13 +114,9 @@ public class IntSetTest {
 		set3.add(500);
 		set3.add(800);
 		assertEquals(set3,object1.union(object1,object2));
-	
-	
 	}
-	
-
 	@Test
-	public void testgetcomplement1() {
+	public void testComplementShouldReturn_Complement_Of_Set1_from_UniversalSet() {
 		Set<Integer> set1 = new HashSet<Integer>();
 		set1.add(100);
 		set1.add(400);
@@ -142,22 +129,6 @@ public class IntSetTest {
 			if(i!=100 && i!=400 && i!=500 && i!=999)
 				set3.add(i);
 		}
-		
-		
-		assertEquals(set3,object1.getComplement());
-	
-	
+	assertEquals(set3,object1.getComplement());
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
