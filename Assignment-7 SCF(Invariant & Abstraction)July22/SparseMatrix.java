@@ -1,11 +1,11 @@
 import java.util.Arrays;
-public class SparseMatrix {
+final public class SparseMatrix {
 /**
  * This method sorts the two Sparse matrix 
  * @param inputSparseMatrix is the matrix containing the sparse matrix
  * @return the 2-Dimensional array containing sorted array
  */
-	public static int[][] sortTransposeMatrix(int inputSparseMatrix[][]) {
+	private static int[][] sortTransposeMatrix(int inputSparseMatrix[][]) {// The worst case complexity is O(n^2) (bubble sort)
 		int temporary1 = 0, temporary2 = 0, temporary3 = 0;
 		for (int i = 0; i < inputSparseMatrix.length; i++) {
 			for (int j = 0; j < inputSparseMatrix.length - i - 1; j++) {
@@ -29,7 +29,7 @@ public class SparseMatrix {
  * @param inputSparseArray is the 2D array containing the sparse matrix 
  * @return the 2-Dimensional array containing the transpose of matrix
  */
-	public static int[][] transposeArrayOpertion(int inputSparseArray[][]) {
+	public static int[][] transposeArrayOpertion(int inputSparseArray[][]) {//The worst case complexity is O(n) 
 		try{
 			if(inputSparseArray.length==0)
 			{
@@ -42,8 +42,6 @@ public class SparseMatrix {
 			}
 		int transposeArray[][] = new int[inputSparseArray.length][3];
 		int column = 0;
-		// System.out.println("TDD Length"+inputSparseArray.length+ " ");
-		// System.out.println("TDD "+inputSparseArray[j][i]+ " ");
 		for (int i = 0; i < inputSparseArray.length; i++) {
 			transposeArray[i][column] = inputSparseArray[i][column + 1];
 			transposeArray[i][column + 1] = inputSparseArray[i][column];
@@ -58,7 +56,7 @@ public class SparseMatrix {
  * @param inputSparseArray is the 2D array containing the sparse matrix 
  * @return true if sparse array is symmetric otherwise returns false
  */
-	public static boolean symmetricArrayOperation(int inputSparseArray[][]) {
+	public static boolean symmetricArrayOperation(int inputSparseArray[][]) {//The worst case complexity is O(n^2) 
 		int symmetricTransposeArray[][] = new int[inputSparseArray.length][3];
 		symmetricTransposeArray = transposeArrayOpertion(inputSparseArray);
 		return Arrays.deepEquals(inputSparseArray, symmetricTransposeArray);
@@ -70,7 +68,7 @@ public class SparseMatrix {
  * @param inputSparseArraySecond  is the 2D array containing first Sparse matrix
  * @return the 2d array containing addition of matrices in sparse matrix representation
  */
-	public static int[][] addMatrices(int inputSparseArrayFirst[][],
+	public static int[][] addMatrices(int inputSparseArrayFirst[][],  //The worst case complexity is O(n^2) 
 			int inputSparseArraySecond[][]) {
 		try{
 		if(inputSparseArrayFirst.length==0 || inputSparseArraySecond.length==0)
@@ -95,11 +93,6 @@ public class SparseMatrix {
 			columnNumber = inputSparseArrayFirst[i][1];
 			value = inputSparseArrayFirst[i][2];
 			k = 0;
-			// System.out.print("ROW "+rowNumber+" ");
-
-			// System.out.print("COL "+columnNumber+" ");
-			// System.out.print("val "+value+" ");
-			// System.out.println();
 			for (int j = 0; j < inputSparseArraySecond.length; j++) {
 				if ((inputSparseArraySecond[j][0] == rowNumber)
 						&& (inputSparseArraySecond[j][1] == columnNumber)) {
@@ -111,12 +104,8 @@ public class SparseMatrix {
 					startRow++;
 				}
 			}
-			/*
-			 * if(k==0) { resultAdd[][0] resultAdd[][1] resultAdd[][2]= }
-			 */
-			if (k == 0) {
-				System.out.println("HERE " + startRow);
-				resultAdd[startRow][0] = inputSparseArrayFirst[i][0];
+		if (k == 0) {
+			resultAdd[startRow][0] = inputSparseArrayFirst[i][0];
 				resultAdd[startRow][1] = inputSparseArrayFirst[i][1];
 				resultAdd[startRow][2] = inputSparseArrayFirst[i][2];
 				startRow++;
@@ -128,12 +117,7 @@ public class SparseMatrix {
 			columnNumber = inputSparseArraySecond[i][1];
 			value = inputSparseArraySecond[i][2];
 			k = 0;
-			System.out.print("ROW " + rowNumber + " ");
-
-			System.out.print("COL " + columnNumber + " ");
-			System.out.print("val " + value + " ");
-			System.out.println();
-			for (int j = 0; j < inputSparseArrayFirst.length; j++) {
+		    for (int j = 0; j < inputSparseArrayFirst.length; j++) {
 				if ((inputSparseArrayFirst[j][0] == rowNumber)
 						&& (inputSparseArrayFirst[j][1] == columnNumber)) {
 					k = 1;
@@ -141,7 +125,6 @@ public class SparseMatrix {
 				}
 			}
 			if (k == 0) {
-				// System.out.println("HERE "+startRow);
 				resultAdd[startRow][0] = inputSparseArraySecond[i][0];
 				resultAdd[startRow][1] = inputSparseArraySecond[i][1];
 				resultAdd[startRow][2] = inputSparseArraySecond[i][2];
@@ -157,7 +140,7 @@ public class SparseMatrix {
 	 * @return the 2d array containing multiplication of matrices in sparse matrix representation
 	 */
 		
-	public static int[][] multiplyMatrices(int inputSparseArrayFirst[][],
+	public static int[][] multiplyMatrices(int inputSparseArrayFirst[][], //The worst case complexity is O(n^3) 
 			int inputSparseArraySecond[][]) {
 		int rowNumber = 0, columnNumber = 0, value = 0;
 		int startRow = 0, startColumn = 0;
@@ -210,7 +193,7 @@ public class SparseMatrix {
 		return sparseArray;
 
 	}
-
+/*
 	public static void main(String[] args) {
 		SparseMatrix s = new SparseMatrix();
 
@@ -268,5 +251,5 @@ public class SparseMatrix {
 		}
 
 		// System.out.println(symmetricArrayOperation(td3));
-	}
+	}*/
 }
