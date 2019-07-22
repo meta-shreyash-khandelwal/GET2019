@@ -37,7 +37,7 @@ public class Poly {
  * @return the Map containing the addition of first and second polynomial
  */
 	Map<Integer, Integer> addPoly(Poly firstPolynomial, Poly secondPolynomial) {
-		try{if(firstPolynomial.polynomial==null || secondPolynomial.polynomial==null)
+		try{ if(firstPolynomial.polynomial == null || secondPolynomial.polynomial == null)
 		{
 			throw new Exception("Empty Polynomial");
 		}}
@@ -59,8 +59,7 @@ public class Poly {
 						polynomial.put(key, firstPolynomial.polynomial.get(key)
 								+ secondPolynomial.polynomial.get(key));
 
-					} else { // System.out.println("HERE"+key);
-						polynomial.put(key, firstPolynomial.polynomial.get(key)
+					} else { polynomial.put(key, firstPolynomial.polynomial.get(key)
 								+ secondPolynomial.polynomial.get(key));
 					}
 				}
@@ -75,8 +74,7 @@ public class Poly {
 					secondPolynomial.polynomial.put(key, 0);
 					polynomial.put(key, firstPolynomial.polynomial.get(key)
 							+ secondPolynomial.polynomial.get(key));
-				} else { // System.out.println("HERE"+key);
-					polynomial.put(key, firstPolynomial.polynomial.get(key)
+				} else { polynomial.put(key, firstPolynomial.polynomial.get(key)
 							+ secondPolynomial.polynomial.get(key));
 				}
 			}
@@ -128,13 +126,11 @@ public class Poly {
 			exponentSecond[index2] = key;
 			index2++;
 		}
-		// System.out.println(":INDEX1+INDEXX2 "+exponentFirst[2]+" EDFD"+exponentSecond[1]);
-
+		
 		for (int i = 0; i < index1; i++) {
 			for (int j = 0; j < index2; j++) {
 				if (resultMultiply.get(exponentFirst[i] + exponentSecond[j]) == null) {
-					// System.out.println("WE ARE  "+exponentFirst[i]+" EDFD"+exponentSecond[j]);
-					resultMultiply.put(
+						resultMultiply.put(
 							exponentFirst[i] + exponentSecond[j],
 							firstPolynomial.polynomial.get(exponentFirst[i])
 									* secondPolynomial.polynomial
@@ -149,8 +145,7 @@ public class Poly {
 											.get(exponentFirst[i])
 									* secondPolynomial.polynomial
 											.get(exponentSecond[j]));
-					// System.out.println(":INDEX1+INDEXX2 in here "+exponentFirst[i]+"ER ER"+exponentSecond[j]);
-
+			
 				}
 			}
 		}
