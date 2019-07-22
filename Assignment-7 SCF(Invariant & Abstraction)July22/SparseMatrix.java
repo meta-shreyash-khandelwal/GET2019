@@ -6,19 +6,19 @@ final public class SparseMatrix {
  * @return the 2-Dimensional array containing sorted array
  */
 	private static int[][] sortTransposeMatrix(int inputSparseMatrix[][]) {// The worst case complexity is O(n^2) (bubble sort)
-		int temporary1 = 0, temporary2 = 0, temporary3 = 0;
+		int temporaryNumber1 = 0, temporaryNumber2 = 0, temporaryNumber3 = 0;
 		for (int i = 0; i < inputSparseMatrix.length; i++) {
 			for (int j = 0; j < inputSparseMatrix.length - i - 1; j++) {
 				if (inputSparseMatrix[j][0] > inputSparseMatrix[j + 1][0]) {
-					temporary1 = inputSparseMatrix[j][0];
-					temporary2 = inputSparseMatrix[j][1];
-					temporary3 = inputSparseMatrix[j][2];
+					temporaryNumber1 = inputSparseMatrix[j][0];
+					temporaryNumber2 = inputSparseMatrix[j][1];
+					temporaryNumber3 = inputSparseMatrix[j][2];
 					inputSparseMatrix[j][0] = inputSparseMatrix[j + 1][0];
 					inputSparseMatrix[j][1] = inputSparseMatrix[j + 1][1];
 					inputSparseMatrix[j][2] = inputSparseMatrix[j + 1][2];
-					inputSparseMatrix[j + 1][0] = temporary1;
-					inputSparseMatrix[j + 1][1] = temporary2;
-					inputSparseMatrix[j + 1][2] = temporary3;
+					inputSparseMatrix[j + 1][0] = temporaryNumber1;
+					inputSparseMatrix[j + 1][1] = temporaryNumber2;
+					inputSparseMatrix[j + 1][2] = temporaryNumber3;
 				}
 			}
 		}
@@ -31,14 +31,14 @@ final public class SparseMatrix {
  */
 	public static int[][] transposeArrayOpertion(int inputSparseArray[][]) {//The worst case complexity is O(n) 
 		try{
-			if(inputSparseArray.length==0)
+			if(inputSparseArray.length == 0)
 			{
-				throw new Exception("EMpty");
+				throw new Exception("Empty array");
 			}
 			}
 			catch(Exception e)
 			{
-				System.out.println("Empty");
+				System.out.println("Empty array ");
 			}
 		int transposeArray[][] = new int[inputSparseArray.length][3];
 		int column = 0;
@@ -46,7 +46,6 @@ final public class SparseMatrix {
 			transposeArray[i][column] = inputSparseArray[i][column + 1];
 			transposeArray[i][column + 1] = inputSparseArray[i][column];
 			transposeArray[i][column + 2] = inputSparseArray[i][column + 2];
-			// System.out.print("TDD "+inputSparseArray[j][i]+ " ");
 		}
 		transposeArray = sortTransposeMatrix(transposeArray);
 		return transposeArray;
@@ -71,32 +70,29 @@ final public class SparseMatrix {
 	public static int[][] addMatrices(int inputSparseArrayFirst[][],  //The worst case complexity is O(n^2) 
 			int inputSparseArraySecond[][]) {
 		try{
-		if(inputSparseArrayFirst.length==0 || inputSparseArraySecond.length==0)
+		if(inputSparseArrayFirst.length==0 || inputSparseArraySecond.length == 0)
 		{
-			throw new Exception("EMpty");
+			throw new Exception("Empty");
 		}
 		}
 		catch(Exception e)
 		{
 			System.out.println("Empty");
 		}
-		
 		int rowNumber = 0, columnNumber = 0, value = 0;
-		int k = 0;
+		int counter = 0;//counter value
 		int startRow = 0, startColumn = 0;
 		int resultAdd[][] = new int[inputSparseArrayFirst.length
 				+ inputSparseArraySecond.length][3];
-		System.out.println("F LEN " + inputSparseArrayFirst.length);
-
-		for (int i = 0; i < inputSparseArrayFirst.length; i++) {
+			for (int i = 0; i < inputSparseArrayFirst.length; i++) {
 			rowNumber = inputSparseArrayFirst[i][0];
 			columnNumber = inputSparseArrayFirst[i][1];
 			value = inputSparseArrayFirst[i][2];
-			k = 0;
+			counter = 0;
 			for (int j = 0; j < inputSparseArraySecond.length; j++) {
 				if ((inputSparseArraySecond[j][0] == rowNumber)
 						&& (inputSparseArraySecond[j][1] == columnNumber)) {
-					k = 1;
+					counter = 1;
 					resultAdd[startRow][0] = rowNumber;
 					resultAdd[startRow][1] = columnNumber;
 					resultAdd[startRow][2] = value
@@ -104,33 +100,34 @@ final public class SparseMatrix {
 					startRow++;
 				}
 			}
-		if (k == 0) {
+		if (counter == 0) {
 			resultAdd[startRow][0] = inputSparseArrayFirst[i][0];
 				resultAdd[startRow][1] = inputSparseArrayFirst[i][1];
 				resultAdd[startRow][2] = inputSparseArrayFirst[i][2];
 				startRow++;
 			}
 		}
-
+			counter=0;
 		for (int i = 0; i < inputSparseArraySecond.length; i++) {
 			rowNumber = inputSparseArraySecond[i][0];
 			columnNumber = inputSparseArraySecond[i][1];
 			value = inputSparseArraySecond[i][2];
-			k = 0;
+			counter = 0;
 		    for (int j = 0; j < inputSparseArrayFirst.length; j++) {
 				if ((inputSparseArrayFirst[j][0] == rowNumber)
 						&& (inputSparseArrayFirst[j][1] == columnNumber)) {
-					k = 1;
+					counter = 1;
 
 				}
 			}
-			if (k == 0) {
+			if (counter == 0) {
 				resultAdd[startRow][0] = inputSparseArraySecond[i][0];
 				resultAdd[startRow][1] = inputSparseArraySecond[i][1];
 				resultAdd[startRow][2] = inputSparseArraySecond[i][2];
 				startRow++;
 			}
 		}
+		resultAdd=sortTransposeMatrix(resultAdd);
 		return resultAdd;
 	}
 	/**
@@ -145,17 +142,15 @@ final public class SparseMatrix {
 		int rowNumber = 0, columnNumber = 0, value = 0;
 		int startRow = 0, startColumn = 0;
 		int resultMultiply[][] = new int[inputSparseArrayFirst.length][inputSparseArraySecond[0].length];
-		// System.out.println("F LEN "+inputSparseArrayFirst.length);
 		if (inputSparseArrayFirst[0].length != inputSparseArraySecond.length) {
 			try {
-				throw new Exception("Not possible");
+				throw new Exception("Not possible due to unequal length");
 			} catch (Exception e) {
-				System.out.println("NOT POSSIBLE");
+				System.out.println("NOT POSSIBLE Incompatible matrices");
 			}
 		} else {
 			value = 1;
-			// System.out.println("COUNT ");
-			for (int i = 0; i < inputSparseArrayFirst.length; i++) {
+					for (int i = 0; i < inputSparseArrayFirst.length; i++) {
 				for (int j = 0; j < inputSparseArraySecond[0].length; j++) {
 
 					for (int k = 0; k < inputSparseArraySecond.length; k++) {
@@ -198,8 +193,8 @@ final public class SparseMatrix {
 		SparseMatrix s = new SparseMatrix();
 
 		int td1[][] = new int[][] { { 1, 2, 3 }, { 2, 1, 4 }, { 3, 4, 3 } };
-		int td2[][] = new int[][] { { 0, 3, 4 }, { 1, 2, 5 }, { 1, 3, 1 },
-				{ 2, 4, 3 }, { 3, 1, 1 } };
+		int td2[][] = new int[][] { { 0, 2, 4 }, { 1, 2, 5 }, { 1, 3, 1 },
+				{ 2, 3, 3 }, { 3, 1, 1 } };
 		int td3[][] = new int[][] { { 0, 0, 4 }, { 0, 1, 1 }, { 0, 2, 2 },
 				{ 0, 3, 5 }, { 0, 4, 2 }, { 1, 0, 1 }, { 1, 1, 5 },
 				{ 2, 0, 2 }, { 2, 2, 3 }, { 3, 0, 5 }, { 3, 3, 6 },
@@ -243,6 +238,7 @@ final public class SparseMatrix {
 		// tdd1=transposeArrayOpertion(tdd);
 		// int td3[][]=new int[td2.length][3];
 		// td3=transposeArrayOpertion(td3);
+		System.out.println("Multiply ");
 		for (int i = 0; i < td9.length; i++) {
 			for (int j = 0; j < td9[i].length; j++) {
 				System.out.print(td9[i][j] + " ");
