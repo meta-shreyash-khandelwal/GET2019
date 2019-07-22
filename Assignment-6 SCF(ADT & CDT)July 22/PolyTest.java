@@ -1,15 +1,9 @@
-package varunk;
-
 import static org.junit.Assert.*;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import org.junit.Test;
-
-import java.util.*
-;public class PolyTest {
-
+import java.util.*;
+public class PolyTest {
 	@Test
 	public void evaluateTest1() {
 		Map<Integer, Integer> polynomial1=new HashMap<Integer, Integer>();
@@ -27,8 +21,7 @@ import java.util.*
 		polynomial1.put(0,-1);
 		Poly object1=new Poly(polynomial1);
 		assertEquals(113f,object1.evaluate(2f),0.0f);
-		
-	}
+		}
 	
 	@Test
 	public void evaluateDegree1() {
