@@ -24,7 +24,7 @@ public class SparseMatrixTest {
 		assertFalse(SparseMatrix.symmetricArrayOperation(sparseMatrix));
 	}
 	@Test
-	public void testAdditionArrayOperationShouldReturn_AdditionWhenInput_SparseMatrix1AndSparseMatrix2()
+	public void testAdditionArrayOperationShouldReturn_AdditionWhenInput_SparseMatrix1_And_SparseMatrix2()
 	{
 		int sparseMatrix1[][] = new int[][] { { 1, 2, 3 }, { 2, 1, 4 }, { 3, 4, 3 } };
 		int sparseMatrix2[][] = new int[][] { { 0, 3, 4 }, { 1, 2, 5 }, { 1, 3, 1 },
@@ -33,7 +33,7 @@ public class SparseMatrixTest {
 		assertArrayEquals(sparseMatrix3,SparseMatrix.addMatrices(sparseMatrix1, sparseMatrix2));
 }
 	@Test
-	public void testMultiplicationArrayOperationShouldReturn_MultiplicationWhenInput_SparseMatrix1AndSparseMatrix2()
+	public void testMultiplicationArrayOperationShouldReturn_MultiplicationWhenInput_SparseMatrix1_And_SparseMatrix2()
 	{
 		int sparseMatrix1[][] = new int[][] { { 0, 0, 0, 1, 0 }, { 3, 0, 0, 0, 0 },
 				{ 0, 0, 2, 0, 0 }, { 0, 0, 0, 0, 9 } };
