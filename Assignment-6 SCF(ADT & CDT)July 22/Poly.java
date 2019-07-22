@@ -37,7 +37,7 @@ public class Poly {
  * @return the Map containing the addition of first and second polynomial
  */
 	Map<Integer, Integer> addPoly(Poly firstPolynomial, Poly secondPolynomial) {
-		try{ if(firstPolynomial.polynomial == null || secondPolynomial.polynomial == null)
+		try{if(firstPolynomial.polynomial==null || secondPolynomial.polynomial==null)
 		{
 			throw new Exception("Empty Polynomial");
 		}}
@@ -47,53 +47,43 @@ public class Poly {
 		}
 		int firstDegree = firstPolynomial.degree();
 		int secondDegree = secondPolynomial.degree();
-		if (firstDegree > secondDegree) {//Case when degree of First is greater than Second polynomial
-			for (Integer key : firstPolynomial.polynomial.keySet()) {
+		//For the First Polynomial Addition
+		for (Integer key : firstPolynomial.polynomial.keySet()) {
 				if (firstPolynomial.polynomial.get(key) == null) {
-					firstPolynomial.polynomial.put(key, 0);
-					polynomial.put(key, firstPolynomial.polynomial.get(key)
-							+ secondPolynomial.polynomial.get(key));
+				 System.out.println("HERE"+key);
+				firstPolynomial.polynomial.put(key, 0);
+				polynomial.put(key, firstPolynomial.polynomial.get(key)
+						+ secondPolynomial.polynomial.get(key));}
 
-					if (secondPolynomial.polynomial.get(key) == null) {
-						secondPolynomial.polynomial.put(key, 0);
-						polynomial.put(key, firstPolynomial.polynomial.get(key)
-								+ secondPolynomial.polynomial.get(key));
-
-					} else { polynomial.put(key, firstPolynomial.polynomial.get(key)
-								+ secondPolynomial.polynomial.get(key));
-					}
-				}
-			}
-		} else if (firstDegree < secondDegree) {//Case when degree of Second is greater than First polynomial
-			for (Integer key : secondPolynomial.polynomial.keySet()) {
-				if (firstPolynomial.polynomial.get(key) == null) {
-					firstPolynomial.polynomial.put(key, 0);
-					polynomial.put(key, firstPolynomial.polynomial.get(key)
-							+ secondPolynomial.polynomial.get(key));
-				} else if (secondPolynomial.polynomial.get(key) == null) {
+				else if (secondPolynomial.polynomial.get(key) == null) {
+					
 					secondPolynomial.polynomial.put(key, 0);
 					polynomial.put(key, firstPolynomial.polynomial.get(key)
 							+ secondPolynomial.polynomial.get(key));
-				} else { polynomial.put(key, firstPolynomial.polynomial.get(key)
+
+				} else { 
+					polynomial.put(key, firstPolynomial.polynomial.get(key)
 							+ secondPolynomial.polynomial.get(key));
 				}
 			}
-		} else {//Case when degree of First is equal to Second polynomial
-			for (Integer key : firstPolynomial.polynomial.keySet()) {
+		//For the second Polynomial Addition
+		for (Integer key : secondPolynomial.polynomial.keySet()) {
 				if (firstPolynomial.polynomial.get(key) == null) {
-					firstPolynomial.polynomial.put(key, 0);
-					polynomial.put(key, firstPolynomial.polynomial.get(key)
-							+ secondPolynomial.polynomial.get(key));
-				} else if (secondPolynomial.polynomial.get(key) == null) {
+				firstPolynomial.polynomial.put(key, 0);
+				polynomial.put(key, firstPolynomial.polynomial.get(key)
+						+ secondPolynomial.polynomial.get(key));}
+
+				else if (secondPolynomial.polynomial.get(key) == null) {
 					secondPolynomial.polynomial.put(key, 0);
 					polynomial.put(key, firstPolynomial.polynomial.get(key)
 							+ secondPolynomial.polynomial.get(key));
+
 				} else {
 					polynomial.put(key, firstPolynomial.polynomial.get(key)
 							+ secondPolynomial.polynomial.get(key));
 				}
 			}
-		}
+
 		return polynomial;
 	}
 /**
@@ -126,11 +116,13 @@ public class Poly {
 			exponentSecond[index2] = key;
 			index2++;
 		}
-		
+		// System.out.println(":INDEX1+INDEXX2 "+exponentFirst[2]+" EDFD"+exponentSecond[1]);
+
 		for (int i = 0; i < index1; i++) {
 			for (int j = 0; j < index2; j++) {
 				if (resultMultiply.get(exponentFirst[i] + exponentSecond[j]) == null) {
-						resultMultiply.put(
+					// System.out.println("WE ARE  "+exponentFirst[i]+" EDFD"+exponentSecond[j]);
+					resultMultiply.put(
 							exponentFirst[i] + exponentSecond[j],
 							firstPolynomial.polynomial.get(exponentFirst[i])
 									* secondPolynomial.polynomial
@@ -145,7 +137,8 @@ public class Poly {
 											.get(exponentFirst[i])
 									* secondPolynomial.polynomial
 											.get(exponentSecond[j]));
-			
+					// System.out.println(":INDEX1+INDEXX2 in here "+exponentFirst[i]+"ER ER"+exponentSecond[j]);
+
 				}
 			}
 		}
@@ -155,7 +148,7 @@ public class Poly {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Map<Integer, Integer> h1 = new HashMap<Integer, Integer>();
-		h1.put(4, 16);
+		h1.put(4, 15);
 		h1.put(3, 5);
 		h1.put(2, 6);
 		h1.put(0, -1);
@@ -163,8 +156,8 @@ public class Poly {
 		System.out.println(" Evalute "+p1.evaluate(1f));
 		System.out.println(" Degree "+p1.degree());
 		Map<Integer, Integer> h2 = new HashMap<Integer, Integer>();
-		//h2.put(4, 10);
-		h2.put(3, 8);
+		h2.put(4, 10);
+		h2.put(3, -18);
 		h2.put(1, 7);
 		h2.put(0, 10);
 		Poly p2 = new Poly(h2);
