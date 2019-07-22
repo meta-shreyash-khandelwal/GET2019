@@ -15,7 +15,7 @@ public class IntSetTest {
 		assertEquals(6,object.size());
 	}
 	@Test
-	public void testMemberPresentShouldReturn_TrueWhenElementPresentInSet1() {
+	public void testMemberPresentShouldReturn_TrueWhenElementPresentInSet_1() {
 		Set<Integer> set1 = new HashSet<Integer>();
 		set1.add(100);
 		set1.add(1);
@@ -27,7 +27,7 @@ public class IntSetTest {
 		//assertTrue(object.isMember(60));
 	}
 	@Test
-	public void testMemberPresentShouldReturn_TrueWhenElementPresentInSet2() {
+	public void testMemberPresentShouldReturn_TrueWhenElementPresentInSet_2() {
 		Set<Integer> set1 = new HashSet<Integer>();
 		set1.add(100);
 		set1.add(1);
