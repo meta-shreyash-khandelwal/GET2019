@@ -1,12 +1,11 @@
-package varunk;
-
 public class Crocodile extends Reptile {
 
 	public Crocodile(String uniqueName, int age, double weight,
-			String category, String type) {
+			 String category, String type) {
 		super(uniqueName, age, weight, category, type);
 	}
-
+         /*Getter Method*/
+	/*Overriding all the methods of Parent  class*/
 	public String getSound() {
 		return "hiss";
 	}
