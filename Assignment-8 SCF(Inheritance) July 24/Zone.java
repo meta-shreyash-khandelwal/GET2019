@@ -59,7 +59,12 @@ public class Zone {
 
 				}
 			}
+			try{
 			if (counter == 0) {
+				throw new Exception("No Animal");
+			}}
+			catch(Exception e)
+			{
 				System.out.println("No animals in Cages to delete");
 			}
 
