@@ -1,5 +1,3 @@
-package varunk;
-
 public class Cage {
 	String type;
 	int capacity;
