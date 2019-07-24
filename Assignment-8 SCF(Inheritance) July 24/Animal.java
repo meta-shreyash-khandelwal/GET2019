@@ -1,4 +1,3 @@
-package varunk;
 public class Animal {
 	String uniqueName;
 	int age;
