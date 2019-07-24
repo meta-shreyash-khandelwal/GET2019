@@ -7,7 +7,7 @@ public class Animal {
 	String type;
 	String sound;
 	public Animal(String uniqueName, int age, double weight, String category,
-			String type) {
+	String type) {
 		this.uniqueName = uniqueName;
 		this.age = age;
 		this.weight = weight;
