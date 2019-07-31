@@ -1,5 +1,3 @@
-package dataStructure;
-
 import static org.junit.Assert.*;
 
 import java.util.*;
@@ -10,7 +8,7 @@ public class LinkedListTest {
 	LinkedList obj=new LinkedList();
 
 	@Test
-	public void testrotateSubList1() {
+	public void testRotateSubList1() {
 		LinkedList newList=new LinkedList();
 		 obj.insertList(newList, 2);
 		 obj.insertList(newList, 3);
@@ -20,7 +18,7 @@ public class LinkedListTest {
 		 obj.insertList(newList, 7);
 		 obj.insertList(newList, 8);
 		 obj.insertList(newList, 9);
-		 obj.rotateSubList(newList, 2, 7, 3);//Rotating
+		 obj.rotateSubList(newList, 1, 5, 2);//Rotating
 		 List<Integer> list=new ArrayList<Integer>();
 		 list=obj.printLinkedList(newList);
 		int result[]=new int[list.size()];
@@ -29,14 +27,14 @@ public class LinkedListTest {
 			 result[i]=list.get(i);
 		 }
 		 
-		int expected[]=new int[]{2,6,7,8,3,4,5,9};
+		int expected[]=new int[]{4,5,6,2,3,7,8,9};
 		 assertArrayEquals(expected,result);
 		 
 	}
 
 	
 	@Test
-	public void testrotateSubList2() {
+	public void testRotateSubList2() {
 		LinkedList newList=new LinkedList();
 		 obj.insertList(newList, 10);
 		 obj.insertList(newList, 15);
@@ -63,7 +61,7 @@ public class LinkedListTest {
 	}
 	
 	@Test
-	public void testdetectLoopInList1() {
+	public void testDetectLoopInList1() {
 		LinkedList newList=new LinkedList();
 		 obj.insertList(newList, 10);
 		 obj.insertList(newList, 15);
@@ -77,8 +75,7 @@ public class LinkedListTest {
 	}
 	
 	@Test
-	public void testdetectLoopInList2() {
-		
+	public void testDetectLoopInList2() {
 		 LinkedList newList2=new LinkedList();
 		 obj.insertList(newList2, 15);
 		 obj.insertList(newList2, 20);
@@ -93,7 +90,7 @@ public class LinkedListTest {
 
 	
 	@Test
-	public void getDegree1()
+	public void testGetDegree1()
 	{
 		//Assuming we have 4 variable x,y,z,w
 		MultivariatePolynomial object=new MultivariatePolynomial();
@@ -126,20 +123,19 @@ public class LinkedListTest {
 			list5.add(0);
 			list5.add(1);
 			list5.add(2);
-//Adding all the terms to create a polynomial
-		object.addterms(1, list1);	
-		object.addterms(2, list2);	
-		object.addterms(3, list3);	
-		object.addterms(4, list4);	
-		object.addterms(5, list5);	
+			//Adding all the terms to create a polynomial
+			object.addterms(1, list1);	
+			object.addterms(2, list2);	
+			object.addterms(3, list3);	
+			object.addterms(4, list4);	
+			object.addterms(5, list5);	
 int expected=8;
 assertEquals(expected,object.getDegree());
-	
 	}
 	
 	
 	@Test
-	public void getDegree2()
+	public void testGetDegree2()
 	{
 		//Assuming we have 4 variable x,y,z
 		MultivariatePolynomial object=new MultivariatePolynomial();
@@ -154,7 +150,7 @@ assertEquals(expected,object.getDegree());
 			list2.add(1);
 			list2.add(3);
 		
-			ArrayList<Integer> list3=new ArrayList<Integer>();//Representing x^1*
+			ArrayList<Integer> list3=new ArrayList<Integer>();//Representing x^1
 			list3.add(1);
 			list3.add(0);
 			list3.add(0);
@@ -171,17 +167,8 @@ assertEquals(expected,object.getDegree());
 		object.addterms(4, list4);	
 int expected=4;
 assertEquals(expected,object.getDegree());
-	
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-		
 	}
 
 	
