@@ -1,0 +1,259 @@
+
+package varunk;
+class LinkedList
+{
+Node head;
+class Node
+	{
+		Node next;
+		int data;
+		public Node(int data)
+		{
+			this.data=data;
+			next=null;
+		}
+	}
+public LinkedList insertList(LinkedList newList,int data)
+{
+	Node newNode=new Node(data);
+	if(newList.head == null)
+	{
+		newList.head=newNode;
+	}
+	else
+	{
+		Node last=newList.head;
+		while(last.next!=null)
+		{
+			last=last.next;
+		}  
+		last.next=newNode;
+		
+		
+	}
+	return newList;
+}
+
+
+public void printLinkedList(LinkedList list)
+{
+	Node pointer=list.head;
+	while(pointer!=null)
+	{
+		System.out.println("DATA "+pointer.data+" REFERENCE "+pointer.next);
+	    pointer=pointer.next;
+	}
+}
+
+
+public Node checkReference(LinkedList list,int position)
+{
+	int counter=1;
+	Node pointer=list.head;
+	if(position==1)
+		{System.out.println("C "+counter+" ASDA "+pointer.data);
+		return pointer;}
+	else
+	{
+		while(pointer!=null)
+		{
+			counter++;
+			pointer=pointer.next;
+			if(counter==position)
+			{		//System.out.println("C "+counter+" ASDA "+pointer.data);
+				return pointer;}
+			
+		}
+//		System.out.println("HRER "+pointer);
+	}
+	return null;
+}
+
+public LinkedList rotateSubList(LinkedList list,int left,int right,int numberOfTurning)
+{
+	//Node pointer=list.head;
+	
+	
+	Node LPre = checkReference(list,left-1);
+	Node L=LPre.next;
+	Node R = checkReference(list,right);
+	Node RNex=R.next;
+	Node K =checkReference(list,left+numberOfTurning-1);
+	Node KNex=K.next;
+	
+/*
+	System.out.println("LPRE "+LPre);
+	
+	System.out.println("L "+L);
+	System.out.println("R "+R);
+	System.out.println("Rnext  "+RNex);
+	System.out.println("K "+K);
+	System.out.println("K next "+KNex);
+	
+	 
+	*/
+	
+	LPre.next=KNex;
+	System.out.println("COPYY "+RNex);
+	
+	
+	R.next=L;
+	System.out.println("RENEX .nextCOPYY "+RNex.next);
+	
+	
+	K.next=RNex;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//subList.head=turningPoint.next;
+//	subList
+	
+	return list;
+	
+	
+	
+}
+/*
+static void rotateSubListt(LinkedList list,int left,int right,int numberOfTurning)  
+{  
+    int size = right - left + 1;  
+    
+    // If k is greater than size of sublist then   
+    // we will take its modulo with size of sublist  
+    if (numberOfTurning > size) {  
+    	numberOfTurning = numberOfTurning % size;  
+    }  
+    
+    // If k is zero or k is equal to size or k is  
+    // a multiple of size of sublist then list   
+    // remains intact  
+    if (numberOfTurning == 0 || numberOfTurning == size) {  
+        Node head = list.head;  
+        while (head != null) {  
+            System.out.print( head.data);  
+            head = head.next;  
+        }  
+        return;  
+    }  
+    
+    Node link = null;  // m-th node  
+    if (right == 1) {  
+        link = list.head;  
+    }  
+    
+    // This loop will traverse all node till  
+    // end node of sublist.      
+   Node c = list.head;  // Current traversed node  
+    int count = 0;  // Count of traversed nodes  
+    Node end = null;    
+    Node pre = null; // Previous of m-th node  
+    while (c != null) {  
+        count++;  
+    
+        // We will save (m-1)th node and later  
+        // make it point to (n-k+1)th node  
+        if (count == left - 1) {  
+            pre = c;  
+            link = c.next;  
+        }  
+        if (count == right - numberOfTurning) {  
+            if (left == 1) {  
+                end = c;  
+                list.head = c.next;  
+            }  
+            else {  
+                end = c;  
+    
+                // That is how we bring (n-k+1)th  
+                // node to front of sublist.  
+                pre.next = c.next;  
+            }  
+        }  
+    
+        // This keeps rest part of list intact.  
+        if (count == right) {  
+            Node d = c.next;  
+            c.next = link;  
+            end.next = d;  
+            Node head = list.head;  
+            while (head != null) {  
+                System.out.print( head.data+" ");  
+                head = head.next;  
+            }  
+            return;  
+        }  
+        c = c.next;  
+    }  
+}  
+  */  
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package varunk;
+public class RotateSublist {
+ public static void main(String args[])
+ {
+	 LinkedList obj=new LinkedList();
+	 LinkedList newList=new LinkedList();
+	 obj.insertList(newList, 2);
+	 obj.insertList(newList, 3);
+	 obj.insertList(newList, 4);
+	 obj.insertList(newList, 5);
+	 obj.insertList(newList, 6);
+	 obj.insertList(newList, 7);
+	 //obj.insertList(newList, 70);
+ obj.printLinkedList(newList);
+ 
+// System.out.println("HEAD "+newList.head);  
+ //System.out.println("1 node "+newList);
+ //LinkedList newList2=new LinkedList();
+ //newList2.head.next=newList2.head.next.next;
+//newList2=obj.rotateSubList(newList, 1, 4, 3);
+ //obj.printLinkedList(newList2);
+
+ //System.out.println(obj.checkReference(newList, 1));
+ //System.out.println(obj.checkReference(newList, 6));
+ obj.rotateSubList(newList,2,5,2);
+ obj.printLinkedList(newList);
+ 
+ }
+	
+	
+	
+	
+	
+	
+	
+	
+}
