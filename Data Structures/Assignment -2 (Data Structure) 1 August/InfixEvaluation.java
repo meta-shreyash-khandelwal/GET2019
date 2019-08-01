@@ -27,12 +27,12 @@ public class InfixEvaluation {
 							values.pop()));
 				operator.pop();
 			} else if (tokens[i] == '+' || tokens[i] == '-' || tokens[i] == '*'   				
-					|| tokens[i] == '/' || tokens[i] == '<' || tokens[i] == '>') {/* While top of 'operator' has same or greater precedence to
+					|| tokens[i] == '/' || tokens[i] == '<' || tokens[i] == '>' || tokens[i]=='^' || tokens[i]=='&') {/* While top of 'operator' has same or greater precedence to
 				 current token, which is an operator. Apply operator on top of 'operator'
 				 to top two elements in values stack*/
 				while (!operator.empty()
 						&& hasPrecedence(tokens[i], operator.peek()))
-					values.push(applyOperation(operator.pop(), values.pop(),
+				values.push(applyOperation(operator.pop(), values.pop(),
 							values.pop()));
 				operator.push(tokens[i]);
 			}
@@ -50,14 +50,10 @@ public class InfixEvaluation {
  * @return true if operator1 has lesser precedence than operator second otherwise returns false
  */
 	public static boolean hasPrecedence(char operator1, char operator2) {
-		if (operator2 == '(' || operator2 == ')')
-			return false;
-		if ((operator1 == '*' || operator1 == '/')
-				&& (operator2 == '+' || operator2 == '-'))
-			return false;
-		if ((operator1 == '*' || operator1 == '/' || operator1 == '+' || operator1 == '-')
-				&& (operator2 == '<' || operator2 == '>'))
-			return false;
+		if (operator2 == '(' || operator2 == ')') 
+			return false; 
+		if ((operator1 == '*' || operator1 == '/') && (operator2 == '+' || operator2 == '-')) 
+			return false; 
 		else
 			return true;
 	}
@@ -97,17 +93,31 @@ public class InfixEvaluation {
 				System.out.println("Cant divide by 0");
 			}
 			return firstNumber / secondNumber;
+			
+		case '^':
+			return (int)Math.pow(firstNumber, secondNumber);
+		case '&':
+			return firstNumber&secondNumber;
+		
+		case '|':
+			return firstNumber|secondNumber;
 		}
 		return 0;
 	}
 
 	/*
-	 * // Driver method to test above methods public static void main(String[]
-	 * args) {
-	 * System.out.println(InfixEvaluation.evaluateInfix("( 5 + ( 8 < 6 ) )"));
-	 * System.out.println(InfixEvaluation.evaluateInfix("100 * 2 + 12"));
-	 * System.out.println(InfixEvaluation.evaluateInfix("100 * ( 2 + 12 )"));
-	 * System
-	 * .out.println(InfixEvaluation.evaluateInfix("100 * ( 2 + 12 ) / 14")); }
-	 */
+	   Driver method to test above methods
+	    public static void main(String[] args) {
+	  //The input has to be given in space seperated form as specified in question
+	  //System.out.println(InfixEvaluation.evaluateInfix("( 5 + ( 8 < 6 ) )"));
+	    	System.out.println("prece "+hasPrecedence('/','+'));
+	    	System.out.println(applyOperation('/',2,100));
+			
+			
+	  System.out.println(InfixEvaluation.evaluateInfix("100 * 2 + 12"));
+	 // System.out.println(InfixEvaluation.evaluateInfix("100 * ( 2 + 12 )"));
+	//  System.out.println(InfixEvaluation.evaluateInfix("100 * ( 2 + 12 ) / 14")); }
+	 
+}
+	    */
 }
