@@ -26,9 +26,9 @@ public class CricketClass {
 		int index = 0;
 		String array[] = new String[viratBall];
 		while (viratBall != 0) {
-			int updatedQuota = queue.peek().quota - 1;
+			int updatedQuota = queue.peek().quota - 1;//Fetching top bowler with maximum balls
 			String bowlerName = queue.peek().name;
-			array[index++] = bowlerName;
+			array[index++] = bowlerName;//Adding to array of string
 			queue.remove();
 			if (updatedQuota != 0) {
 				queue.add(new Bowler(bowlerName, updatedQuota));
