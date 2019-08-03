@@ -1,16 +1,18 @@
 package dataStructure;
-
 import java.util.*;
-
 public class UniqueEmployee {
 	Map<Integer, Employee> unique;
-
+//Constructor
 	public UniqueEmployee() {
 		unique = new HashMap<Integer, Employee>();
 	}
-
+/**
+ * This method checks for duplicate entries of the Employee 
+ * @param newEntry is the new Employee to be added
+ * @return true if no duplicate exists otherwise return false
+ */
 	public boolean addEmployees(Employee newEntry) {
-		try {
+		try {//If Invalid entered
 			if (newEntry.getName().length() == 0
 					|| newEntry.getAddress().length() == 0
 					|| newEntry.getEmployeeId() < 0) {
