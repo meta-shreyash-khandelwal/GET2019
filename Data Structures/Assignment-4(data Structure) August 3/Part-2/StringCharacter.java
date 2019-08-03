@@ -1,17 +1,19 @@
-package dataStructure;
-
 import java.util.*;
 
 public class StringCharacter {
-	Map<String, Integer> operate;
-	Set<Character> uniqueCharacter;
+	Map<String, Integer> operate;//For Caching
+	Set<Character> uniqueCharacter;//For unique characters
 
 	public StringCharacter() {
 		operate = new HashMap<String, Integer>();
 
 	}
-
-	public int findUniqueCharacter(String element) {
+/**
+ * This method finds all the unique character present in the String and also caches with help of Map
+ * @param element is the String in which character is to be found
+ * @return the length of unique character 
+ */
+public int findUniqueCharacter(String element) {
 		uniqueCharacter = new HashSet<Character>();
 		int uniqueLength = 0;
 
