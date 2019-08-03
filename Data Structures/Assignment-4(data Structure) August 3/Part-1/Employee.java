@@ -1,36 +1,33 @@
-package varunk;
-public class Employee implements Comparable<Employee>{
-private int employeeId;
-private String name;
-private String address;
-public Employee(int employeeId,String name,String address)
-{
-	this.employeeId=employeeId;
-	this.name=name;
-	this.address=address;
-}
-public int getEmployeeId() {
-	return employeeId;
-}
-public void setEmployeeId(int employeeId) {
-	this.employeeId = employeeId;
-}
-public String getName() {
-	return name;
-}
-public void setName(String name) {
-	this.name = name;
-}
-public String getAddress() {
-	return address;
-}
-public void setAddress(String address) {
-	this.address = address;
-}
+import java.util.*;
+public class UniqueEmployee {
+	Map<Integer, Employee> unique;
+//Constructor
+	public UniqueEmployee() {
+		unique = new HashMap<Integer, Employee>();
+	}
+/**
+ * This method checks for duplicate entries of the Employee 
+ * @param newEntry is the new Employee to be added
+ * @return true if no duplicate exists otherwise return false
+ */
+	public boolean addEmployees(Employee newEntry) {
+		try {//If Invalid entered
+			if (newEntry.getName().length() == 0
+					|| newEntry.getAddress().length() == 0
+					|| newEntry.getEmployeeId() < 0) {
+				throw new Exception("Invalid Input encountered ");
+			}
+		} catch (Exception e) {
+			System.out.println("Invalid Input encountered . Try Again||");
+		}
 
-public int compareTo(Employee object) 
-   { 
-       return this.getEmployeeId() - object.getEmployeeId(); 
-   } 
+		if (!unique.containsKey(newEntry.getEmployeeId())) {
+			unique.put(newEntry.getEmployeeId(), newEntry);
+			return true;
+		} else {
+			System.out.println("Employee Id repeatition encountered !! Try Again");
+			return false;
+		}
 
+	}
 }
