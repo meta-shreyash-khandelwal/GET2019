@@ -24,8 +24,7 @@ public class UniqueEmployee {
 			unique.put(newEntry.getEmployeeId(), newEntry);
 			return true;
 		} else {
-			System.out
-					.println("Employee Id repeatition encountered !! Try Again");
+			System.out.println("Employee Id repeatition encountered !! Try Again");
 			return false;
 		}
 
