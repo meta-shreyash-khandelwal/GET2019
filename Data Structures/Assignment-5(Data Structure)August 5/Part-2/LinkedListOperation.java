@@ -1,5 +1,7 @@
-package data5;
+package vk;
 
+import java.util.List;
+import java.util.*;
 public class LinkedListOperation {
 	Node head;//For storing head position
 /**
@@ -57,7 +59,7 @@ public class LinkedListOperation {
 		while (current != null) {
 			index = current.next;
 			while (index != null) {
-				if (current.object.getSalary() > index.object.getSalary()) {
+				if (current.object.getSalary() < index.object.getSalary()) {
 					temporary = current.object;
 					current.object = index.object;
 					index.object = temporary;
@@ -76,4 +78,19 @@ public class LinkedListOperation {
 
 		return list;
 	}
-}
+/**
+ * This method returns the result after the complete evaluation	
+ * @param list is the linked list 
+ * @return the result containing array list of the object
+ */
+	public List<Employee> resultList(LinkedListOperation list)
+	{
+		List<Employee> result=new ArrayList<Employee>();
+		Node pointer = list.head;
+		while (pointer != null) {
+			result.add(pointer.object);
+			pointer = pointer.next;
+		}
+		return result;
+	}
+	}
