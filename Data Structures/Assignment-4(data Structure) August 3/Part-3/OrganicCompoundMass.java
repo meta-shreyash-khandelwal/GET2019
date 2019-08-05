@@ -10,8 +10,7 @@ public class OrganicCompoundMass {
 		knownElement.put('O', 16);
 		knownElement.put('H', 1);
 		operation = new Stack<Integer>();
-		subOperate = new Stack<Integer>();
-	}
+			}
 /**
  * This method calculates mass of the compound according to formula	
  * @param compound is the Chemical compound in String form
@@ -33,8 +32,8 @@ public class OrganicCompoundMass {
 				while (i < compound.length() && compound.charAt(i) >= '0'// There may be more than one digits in number
 						&& compound.charAt(i) <= '9')
 					digit.append(compound.charAt(i++));
-				subOperate.push(Integer.parseInt(digit.toString()));//For calculating in braces
-				int topElement = subOperate.pop();
+				//subOperate.push();//For calculating in braces
+				int topElement = Integer.parseInt(digit.toString());
 				int topElement2 = operation.pop();
 				operation.push(topElement2 * topElement);//Value after closing brace on basis of two stacks
 				if (i >= compound.length())
