@@ -4,18 +4,18 @@ public class Main {
 public static void main(String args[])
 {
 	BSTTree b=new BSTTree();
-	b.Insert(1, "one");
-	b.Insert(2, "two");
-	b.Insert(5, "five");
-	b.Insert(6, "six");
-	b.Insert(4, "four");
+	b.insertNode(1, "one");
+	b.insertNode(2, "two");
+	b.insertNode(5, "five");
+	b.insertNode(6, "six");
+	b.insertNode(4, "four");
 
-	b.Insert(3, "three");
+	b.insertNode(3, "three");
 	b.PrintSorted();
 	System.out.println();
 	BSTNode n=b.Find(3);
 	//b.Remove(2);
-	b.Remove(5);
+	b.removeNode(5);
 	//b.PrintSorted();
 	List<Entry> lt=new ArrayList<Entry>();
 	lt=b.sortedOrderGeneral();
@@ -25,7 +25,7 @@ public static void main(String args[])
 	}
 	
 	
-	System.out.println(b.getVakueFromKey(5));
+	System.out.println(b.getValueFromKey(5));
 
 	System.out.println(n.getNewEntry().value);
 	
