@@ -5,8 +5,7 @@ public class BSTNode {
 	private BSTNode leftChildNode;
 	private BSTNode rightChildNode;
 	private BSTNode rootNode;
-	
-	
+//Respective Getters and Setters
 	public Entry getNewEntry() {
 		return newEntry;
 	}
@@ -31,4 +30,4 @@ public class BSTNode {
 	public void setRootNode(BSTNode rootNode) {
 		this.rootNode = rootNode;
 	}
-	}
+}
