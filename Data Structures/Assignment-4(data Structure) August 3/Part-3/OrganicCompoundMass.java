@@ -2,8 +2,7 @@ package varunkumar;
 import java.util.*;
 public class OrganicCompoundMass {
 	private Map<Character, Integer> knownElement;
-	private Stack<Integer> operation;//For storing without braces
-	private Stack<Integer> subOperate;//For storing with braces
+	private Stack<Integer> operation;//For storing with braces
 	public OrganicCompoundMass() {
 		knownElement = new HashMap<Character, Integer>();//Known elements
 		knownElement.put('C', 12);
