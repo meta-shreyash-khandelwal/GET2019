@@ -204,7 +204,7 @@ public class BSTTree implements BinarySearchTreeInterface {
 /**
  * This method prints the BST Tree	
  */
-	public void PrintSorted() {
+	public void printSorted() {
 		inorderTree(root);
 	}
 }
