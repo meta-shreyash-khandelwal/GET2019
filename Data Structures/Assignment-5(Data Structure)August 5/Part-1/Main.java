@@ -1,5 +1,13 @@
 import java.util.*;
- interface BinarySearchTreeInterface {
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+ 
+interface BinarySearchTreeInterface {
 	public Entry insertNode(int key, String value);
 	public String getValueFromKey(int key);
 	public void removeNode(int key);
@@ -268,6 +276,26 @@ class Entry {
 public class Main {
 public static void main(String args[])
 {
+    File jsonInputFile = new File("/Users/java2novice/jsonInput.txt");
+        InputStream is;
+        try {
+            is = new FileInputStream(jsonInputFile);
+            // Create JsonReader from Json.
+            JsonReader reader = Json.createReader(is);
+            // Get the JsonObject structure from JsonReader.
+            JsonObject empObj = reader.readObject();
+            reader.close();
+            // read string data
+            //System.out.println("Emp Name: " + empObj.getString("emp_name"));
+            // read integer data
+            //System.out.println("Emp Id: " + empObj.getInt("emp_id"));
+            // read inner json element
+            JsonObject addrObj = empObj.getJsonObject("key");
+           // System.out.println("City: " + addrObj.getString("city"));
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+	}	
         BSTTree bTree=new BSTTree();
 		bTree.insertNode(5, "five");
 		bTree.insertNode(6, "six");
