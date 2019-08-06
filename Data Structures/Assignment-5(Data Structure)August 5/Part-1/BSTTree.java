@@ -183,6 +183,7 @@ public class BSTTree implements BinarySearchTreeInterface {
  * @return sorted List 	
  */
 	public List<Entry> sortedOrderGeneral() {
+	        sortedList=new ArrayList<Entry>();
 		inorderTree(root);
 		return sortedList;
 	}
@@ -192,6 +193,7 @@ public class BSTTree implements BinarySearchTreeInterface {
  * @return sorted List from Key1 to Key2 		
  */
 	public List<Entry> sortedOrderFixed(int key1, int key2) {
+		sortedList=new ArrayList<Entry>();
 		List<Entry> fixedList = new ArrayList<Entry>();
 		inorderTree(root);
 		for (int j = 0; j < sortedList.size(); j++) {
@@ -206,6 +208,7 @@ public class BSTTree implements BinarySearchTreeInterface {
  * This method prints the BST Tree	
  */
 	public void printSorted() {
+		sortedList=new ArrayList<Entry>();
 		inorderTree(root);
 	}
 }
