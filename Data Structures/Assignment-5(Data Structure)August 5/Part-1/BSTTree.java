@@ -36,7 +36,7 @@ public class BSTTree implements BinarySearchTreeInterface {
  * @param key is the key value in integer
  * @return the BST Node if found , otherwise returns null
  */
-	public BSTNode Find(int key) {
+	public BSTNode find(int key) {
 		BSTNode node = root;
 		while (node != null) {
 			int compared = Integer.compare(key, node.getNewEntry().key);
@@ -117,7 +117,7 @@ public class BSTTree implements BinarySearchTreeInterface {
  * @param key is the integer value of key
  */
 	public void removeNode(int key) {
-		BSTNode nodeToBeRemoved = Find(key);
+		BSTNode nodeToBeRemoved = find(key);
 		if (nodeToBeRemoved == null) {
 			return;
 		}
