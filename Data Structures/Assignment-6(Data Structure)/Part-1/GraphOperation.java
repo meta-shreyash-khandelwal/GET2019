@@ -42,18 +42,6 @@ public class GraphOperation implements GraphInterface{
            }
 	   
 	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
    public boolean isConnected(int source)
 	   {
 		   dfsStack(source);
@@ -136,15 +124,6 @@ public class GraphOperation implements GraphInterface{
 	   }}
 	   
 	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
 	   public List<Edge> kruskalMST(){
 		   addEdges();
 		   PriorityQueue<Edge> queue = new PriorityQueue<>(allEdges.size(), Comparator.comparingInt(o -> o.weight));
@@ -204,132 +183,184 @@ public class GraphOperation implements GraphInterface{
            //make x as parent of y
            parent[y_set_parent] = x_set_parent;
        }
-  
-	}
+       
+     
+       int getMinimumVertex(boolean [] mst, int [] key){
+    	    int minKey = Integer.MAX_VALUE;
+    	    int vertex = -1;
+    	    for (int i = 0; i <vertices ; i++) {
+    	        if(mst[i]==false && minKey>key[i]){
+    	            minKey = key[i];
+    	            vertex = i;
+    	        }
+    	    }
+    	    return vertex;
+    	}   
+       
+       
+       
+       static class HeapNode{
+           int vertex;
+           int distance;
+       }
+       static class MinHeap{
+           int capacity;
+           int currentSize;
+           HeapNode[] mHeap;
+           int [] indexes; //will be used to decrease the distance
+        public MinHeap(int capacity) {
+               this.capacity = capacity;
+               mHeap = new HeapNode[capacity + 1];
+               indexes = new int[capacity];
+               mHeap[0] = new HeapNode();
+               mHeap[0].distance = Integer.MIN_VALUE;
+               mHeap[0].vertex=-1;
+               currentSize = 0;
+           }
+/*
+           public void display() {
+               for (int i = 0; i <=currentSize; i++) {
+                   System.out.println(" " + mH[i].vertex + "   distance   " + mH[i].distance);
+               }
+               System.out.println("________________________");
+           }
+*/
+           public void insert(HeapNode x) {
+               currentSize++;
+               int idx = currentSize;
+               mHeap[idx] = x;
+               indexes[x.vertex] = idx;
+               bubbleUp(idx);
+           }
 
+           public void bubbleUp(int pos) {
+               int parentIdx = pos/2;
+               int currentIdx = pos;
+               while (currentIdx > 0 && mHeap[parentIdx].distance > mHeap[currentIdx].distance) {
+                   HeapNode currentNode = mHeap[currentIdx];
+                   HeapNode parentNode = mHeap[parentIdx];
+                   indexes[currentNode.vertex] = parentIdx;                   //swap the positions
+                   indexes[parentNode.vertex] = currentIdx;
+                   swap(currentIdx,parentIdx);
+                   currentIdx = parentIdx;
+                   parentIdx = parentIdx/2;
+               }
+           }
 
+           public HeapNode extractMin() {
+               HeapNode min = mHeap[1];
+               HeapNode lastNode = mHeap[currentSize];
+//               update the indexes[] and move the last node to the top
+               indexes[lastNode.vertex] = 1;
+               mHeap[1] = lastNode;
+               mHeap[currentSize] = null;
+               sinkDown(1);
+               currentSize--;
+               return min;
+           }
 
+           public void sinkDown(int k) {
+               int smallest = k;
+               int leftChildIdx = 2 * k;
+               int rightChildIdx = 2 * k+1;
+               if (leftChildIdx < heapSize() && mHeap[smallest].distance > mHeap[leftChildIdx].distance) {
+                   smallest = leftChildIdx;
+               }
+               if (rightChildIdx < heapSize() && mHeap[smallest].distance > mHeap[rightChildIdx].distance) {
+                   smallest = rightChildIdx;
+               }
+               if (smallest != k) {
 
+                   HeapNode smallestNode = mHeap[smallest];
+                   HeapNode kNode = mHeap[k];
 
+                   //swap the positions
+                   indexes[smallestNode.vertex] = k;
+                   indexes[kNode.vertex] = smallest;
+                   swap(k, smallest);
+                   sinkDown(smallest);
+               }
+           }
 
+           public void swap(int a, int b) {
+               HeapNode temp = mHeap[a];
+               mHeap[a] = mHeap[b];
+               mHeap[b] = temp;
+           }
 
+           public boolean isEmpty() {
+               return currentSize == 0;
+           }
 
+           public int heapSize(){
+               return currentSize;
+           }
+       }
+           
+           
+       
+       public void dijkstraGetMinDistances(int sourceVertex){
+           int INFINITY = Integer.MAX_VALUE;
+           boolean[] SPT = new boolean[vertices];
 
+//         //create heapNode for all the vertices
+           HeapNode [] heapNodes = new HeapNode[vertices];
+           for (int i = 0; i <vertices ; i++) {
+               heapNodes[i] = new HeapNode();
+               heapNodes[i].vertex = i;
+               heapNodes[i].distance = INFINITY;
+           }
+           //decrease the distance for the first index
+           heapNodes[sourceVertex].distance = 0;
 
+           //add all the vertices to the MinHeap
+           MinHeap minHeap = new MinHeap(vertices);
+           for (int i = 0; i <vertices ; i++) {
+               minHeap.insert(heapNodes[i]);
+           }
+           //while minHeap is not empty
+           while(!minHeap.isEmpty()){
+               HeapNode extractedNode = minHeap.extractMin();               //extract the min
+               int extractedVertex = extractedNode.vertex;               //extracted vertex
+               SPT[extractedVertex] = true;
 
-//get the vertex with minimum distance which is not included in SPT
-int getMinimumVertex(boolean [] mst, int [] key){
-    int minKey = Integer.MAX_VALUE;
-    int vertex = -1;
-    for (int i = 0; i <vertices ; i++) {
-        if(mst[i]==false && minKey>key[i]){
-            minKey = key[i];
-            vertex = i;
-        }
-    }
-    return vertex;
-}
+               //iterate through all the adjacent vertices
+               LinkedList<Edge> list = adjacencyList[extractedVertex];
+               for (int i = 0; i <list.size() ; i++) {
+                   Edge edge = list.get(i);
+                   int destination = edge.destination;
+                   //only if  destination vertex is not present in SPT
+                   if(SPT[destination]==false ) {
+                       ///check if distance needs an update or not
+                       //means check total weight from source to vertex_V is less than
+                       //the current distance value, if yes then update the distance
+                       int newKey =  heapNodes[extractedVertex].distance + edge.weight ;
+                       int currentKey = heapNodes[destination].distance;
+                       if(currentKey>newKey){
+                           decreaseKey(minHeap, newKey, destination);
+                           heapNodes[destination].distance = newKey;
+                       }
+                   }
+               }
+           }
+           printDijkstra(heapNodes, sourceVertex);
+       }
 
-public void dijkstra_GetMinDistances(int sourceVertex){
-    boolean[] spt = new boolean[vertices];
-    int [] distance = new int[vertices];
-    int INFINITY = Integer.MAX_VALUE;
+       public void decreaseKey(MinHeap minHeap, int newKey, int vertex){
+           int index = minHeap.indexes[vertex];  //get the index which distance's needs a decrease;
+           HeapNode node = minHeap.mHeap[index];           //get the node and update its value
 
-    //Initialize all the distance to infinity
-    for (int i = 0; i <vertices ; i++) {
-        distance[i] = INFINITY;
-    }
+           node.distance = newKey;
+           minHeap.bubbleUp(index);
+       }
 
-    //start from the vertex 0
-    distance[sourceVertex] = 0;
-
-    //create SPT
-    for (int i = 0; i <vertices ; i++) {
-
-        //get the vertex with the minimum distance
-        int vertex_U = getMinimumVertex(spt, distance);
-
-        //include this vertex in SPT
-        spt[vertex_U] = true;
-
-        //iterate through all the adjacent vertices of above vertex and update the keys
-        for (int vertex_V = 0; vertex_V <vertices ; vertex_V++) {
-            //check of the edge between vertex_U and vertex_V
-            if(matrix[vertex_U][vertex_V]>0){
-                //check if this vertex 'vertex_V' already in spt and
-                // if distance[vertex_V]!=Infinity
-
-                if(spt[vertex_V]==false && matrix[vertex_U][vertex_V]!=INFINITY){
-                    //check if distance needs an update or not
-                    //means check total weight from source to vertex_V is less than
-                    //the current distance value, if yes then update the distance
-
-                    int newKey =  matrix[vertex_U][vertex_V] + distance[vertex_U];
-                    if(newKey<distance[vertex_V])
-                        distance[vertex_V] = newKey;
-                }
-            }
-        }
-    }
-    //print shortest path tree
-    printDijkstra(sourceVertex, distance);
-}
-
-public void printDijkstra(int sourceVertex, int [] key){
-    System.out.println("Dijkstra Algorithm: (Adjacency Matrix)");
-    for (int i = 0; i <vertices ; i++) {
-        System.out.println("Source Vertex: " + sourceVertex + " to vertex " +   + i +
-                " distance: " + key[i]);
-    }
-}
-}
-
-
-
-
-
-package tree;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class GraphMain {
-	 public static void main(String[] args) {
-         int vertices = 5;
-         GraphOperation graph = new GraphOperation(vertices);
-         graph.addEdgeToGraph(0, 1, 4);
-         graph.addEdgeToGraph(0, 2, 3);
-         graph.addEdgeToGraph(1, 2, 1);
-         graph.addEdgeToGraph(1, 3, 2);
-         graph.addEdgeToGraph(2, 3, 4);
-         graph.addEdgeToGraph(3, 4, 2);
-         graph.addEdgeToGraph(4, 2, 4);
-         // graph.addEdgeToGraph(4, 1, 4);
-         //graph.addEdgeToGraph(4, 5, 6);
-         graph.printGraph();
-         graph.dfsStack(0);
-          System.out.println(graph.isConnected(0));
-          List<Integer> list=new ArrayList<Integer>();
-         list=graph.reachable(1);
-          for(int i=0;i<list.size();i++)
-          	System.out.println("Reached-->"+list.get(i));
-        System.out.println("Minimum Spanning Tree: ");
-        graph.kruskalMST();
-        List<Edge> edges=new ArrayList<Edge>();
-        edges=graph.kruskalMST();
-     graph.printMSTGraph(edges);
-          
-      
-	   }
-}
-
-
-
-
-
-
-
-
-
-
-
+       public void printDijkstra(HeapNode[] resultSet, int sourceVertex){
+           System.out.println("Dijkstra Algorithm: (Adjacency List + Min Heap)");
+           for (int i = 0; i <vertices ; i++) {
+               System.out.println("Source Vertex: " + sourceVertex + " to vertex " +   + i +
+                       " distance: " + resultSet[i].distance);
+           }
+       }
+   }
+ 
+   
