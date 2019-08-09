@@ -75,11 +75,11 @@ public class LinkedListOperation {
 	 * @param pivot is the reference of pivot node
 	 */
 	private void addLast(Node sortedLeft, Node pivot) {
-		Node tmp = sortedLeft;
-		while (tmp.next != null) {
-			tmp = tmp.next;
+		Node temporary = sortedLeft;
+		while (temporary.next != null) {
+			temporary = temporary.next;
 		}
-		tmp.next = pivot;
+		temporary.next = pivot;
 	}
 
 	/**
@@ -89,13 +89,13 @@ public class LinkedListOperation {
 	private void cutPivot(Node leftHalf) {
 		if (leftHalf == null || leftHalf.next == null)
 			return;
-		Node tmp = leftHalf;
-		Node prev = null;
-		while (tmp.next != null) {
-			prev = tmp;
-			tmp = tmp.next;
+		Node temporary = leftHalf;
+		Node previous = null;
+		while (temporary.next != null) {
+			previous = temporary;
+			temporary = temporary.next;
 		}
-		prev.next = null;
+		previous.next = null;
 	}
 /**
  * This method finds the tail of the list when its head is passed
@@ -103,10 +103,10 @@ public class LinkedListOperation {
  * @return the reference of tail node
  */
 	private Node findTail(Node head) {
-		Node tmp = head;
-		while (tmp.next != null)
-			tmp = tmp.next;
-		return tmp;
+		Node temporary = head;
+		while (temporary.next != null)
+			temporary = temporary.next;
+		return temporary;
 	}
 
 	/**
@@ -139,10 +139,10 @@ public class LinkedListOperation {
 					actualHead = head.next;
 				}
 				// adding at tail
-				Node tmp = head;
+				Node temporary = head;
 				head = head.next;
-				tmp.next = null;
-				newTail.next = tmp;
+				temporary.next = null;
+				newTail.next = temporary;
 				newTail = newTail.next;
 
 			}
