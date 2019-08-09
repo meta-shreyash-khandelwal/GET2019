@@ -126,10 +126,16 @@ public class LinkedListOperation {
 		// tail node is pivot
 		while (head != tail) {
 			// all the nodes should be left of pivot which are less than pivot
-			if (head.object.getSalary() >= tail.object.getSalary()) {
+			if (head.object.getSalary() > tail.object.getSalary()) {
 				previous = head;
 				head = head.next;
 			}
+			else if ((head.object.getSalary() == tail.object.getSalary())&& (head.object.getAge() < tail.object.getAge()))
+				{	//System.out.println(":HI");
+				previous = head;
+				head = head.next;
+			}
+				
 			// all the nodes should be right of pivot
 			else {
 				// remove head node and add at tail
