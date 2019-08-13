@@ -1,0 +1,134 @@
+/*Part 1(a) */
+create database StoreFront;
+
+use StoreFront;
+
+
+create table Administrator
+(AdminID varchar(6) Not Null Primary KEY,
+AdminName varchar(20),
+Password Binary(20) Not Null);
+
+
+
+create table Store
+(domain varchar(20),
+AdminID varchar(6),
+FOREIGN KEY (AdminID) references Administrator(AdminID));
+
+
+create table Category
+(CategoryID varchar(10),
+CategoryName varchar(25),
+ParentCategoryTitle varchar(25),
+PRIMARY KEY(CategoryID));
+
+
+
+
+create table Products /*Part 1(d) */ 
+(ProductID varchar(6) Not NULL,
+ProductName varchar(20),
+Description varchar(80),
+CategoryName varchar(20),
+Price int,
+Quantity int,
+StockStatus bool,
+CategoryID varchar(10),
+PRIMARY KEY(ProductID),
+FOREIGN KEY (CategoryID) references Category(CategoryID));
+
+
+
+create table Images
+(ImageID varchar(10),
+ImageSize int,
+ImageCategory varchar(20),
+ImageData blob,
+ProductID varchar(6) NOT NULL,
+PRIMARY KEY(ImageID),
+FOREIGN KEY(ProductID) references Products(ProductID)
+);
+
+create table Shopper
+(
+ShopperID varchar(10),
+ShopperName varchar(30),
+Contact varchar(10),
+Email varchar(20),
+LoginPassword varchar(15),
+PRIMARY KEY(ShopperID)
+);
+
+
+
+create table Orders
+(OrderID varchar(10),
+OrderStatus varchar(20),
+Date  DATE,
+ShippingAddress varchar(100),
+ShoppperIDR varchar(10),
+PRIMARY KEY(OrderID),
+FOREIGN KEY(ShoppperIDR) references Shopper(ShopperID)
+);
+
+create table ShopperAddress
+(AddressId varchar(10),
+ShopperID varchar(20) NOT NULL,
+ShippingAddress varchar(100),
+PRIMARY KEY(AddressId),
+FOREIGN KEY(ShopperID) references Shopper(ShopperID)
+);
+
+
+create table Cart
+(
+ItemID varchar(10) NOT NULL,
+OrderID varchar(10),
+ProductID varchar(10),
+Quantity int,
+Amount int,
+Shipped bool,
+Returned bool,
+Cancelled bool,
+PRIMARY KEY(ItemID),
+FOREIGN KEY(OrderID) references Orders(OrderID),
+FOREIGN KEY(ProductID) references Products(ProductID)
+);
+
+create table Payment
+(
+PaymentID varchar(10),
+PaymentStatus bool,
+amount int,
+PaymentType varchar(20),
+ShopperIDR varchar(10) NOT NULL,
+OrderIDR varchar(10),
+PaymentDate date,
+PRIMARY KEY (PaymentID),
+FOREIGN KEY (ShopperIDR) references Shopper(ShopperID),
+FOREIGN KEY (OrderIDR) references Orders(OrderID)
+);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+show tables;/*Part 1(b) */   
+
+SET FOREIGN_KEY_CHECKS=0;
+drop table Products;/*Part 1(c) */ 
+
+
+create table Products /*Part 1(d) */ 
+(ProductID varchar(6) Not NULL,
+ProductName varchar(20),
+Description varchar(80),
+CategoryName varchar(20),
+Price int,
+Quantity int,
+StockStatus bool,
+CategoryID varchar(10),
+PRIMARY KEY(ProductID),
+FOREIGN KEY (CategoryID) references Category(CategoryID));
+
+
+
