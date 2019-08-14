@@ -64,7 +64,6 @@ PRIMARY KEY(ShopperID)
 
 create table Orders
 (OrderID varchar(10),
-OrderStatus varchar(20),
 Date  DATE,
 ShippingAddress varchar(100),
 ShoppperIDR varchar(10),
@@ -87,7 +86,8 @@ ItemID varchar(10) NOT NULL,
 OrderID varchar(10),
 ProductID varchar(10),
 Quantity int,
-Amount int,
+amount int,
+OrderDate Date,
 Shipped bool,
 Returned bool,
 Cancelled bool,
@@ -110,7 +110,7 @@ FOREIGN KEY (ShopperIDR) references Shopper(ShopperID),
 FOREIGN KEY (OrderIDR) references Orders(OrderID)
 );
 
-SET FOREIGN_KEY_CHECKS=1;
+SET FOREIGN_KEY_CHECKS=0;
 
 show tables;/*Part 1(b) */   
 
