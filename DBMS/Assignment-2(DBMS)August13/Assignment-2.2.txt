@@ -1,15 +1,12 @@
-
-
-
 /*Part 2(a)*/
 use StoreFront;
 
 insert into Administrator(AdminID,AdminName,Password) values 
 ('a001' ,'Shreyash','1234');
 
-
 insert into Store(domain,AdminID)
 values ('www.shoppingCart.com','a001');
+
 
 insert into Category(CategoryID,CategoryName,ParentCategoryTitle)
 values ('c001','Computer','TopCategory');
@@ -32,30 +29,40 @@ values ('c009','Electronics','TopCategory');
 insert into Category(CategoryID,CategoryName,ParentCategoryTitle)
 values ('c010','Headphones','Electronics');
 insert into Category(CategoryID,CategoryName,ParentCategoryTitle)
-values ('c011','Men','Clothing');
+values ('c010','Mobile','Electronics');
+insert into Category(CategoryID,CategoryName,ParentCategoryTitle)
+values ('c012','Men','Clothing');
+
+select * from Category;
+
+/*
 
 
-select * from category;
+select * from Products;
+SET FOREIGN_KEY_CHECKS=1;
 
+*/
 
-
-
-
-insert into Products(ProductID,ProductName,Description,Price,Quantity,StockStatus,CategoryID)
-values ('p001','MI NOTE 8','It is a smartphone with full functionality','25000','120',true,'c001');
-insert into Products(ProductID,ProductName,Description,Price,Quantity,StockStatus,CategoryID)
-values ('p002','Swiss Watch','It is a smartphone with full functionality','215000','20',true,'c002');
-insert into Products(ProductID,ProductName,Description,Price,Quantity,StockStatus,CategoryID)
-values ('p003','MonteCarle T-shirt','It is a branded T-shirt','5000','40',true,'c011');
-insert into Products(ProductID,ProductName,Description,Price,Quantity,StockStatus,CategoryID)
-values ('p004','WomanJeans Denim','These include denim jean for woman','1000','200',true,'c005');
-insert into Products(ProductID,ProductName,Description,Price,Quantity,StockStatus,CategoryID)
-values ('p005','Samsung Memeory Card','It is for storing data','900','10',true,'c003');
-insert into Products(ProductID,ProductName,Description,Price,Quantity,StockStatus,CategoryID)
-values ('p006','Acer Mouse','It is a mouse for computer','500','400',true,'c002');
-insert into Products(ProductID,ProductName,Description,Price,Quantity,StockStatus,CategoryID)
-values ('p007','UCM Formal-shirt','It is a formal shirt','6000','0',false,'c007');
-
+insert into Products(ProductID,ProductName,Description,CategoryName,Price,Quantity,StockStatus,CategoryID)
+values ('p001','MI NOTE 8','It is a smartphone with full functionality','Mobile','25000','120',true,'c010');
+insert into Products(ProductID,ProductName,Description,CategoryName,Price,Quantity,StockStatus,CategoryID)
+values ('p002','MonteCarle T-shirt','It is a branded T-shirt','T-Shirt','5000','540',true,'c008');
+insert into Products(ProductID,ProductName,Description,CategoryName,Price,Quantity,StockStatus,CategoryID)
+values ('p003','WomanJeans Levis','These include denim jean for woman','Women','1000','20',true,'c005');
+insert into Products(ProductID,ProductName,Description,CategoryName,Price,Quantity,StockStatus,CategoryID)
+values ('p004','Samsung Memeory Card','It is for storing data','MemoryCard','900','10',true,'c003');
+insert into Products(ProductID,ProductName,Description,CategoryName,Price,Quantity,StockStatus,CategoryID)
+values ('p005','Acer Mouse','It is a mouse for computer','Accesories','500','400',true,'c002');
+insert into Products(ProductID,ProductName,Description,CategoryName,Price,Quantity,StockStatus,CategoryID)
+values ('p006','UCM Formal-shirt','It is a formal shirt','FormalShirt','6000','0',false,'c007');
+insert into Products(ProductID,ProductName,Description,CategoryName,Price,Quantity,StockStatus,CategoryID)
+values ('p007','Lenovo Notebook 550','It is a laptop i5 ','Computer','78500','40',true,'c001');
+insert into Products(ProductID,ProductName,Description,CategoryName,Price,Quantity,StockStatus,CategoryID)
+values ('p008','Samsung M30','It a Samsung based high quality smartphone','Mobile','13500','0',false,'c010');
+insert into Products(ProductID,ProductName,Description,CategoryName,Price,Quantity,StockStatus,CategoryID)
+values ('p009','Asus Mouse','It a good Mouse','Accesories','40','100',true,'c002');
+insert into Products(ProductID,ProductName,Description,CategoryName,Price,Quantity,StockStatus,CategoryID)
+values ('p010','LAN wire','It a wire for LAN','Accesories','30','200',true,'c002');
 
 
 
@@ -89,15 +96,19 @@ Values
 select * from shopperaddress;
 
 
-
-
-INSERT INTO orders(OrderID,OrderStatus,Date,ShippingAddress,ShoppperIDR)
+INSERT INTO orders(OrderID,Date,ShippingAddress,ShoppperIDR)
 VALUES
-('o001','In Process','2019-08-13','Shastri Nagar,Jaipur','s001'),
-('o002','Shipped','2019-08-10','Shastri Nagar,Jaipur','s002'),
-('o003','Returned','2019-08-3','Shastri Nagar,Jaipur','s003'),
-('o004','Shippped','2019-08-2','Shastri Nagar,Jaipur','s004'),
-('o005','Completed','2019-08-1','Shastri Nagar,Jaipur','s005');
+('o001','2019-07-27','Shastri Nagar,Jaipur','s001'),
+('o002','2019-08-13','Mansarovar,Jaipur','s002'),
+('o003','2019-07-1','Raja Park,Jaipur','s003'),
+('o004','2019-08-2','Jagatpura,Jaipur','s004'),
+('o005','2019-07-1','Shastri Nagar,Jaipur','s001'),
+('o006','2019-08-13','Shastri Nagar,Jaipur','s001'),
+('o007','2019-08-12','Malviya,Jaipur','s002'),
+('o008','2019-07-1','Shastri Nagar,Jaipur','s002'),
+('o009','2019-08-3','Tonk Phatak,Jaipur','s003'),
+('o010','2019-07-20','Raja Park,Jaipur','s003'),
+('o011','2019-08-1','Shastri Nagar,Jaipur','s004');
 
 
 select * from orders;
@@ -105,46 +116,71 @@ select * from orders;
 
 INSERT INTO cart(ItemID,OrderID,ProductID,Quantity,Amount,Shipped,Returned,Cancelled)
 VALUES
-('i001','o001','p001','5','64560','1','0','0'),
-('i002','o001','p002','2','64560','1','0','0'),
-('i003','o001','p003','5','64560','1','0','0'),
-('i004','o002','p001','15','64560','0','1','0'),
-('i005','o003','p008','1','64560','0','0','1'),
-('i006','o004','p011','1','64560','1','0','0'),
-('i007','o004','p003','2','64560','1','0','0'),
-('i008','o004','p005','10','64560','1','0','0');
+('i001','o001','p001','5','25000','0','0','1'),
+('i002','o001','p010','2','30','1','0','0'),
+('i003','o001','p005','5','500','1','0','0'),
+('i004','o002','p004','1','900','0','1','0'),
+('i005','o003','p007','1','78500','0','0','1'),
+('i006','o004','p009','3','40','1','0','0'),
+('i007','o011','p001','2','25000','1','0','0'),
+('i008','o004','p010','30','64560','1','0','0');
+
 
 select * from cart;
 
 
 INSERT INTO images(ImageID,ImageSize,ImageCategory,ImageData,ProductID)
 VALUES
-('i001','500','.jpg','data','p001'),
-('i002','500','.jpg','data','p001'),
-('i003','500','.jpg','data','p002'),
-('i004','500','.jpg','data','p003');
+('i001','500','.jpg','c\:images\frog.png','p001'),
+('i002','500','.jpg','c\:images\img1.png','p001'),
+('i003','500','.jpg','c\:images\img2.png','p002'),
+('i004','500','.jpg','c\:images\img3.png','p003');
 
+select * from images;
 
 
 
 
 /*Part 2(b)*/
 
-select ProductID,ProductName,Price,Quantity,StockStatus,CategoryName
+select ProductID,ProductName,CategoryName,Price
 from Products
 where StockStatus=true;
 
+/*Part 2(c)*/
+
+select Products.ProductName
+from Products
+left join images
+on images.ProductID=Products.ProductID
+where images.ImageID IS null;
+
+/*Part 2(d)*/
+select CategoryID,CategoryName,ParentCategoryTitle
+from Category
+order by ParentCategoryTitle,CategoryName;
+
+
+/*Part 2(e)* NOT (ParentCategoryTitle='TopCategory') and */
+select CategoryID,CategoryName
+from Category
+where NOT CategoryName IN
+(select ParentCategoryTitle 
+from Category);
 
 
 
 
 
+/*Part 2(f)*/
+select ProductName,Description,price
+from Products
+where CategoryName='Mobile';
 
 
 
-
-
-
-
-
+/*Part 2(g)*/
+select ProductName,Price,Description,CategoryName,Quantity
+from Products
+where Quantity<='50';
 
