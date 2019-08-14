@@ -1,0 +1,81 @@
+
+use StoreFront;
+/*Part 3(a)*/
+select orders.OrderID,orders.Date,sum(cart.Amount*cart.Quantity) as Amount
+from Orders
+inner join cart on
+orders.OrderID=cart.OrderID
+group by orders.OrderID
+order by orders.date desc
+limit 5;
+
+
+
+/*Part 3(b)*/
+select orders.OrderID,orders.Date,sum(cart.Amount*cart.Quantity) as Amount
+from Orders
+inner join cart on
+orders.OrderID=cart.OrderID
+group by orders.OrderID
+order by Amount desc
+limit 3;
+
+
+
+
+/*Part 3(c)*/
+select orders.OrderID
+from Orders
+inner join cart on
+orders.OrderID=cart.OrderID
+where (cart.Shipped=false)
+AND DATEDIFF(CURRENT_DATE(),orders.date)>10;
+
+
+/*Part 3(d)*/
+select Shopper.ShopperName
+from Shopper
+left join orders on
+orders.ShoppperIDR=Shopper.ShopperID
+where orders.ShoppperIDR IS NULL;
+
+
+/*Part 3(e)*/
+select Shopper.ShopperName,orders.OrderID
+from Shopper
+left join orders on
+orders.ShoppperIDR=Shopper.ShopperID
+where DATEDIFF(CURRENT_DATE(),orders.Date)>15;
+
+
+
+
+
+/*Part 3(f)*/
+select orders.OrderID,orders.Date,sum(cart.Amount*cart.Quantity) as Amount
+from Orders
+inner join cart on
+orders.OrderID=cart.OrderID
+group by orders.OrderID
+order by Amount desc
+limit 3;
+
+
+
+
+
+/*Part 3(g)*/
+select orders.OrderID
+from Orders
+inner join cart on
+orders.OrderID=cart.OrderID
+group by orders.OrderID
+order by Amount desc
+limit 3;
+
+
+
+
+
+
+
