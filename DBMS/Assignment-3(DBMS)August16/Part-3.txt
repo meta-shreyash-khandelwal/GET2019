@@ -53,20 +53,13 @@ GROUP BY DATE_FORMAT(orders.date, "%m-%Y") ;
 
 /*Part-3(e)*/
 
+
+SET SQL_SAFE_UPDATES = 0;
+
 update products
 left join cart on
 cart.productid=products.productid
-set products.stockstatus=false;
-
-
-select * from products;
-
-
-
-select products.productid,products.productname,cart.orderid,products.stockstatus
-from products
-left join cart on
-cart.productid=products.productid
+set products.stockstatus=false
 where cart.orderid is null;
 
 
