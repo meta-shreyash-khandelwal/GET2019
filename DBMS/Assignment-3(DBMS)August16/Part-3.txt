@@ -1,0 +1,93 @@
+use StoreFront;
+
+
+
+/*Part-3(a)*/
+select shopper.ShopperID, shopper.ShopperName, shopper.Contact, shopper.Email,count(orders.orderID) as NoOfProducts
+from shopper
+inner join orders on
+orders.ShoppperIDR = shopper.ShopperID
+where DATEDIFF(CURRENT_DATE(),orders.Date)<30
+group by shopper.ShopperID;
+
+
+
+
+
+/*Part-3(b)*/
+
+select orders.shoppperIDR,shopper.shoppername,shopper.contact,shopper.email,orders.orderid, sum(cart.Amount*cart.Quantity) as Amount
+from Orders
+right join shopper on
+shopper.shopperID=orders.shoppperIDR
+inner join cart on
+orders.OrderID=cart.OrderID
+where cart.shipped=true AND  DATEDIFF(CURRENT_DATE(),orders.Date)<30
+group by orders.shoppperIDR
+order by amount desc
+limit 10;
+
+/*Part-3(c)*/
+
+select (cart.productid),products.productname,count(cart.orderID) as NoOfProducts
+from cart
+inner join products on
+products.productid=cart.productid
+where shipped=true
+group by productid
+order by NoOfProducts desc
+limit 3;
+
+
+
+
+/*Part-3(d)*/
+SELECT DATE_FORMAT(orders.date, "%m-%Y") AS Month,sum(cart.Amount*cart.Quantity) as MonthlySales
+FROM orders
+inner join cart on
+orders.orderid=cart.orderid
+where cart.shipped=true
+GROUP BY DATE_FORMAT(orders.date, "%m-%Y") ;
+
+
+
+/*Part-3(e)*/
+
+update products
+left join cart on
+cart.productid=products.productid
+set products.stockstatus=false;
+
+
+select * from products;
+
+
+
+select products.productid,products.productname,cart.orderid,products.stockstatus
+from products
+left join cart on
+cart.productid=products.productid
+where cart.orderid is null;
+
+
+
+
+
+/*Part-3(f)*/
+select products.productid,products.productname 
+from products
+where categoryname like 'M%';
+
+
+
+
+/*Part-3(g)*/
+select products.productname
+from products
+inner join cart on
+products.productid=cart.productid
+where cart.cancelled=true
+limit 1;
+
+
+

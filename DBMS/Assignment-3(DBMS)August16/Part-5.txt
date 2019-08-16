@@ -1,0 +1,39 @@
+use StoreFront;
+
+
+
+
+/*Part-5(a)*/
+create view orderview as
+select cart.itemid,cart.orderid,products.productname,products.price,shopper.shoppername,shopper.email,orders.date,cart.shipped,cart.returned,cart.cancelled
+from cart
+inner join orders on
+cart.orderid=orders.orderid
+inner join shopper on
+shopper.shopperid=orders.shoppperidr
+inner join products on
+products.productid=cart.productid
+where DATEDIFF(CURRENT_DATE(),orders.Date)<60;
+
+
+
+/*Part-5(b)*/
+select productname 
+from orderview
+where shipped=true;
+
+/*Part-5(c)*/
+select productname,count(productname) as NoOfProductsSold
+from orderview
+group by productname
+order by NoOfProductsSold desc
+limit 5;
+
+
+
+
+
+
+
+
+
