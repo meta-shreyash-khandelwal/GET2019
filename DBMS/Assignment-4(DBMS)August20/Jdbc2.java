@@ -13,23 +13,18 @@ public class Jdbc2 {
         {
             connectionQuery();
 
-            PreparedStatement statement =  connect.prepareStatement("select orders.orderid,orders.date,sum(cart.Amount*cart.Quantity) as Amount "
-            		+ "from Orders	inner join cart on orders.OrderID=cart.OrderID where cart.shipped=true "
-            		+ "and orders.shoppperidr='s004' "
-            		+ "group by orders.orderid"
-            		+ " order by orders.date");/*write query inside of prepared statement*/
-           
+            String sqlQuery="select count(categoryname) as child,parentcategorytitle from category where parentcategorytitle in ( select categoryname from category where parentcategorytitle ='Topcategory') group by parentcategorytitle";
+            
+            PreparedStatement statement =  connect.prepareStatement(sqlQuery);
             ResultSet result = statement.executeQuery();
-            System.out.println("ORDERID\t"+" DATE\t"+"\tCartAmount");
+            System.out.println("Parent Category Title\t"+"Child Count");
 
             while(result.next())
             {
-               String retrievedid= result.getString("orders.orderid");
-               String retrievedid1= result.getString("orders.date");
-               String retrievedid2= result.getString("Amount");
+               String retrievedid1= result.getString("parentcategorytitle");
+               String retrievedid2= result.getString("child");
                
-               System.out.print(retrievedid+"\t");
-               System.out.print(retrievedid1+" \t");
+               System.out.print(retrievedid1+"\t\t");
                System.out.println(retrievedid2);
             }
 
