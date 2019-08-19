@@ -21,11 +21,11 @@ public class Jdbc4 {
          
          String sqlQuery="delete from products where products.productid"
             		+ " in(select * from (select products.productid from products left join cart on "
-            		+ "cart.productid=products.productid where cart.orderid is null)as t);";
+            		+ "cart.productid=products.productid where cart.orderid is null)as t);";//To prevent post delete update select * is used in front
       
             PreparedStatement statement = connect.prepareStatement(sqlQuery);
               
-            int numRowsAffected = statement.executeUpdate(sqlQuery);
+            int numRowsAffected = statement.executeUpdate(sqlQuery);//Returns the total number of rows deleted
             connect.close();//Closing the connection
         System.out.println("The total number of records deleted are "+numRowsAffected);
          }
