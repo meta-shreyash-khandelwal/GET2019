@@ -3,6 +3,7 @@ package dbms;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Jdbc4 {
@@ -10,34 +11,24 @@ public class Jdbc4 {
   public static void main(String[] argv) {
       try
         {
-            connectionQuery();
-            String sqlQuery="insert into images(ImageID,ImageSize,ImageCategory,ImageData,ProductID) values(?,?,?,?,?)";
+         connectionQuery();
+   
+         String sqlQuery1="SET FOREIGN_KEY_CHECKS=0";;
+   
+         PreparedStatement statement1 = connect.prepareStatement(sqlQuery1);
+         
+         statement1.executeUpdate(sqlQuery1);
+         
+         String sqlQuery="delete from products where products.productid"
+            		+ " in(select * from (select products.productid from products left join cart on "
+            		+ "cart.productid=products.productid where cart.orderid is null)as t);";
       
             PreparedStatement statement = connect.prepareStatement(sqlQuery);
-            
-            for(int i=1; i<=5;i++){
-            	statement.setString(1,"i00"+(i+5));
-            	statement.setInt(2,100);
-            	statement.setString(3,".jpg");
-            	statement.setString(4,"c/:images/image"+i+".jpg");
-            	statement.setString(5,"p008");
-            	statement.addBatch();
-            }
-            try {
-                // Batch is ready, execute it to insert the data
-            	statement.executeBatch();
-            } catch (SQLException e) {
-                System.out.println("Error message:--> " + e.getMessage());
-                return; // Exit if there was an error
-            }
- 
-            
-            
-            
-            
-
+              
+            int numRowsAffected = statement.executeUpdate(sqlQuery);
             connect.close();//Closing the connection
-        }
+        System.out.println("The total number of records deleted are "+numRowsAffected);
+         }
 
         catch(Exception e)
         {
