@@ -1,0 +1,55 @@
+
+
+/*Part-2(a)*/
+
+ DELIMITER //
+ CREATE PROCEDURE getAverageSales(in month_f int,in year_f int)
+   BEGIN
+   select avg(cart.amount*cart.quantity) as averagesales
+from cart
+inner join orders on
+orders.orderid=cart.orderid
+where month(orders.date)=month_f and year(orders.date)=year_f
+group by cart.productid;
+   END //
+ DELIMITER ;
+
+
+call getAverageSales('8','2019');/* calling*/
+
+
+
+
+/*Part-2(b)*/
+drop procedure getOrderStatus;
+
+
+DELIMITER //
+ CREATE PROCEDURE getOrderStatus(in startDate date,in endDate date)
+BEGIN
+#if(startDate>endDate)
+#print 'not possible';
+   select 'YOUR MESSAGE HERE'  ;
+select orders.date,orders.orderid,cart.itemid,
+case
+when cart.shipped=true then "Shipped"
+when cart.returned=true then "Returned"
+when cart.cancelled=true then "Cancelled"
+else ""
+end
+from cart 
+inner join orders on
+orders.orderid=cart.orderid
+where orders.date>=startDate and orders.date<=endDate;
+   END //
+ DELIMITER ;
+
+
+call getOrderStatus('2019-07-01','2019-07-27');
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+use storefront;
+
+/*Part-1(a)*/
+
+DELIMITER //
+create function noOfOrders( month_f int,year_f int) returns int deterministic
+begin
+declare total int;
+select count(orders.orderid)
+from Orders
+where year(date)=year_f and month(date)= month_f into total;
+return total;
+end;
+//
+DELIMITER ;
+
+
+select noOfOrders('8','2019') as totalorders;
+
+
+
+/*Part-1(b)*/
+drop function monthoftheyear;
+
+DELIMITER //
+create function monthoftheyear(year_f int) returns int deterministic
+begin
+declare monthinyear int;
+select max(mycount)from
+(select count(orders.orderid) as mycount,month(date) as mymonth
+from Orders
+where year(date)=year_f
+group by month(date)
+) as T into monthinyear;
+return monthinyear;
+end;
+//
+DELIMITER ;
+
+
+select monthoftheyear('2019') as totalorders;/* calling*/
+
+
