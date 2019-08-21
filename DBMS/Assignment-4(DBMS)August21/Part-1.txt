@@ -20,24 +20,24 @@ select noOfOrders('8','2019') as totalorders;
 
 
 /*Part-1(b)*/
-drop function monthoftheyear;
 
 DELIMITER //
 create function monthoftheyear(year_f int) returns int deterministic
 begin
 declare monthinyear int;
-select max(mycount)from
-(select count(orders.orderid) as mycount,month(date) as mymonth
+select mymonth as monthinyear
+from(select count(orders.orderid) as mycount,month(date) as mymonth
 from Orders
-where year(date)=year_f
+where year(date)='2019' 
 group by month(date)
-) as T into monthinyear;
+) as T
+order by mycount desc
+limit 1 into monthinyear;
 return monthinyear;
 end;
 //
 DELIMITER ;
 
 
-select monthoftheyear('2019') as totalorders;/* calling*/
-
+select monthoftheyear('2019') as  monthHavingOrder;/* calling*/
 
