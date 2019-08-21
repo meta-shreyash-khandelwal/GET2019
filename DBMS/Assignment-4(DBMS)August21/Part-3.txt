@@ -1,1 +1,22 @@
 /*Part-3(a)*/
+create index orderIndex on orders(ShoppperIDR);
+SHOW INDEX FROM orders;
+explain select orderID from orders where shoppperIDR='s0001';
+
+
+
+/*Part-3(b)*/
+explain select productID from products where categoryName='Accesories';#Took 10 rows for searching
+create index categoryIndex on products(categoryID);
+create index nameCategoryIndex on products(categoryName);
+SHOW INDEX FROM products;
+explain select productID from products where categoryName='Accesories';#Took just 3 rows
+
+
+
+
+/*Part-3(c)*/
+explain select ParentCategoryTitle from category where CategoryName='Shirt';#Took 10 rows for searching 
+create index nameIndex on category(categoryName);
+SHOW INDEX FROM category;
+explain select ParentCategoryTitle from category where CategoryName='Shirt';#Took just 1 row for searching
