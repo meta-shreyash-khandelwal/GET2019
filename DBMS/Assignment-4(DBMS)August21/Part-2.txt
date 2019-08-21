@@ -12,7 +12,7 @@ orders.orderid=cart.orderid
 where month(orders.date)=month_f and year(orders.date)=year_f
 group by cart.productid;
    END //
- DELIMITER ;cart
+ DELIMITER ;
 
 
 call getAverageSales('8','2019');/* calling*/
