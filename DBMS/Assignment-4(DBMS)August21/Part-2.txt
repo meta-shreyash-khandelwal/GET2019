@@ -1,4 +1,4 @@
-
+use storefront;
 
 /*Part-2(a)*/
 
@@ -12,7 +12,7 @@ orders.orderid=cart.orderid
 where month(orders.date)=month_f and year(orders.date)=year_f
 group by cart.productid;
    END //
- DELIMITER ;
+ DELIMITER ;cart
 
 
 call getAverageSales('8','2019');/* calling*/
@@ -20,16 +20,17 @@ call getAverageSales('8','2019');/* calling*/
 
 
 
+
+
 /*Part-2(b)*/
-drop procedure getOrderStatus;
 
 
 DELIMITER //
  CREATE PROCEDURE getOrderStatus(in startDate date,in endDate date)
 BEGIN
-#if(startDate>endDate)
-#print 'not possible';
-   select 'YOUR MESSAGE HERE'  ;
+if(startDate>endDate) then
+SET startDate= DATE_ADD(DATE_ADD(LAST_DAY(startDate),INTERVAL 1 DAY),INTERVAL - 1 MONTH);/* Put startdate as 1st day of month if its greater than end date*/
+end if;
 select orders.date,orders.orderid,cart.itemid,
 case
 when cart.shipped=true then "Shipped"
@@ -45,11 +46,6 @@ where orders.date>=startDate and orders.date<=endDate;
  DELIMITER ;
 
 
-call getOrderStatus('2019-07-01','2019-07-27');
-
-
-
-
-
+call getOrderStatus('2019-07-30','2019-07-27');/*Calling */
 
 
