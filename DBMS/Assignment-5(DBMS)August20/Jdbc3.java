@@ -1,6 +1,4 @@
 package dbms;
-
-import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -10,7 +8,7 @@ public class Jdbc3 {
   public static void main(String[] argv) {
       try
         {
-            connectionQuery();
+    	  connect=JDBCConnection.connectionQuery("storefront", "root", "root");
             String sqlQuery="insert into images(ImageID,ImageSize,ImageCategory,ImageData,ProductID) values(?,?,?,?,?)";
       
             PreparedStatement statement = connect.prepareStatement(sqlQuery);
@@ -30,13 +28,7 @@ public class Jdbc3 {
                 System.out.println("Error message:--> " + e.getMessage());
                 return; // Exit if there was an error
             }
- 
-            
-            
-            
-            
-
-            connect.close();//Closing the connection
+             connect.close();//Closing the connection
         }
 
         catch(Exception e)
@@ -46,33 +38,4 @@ public class Jdbc3 {
         }
   }
 
-  public static void connectionQuery()
-  {
-        try
-        {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/storefront","root","root");
-            System.out.println("Remote DB connection established");
-        }
-        catch (ClassNotFoundException e)
-        {
-            e.printStackTrace();
-            System.out.println("Remote server could not be connected");
-        }
-        catch (NullPointerException e)
-        {
-            e.printStackTrace();
-            System.out.println("Remote server could not be connected");
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-            System.out.println("Remote db connection establishment error");
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-            System.out.println("False query");
-        }
-    }
 }
