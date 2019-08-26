@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css1.css">
+</head>
+<body> 
+<h1 id="main">Metacube Parking System</h1>
+<hr>
+<div align="center" class="division1" id="firstForm">
+<form  name="employee" action="" onsubmit="checkForm()" >
+<h2>
+Employee Registration Form
+</h2>
+<br>
+<label ><b>Name</b></label>
+<input name="name" type="text" placeholder="Enter complete name">
+<br><br>
+<label><b>Gender</b></label>
+
+<label>
+<input type="radio" name="gender" value="Male">Male
+</label>
+<label>
+<input type="radio" name="gender" value="Female" >Female
+</label>
+<br><br>
+
+<label><b>Email - ID</b></label>
+<input name="email" type="email" placeholder="Enter Email" >
+<br><br>
+
+
+<label><b>Password</b></label>
+<input name="password" type="password" placeholder="Enter Password">
+<br><br>
+<label><b>Confirm Password</b></label>
+<input type="password" placeholder="Confirm Password">
+<br><br>
+<label><b>Contact Number</b></label>
+<input type="number" name="contact" placeholder="Enter Contact Number">
+<br><br>
+<input type="submit" value="Register">
+<br><br>
+
+
+</form>
+</div>
+
+<div align="center" class="division2" id="secondForm">
+<form action="" onsubmit="show2()">
+<h2>
+Vehicle Registration Form
+</h2>
+<br>
+<label><b>Name</b></label>
+<input type="text" placeholder="Enter complete name">
+<br><br>
+<label><b>Type</b></label>
+<select id="opted" name="opt">
+<option value="cycle">Cycle</option>
+<option value="motor">MotorCycle</option>
+<option  value="car" selected>Four Wheeler</option>
+</select>
+<br><br>
+
+<label><b>Vehicle Number</b></label>
+<input type="text" placeholder="Enter Vehicle Number">
+<br><br>
+
+<label ><b>Employee ID</b></label>
+<input id="employee" type="text" readonly>
+<br><br>
+
+<label><b>Identification</b></label>
+<textarea rows="6"> 
+</textarea>
+<br><br>
+<input type="submit" value="Register Vehicle & Select Pass">
+<br><br>
+
+</form>
+</div >
+<div id="cyclepass" align="center">
+<h3>The pass prices for the Cycle are as follows</h3><br>
+<h4>Select any one of the following </h4>
+<label>
+<input type="radio" name="cyclepass" value="dailyc">Daily - Rs.5  <br><br>
+</label>
+
+<label>
+<input type="radio" name="cyclepass" value="monthlyc">Monthly - Rs.100  <br><br>
+</label>
+
+
+<label>
+<input type="radio" name="cyclepass" value="yearlyc">Yearly - Rs.500  <br><br>
+</label>
+<button id="btn"> Get Pass </button>
+</div>
+
+
+<div id="motorpass" align="center">
+<h3>The pass prices for the MotorCycle are as follows</h3><br>
+<h4>Select any one of the following </h4>
+<label>
+<input type="radio" name="motorpass" value="dailym">Daily - Rs.10 <br><br>
+</label>
+
+<label>
+<input type="radio" name="motorpass" value="monthlym">Monthly - Rs.200 <br><br>
+</label>
+
+
+<label>
+<input type="radio" name="motorpass" value="yearlym">Yearly - Rs.1000 <br><br>
+</label>
+<button id="btn"> Get Pass </button>
+</div>
+
+
+
+<div id="fourpass" align="center">
+<h3>The pass prices for the Four-Wheeler are as follows</h3><br>
+<h4>Select any one of the following </h4>
+<label>
+<input type="radio" name="fourpass" value="dailyf">Daily - Rs.20  <br><br>
+</label>
+
+<label>
+<input type="radio" name="fourpass" value="monthlyf">Monthly - Rs.500  <br><br>
+</label>
+
+
+<label>
+<input type="radio" name="fourpass" value="yearlyf">Yearly - Rs.3500  <br><br>
+</label>
+<button id="btn"> Get Pass </button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script> 
+    function show() { 
+	document.getElementById('firstForm').innerHTML=''; 
+   alert("Employee ID - E001/01");
+    document.getElementById('secondForm').style.display='block'; 
+    document.getElementById('employee').value='E001/01';
+    }   
+</script> 
+<script> 
+
+    function show2() { 
+	 
+var x =document.getElementById('opted').value;
+document.getElementById('secondForm').innerHTML=''; 
+if(x=="cycle")
+{
+ document.getElementById('cyclepass').style.display='block'; 
+}
+else if(x=="motor")
+{
+ document.getElementById('motorpass').style.display='block'; 
+
+}
+
+else
+{
+ document.getElementById('fourpass').style.display='block'; 
+
+}  
+  }   
+</script> 
+
+
+
+<script> 
+    function checkForm() { alert("HI");
+var name=document.forms["employee"]["name"].value;
+var email=document.forms["employee"]["email"].value;
+var passwordObtained=document.forms["employee"]["password"].value;
+var contact=document.forms["employee"]["contact"].value;
+ var letterNumber = /[0-9]+$/;
+ var passwordCheck=  /^[A-Za-z]\w{7,14}$/;
+alert(name.length);
+alert(contact.length);
+//alert(passwordObtained);
+
+
+
+
+
+
+if(name.length<2 )
+{
+alert("Name length less than 2  or contains numbers");
+return false;
+} 
+
+else if(name.match(letterNumber))
+{
+alert("Name contains numbers");
+return false;
+} 
+else if(contact.length<=8)
+{
+alert("Contact length should be greater than 8");
+return false;
+}
+   /* 
+  else if (email.indexOf(".", 0) < 0)                 
+    { 
+        window.alert("Please enter a valid e-mail address."); 
+    
+        return false; 
+    }
+*/	
+else {
+
+show();
+    }
+}	
+</script> 
+</body>
+</html>

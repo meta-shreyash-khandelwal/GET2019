@@ -1,0 +1,21 @@
+#main
+{
+	text-align:center;
+	
+}
+.division1 label
+{
+	text-align:left;
+}
+.division2 textarea{
+ vertical-align: top;
+}
+.division2{
+display:none;
+
+}
+#motorpass,#cyclepass,#fourpass
+{
+	display:none;
+	
+}
