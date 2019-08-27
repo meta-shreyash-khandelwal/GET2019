@@ -7,7 +7,7 @@
 <h1 id="main">Metacube Parking System</h1>
 <hr>
 <div align="center" class="division1" id="firstForm">
-<form  name="employee" action="" onsubmit="checkForm()" >
+<form  name="employee" onsubmit="return false">
 <h2>
 Employee Registration Form
 </h2>
@@ -39,7 +39,7 @@ Employee Registration Form
 <label><b>Contact Number</b></label>
 <input type="number" name="contact" placeholder="Enter Contact Number">
 <br><br>
-<input type="submit" value="Register">
+<button onclick="checkForm()">Register</button>
 <br><br>
 
 
@@ -373,8 +373,20 @@ else
   }   
 </script> 
 <script> 
-    function checkForm() { 
-	//alert("HI");
+
+function handleSubmit()
+{
+function handleSubmit(event) {
+  if(!checkForm()) {
+    event.preventDefault();
+  }
+  return;
+}
+
+
+}
+
+function checkForm() { 
 var name=document.forms["employee"]["name"].value;
 var email=document.forms["employee"]["email"].value;
 var passwordObtained=document.forms["employee"]["password"].value;
@@ -388,33 +400,33 @@ var confirmPassword=document.forms["employee"]["confirm"].value;
 if(name.length<2 )
 {
 alert("Name length less than 2 ");
-return false;
+//return false;
 } 
 
 else if(name.match(letterNumber))
 {
 alert("Name contains numbers");
-return false;
+//return false;
 } 
 else if (!email.match(mailformat))                 
 { 
-window.alert("Please enter a valid e-mail address."); 
-return false; 
+alert("Please enter a valid e-mail address."); 
+//return false; 
 }
 else if (!passwordObtained.match(passwordCheck))                 
  { 
- window.alert("Password should contain atleast one lowercase,one uppercase and one number and minimum length 8"); 
- return false; 
+alert("Password should contain atleast one lowercase,one uppercase and one number and minimum length 8"); 
+//return false; 
  }
 	else if(contact.length<=8)
 {
 alert("Contact length should be greater than 8");
-return false;
+//return false;
 }
 else if(confirmPassword!=passwordObtained)
 {
 alert("Please enter the same password in confirm password field");
-return false;
+//return false;
 
 }
 else 
@@ -426,10 +438,20 @@ show();
 <script>
 function showT()
 {
+//alert("HI");
+//alert(x);
+//var moneyr=document.querySelector('input[name = "fourpass"]:checked').value;
+//var moneyu=document.querySelector('input[name = "cyclepass"]:checked').value;
+//var moneyy=document.querySelector('input[name = "motorpass"]:checked').value;
+//var gender = document.querySelector('input[name = "fourpass"]:checked').value;
+//alert(moneyr);
+//alert(moneyu);
+//alert(moneyy);
 if(x=="cycle")
 {
 var money=document.querySelector('input[name = "cyclepass"]:checked').value;
 document.getElementById('showTicket').innerHTML='<div align="center"><h1>Congratulations !! You have successfully obtained the ticket</h1><br><h2>Total amount paid is '+money+'</div>';
+
 }
 else if(x=="motor")
 {
