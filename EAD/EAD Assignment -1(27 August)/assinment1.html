@@ -18,7 +18,7 @@ Employee Registration Form
 <label><b>Gender</b></label>
 
 <label>
-<input type="radio" name="gender" value="Male">Male
+<input type="radio" name="gender" value="Male" checked>Male
 </label>
 <label>
 <input type="radio" name="gender" value="Female" >Female
@@ -34,7 +34,7 @@ Employee Registration Form
 <input name="password" type="password" placeholder="Enter Password">
 <br><br>
 <label><b>Confirm Password</b></label>
-<input type="password" placeholder="Confirm Password">
+<input type="password" name="confirm" placeholder="Confirm Password">
 <br><br>
 <label><b>Contact Number</b></label>
 <input type="number" name="contact" placeholder="Enter Contact Number">
@@ -90,28 +90,28 @@ Vehicle Registration Form
 
 <div id="cyclepassr" align="center">
 <label>
-<input type="radio" name="cyclepass" value="dailyc">Daily - Rs.5  <br><br>
+<input type="radio" name="cyclepass" value="Rs.5">Daily - Rs.5  <br><br>
 </label>
 
 <label>
-<input type="radio" name="cyclepass" value="monthlyc">Monthly - Rs.100  <br><br>
+<input type="radio" name="cyclepass" value="Rs.100">Monthly - Rs.100  <br><br>
 </label>
 
 <label>
-<input type="radio" name="cyclepass" value="yearlyc">Yearly - Rs.500  <br><br>
+<input type="radio" name="cyclepass" value="Rs.500">Yearly - Rs.500  <br><br>
 </label>
 </div>
 
 <div id="cyclepassus" align="center">
 <label>
-<input type="radio" name="cyclepass" value="dailyc">Daily - 0.069 $ <br><br>
+<input type="radio" name="cyclepass" value="0.069 $">Daily - 0.069 $ <br><br>
 </label>
 
 <label>
-<input type="radio" name="cyclepass" value="monthlyc">Monthly - 1.39$ <br><br>
+<input type="radio" name="cyclepass" value="1.39$">Monthly - 1.39$ <br><br>
 </label>
 <label>
-<input type="radio" name="cyclepass" value="yearlyc">Yearly - 6.95$ <br><br>
+<input type="radio" name="cyclepass" value="6.95$">Yearly - 6.95$ <br><br>
 </label>
 </div>
 
@@ -119,16 +119,16 @@ Vehicle Registration Form
 
 <div id="cyclepassyen" align="center">
 <label>
-<input type="radio" name="cyclepass" value="dailyc">Daily - 7.35 ¥ <br><br>
+<input type="radio" name="cyclepass" value="7.35 ¥">Daily - 7.35 ¥ <br><br>
 </label>
 
 <label>
-<input type="radio" name="cyclepass" value="monthlyc">Monthly - 147.08 ¥  <br><br>
+<input type="radio" name="cyclepass" value="147.08 ¥">Monthly - 147.08 ¥  <br><br>
 </label>
 
 
 <label>
-<input type="radio" name="cyclepass" value="monthlyc">Monthly - 735.42 ¥<br><br>
+<input type="radio" name="cyclepass" value="735.42 ¥">Monthly - 735.42 ¥<br><br>
 </label>
 </div>
 
@@ -140,18 +140,11 @@ Vehicle Registration Form
 <option value="usd">USD</option>
 <option  value="yen" >YEN</option>
 </select>
-
+<br><br>
 
 <button id="btn" onclick="showT()"> Get Pass </button>
 
 </div>
-
-
-
-
-
-
-
 
 
 <div id="motorpass" align="center">
@@ -159,28 +152,28 @@ Vehicle Registration Form
 <h4>Select any one of the following </h4>
 <div id="motorpassr" align="center">
 <label>
-<input type="radio" name="motorpass" value="dailyc">Daily - Rs.10  <br><br>
+<input type="radio" name="motorpass" value="Rs.10">Daily - Rs.10  <br><br>
 </label>
 
 <label>
-<input type="radio" name="motorpass" value="monthlyc">Monthly - Rs.200  <br><br>
+<input type="radio" name="motorpass" value="Rs.200">Monthly - Rs.200  <br><br>
 </label>
 
 <label>
-<input type="radio" name="motorpass" value="yearlyc">Yearly - Rs.1000  <br><br>
+<input type="radio" name="motorpass" value="Rs.1000">Yearly - Rs.1000  <br><br>
 </label>
 </div>
 
 <div id="motorpassus" align="center">
 <label>
-<input type="radio" name="motorpass" value="dailyc">Daily - 0.14 $ <br><br>
+<input type="radio" name="motorpass" value="0.14 $">Daily - 0.14 $ <br><br>
 </label>
 
 <label>
-<input type="radio" name="motorpass" value="monthlyc">Monthly - 2.78$ <br><br>
+<input type="radio" name="motorpass" value="2.78 $">Monthly - 2.78$ <br><br>
 </label>
 <label>
-<input type="radio" name="motorpass" value="yearlyc">Yearly - 13.88$ <br><br>
+<input type="radio" name="motorpass" value="13.88 $">Yearly - 13.88$ <br><br>
 </label>
 </div>
 
@@ -188,16 +181,16 @@ Vehicle Registration Form
 
 <div id="motorpassyen" align="center">
 <label>
-<input type="radio" name="motorpass" value="dailyc">Daily - 14.69 ¥ <br><br>
+<input type="radio" name="motorpass" value="14.69 ¥">Daily - 14.69 ¥ <br><br>
 </label>
 
 <label>
-<input type="radio" name="motorpass" value="monthlyc">Monthly - 293.89 ¥  <br><br>
+<input type="radio" name="motorpass" value="293.89 ¥">Monthly - 293.89 ¥  <br><br>
 </label>
 
 
 <label>
-<input type="radio" name="motorpass" value="monthlyc">Yearly - 1469.45 ¥<br><br>
+<input type="radio" name="motorpass" value="1469.45 ¥">Yearly - 1469.45 ¥<br><br>
 </label>
 </div>
 
@@ -209,7 +202,7 @@ Vehicle Registration Form
 <option value="usd">USD</option>
 <option  value="yen" >YEN</option>
 </select>
-
+<br><br>
 <button id="btn" onclick="showT()"> Get Pass </button>
 </div>
 
@@ -220,28 +213,28 @@ Vehicle Registration Form
 <h4>Select any one of the following </h4>
 <div id="fourpassr" align="center">
 <label>
-<input type="radio" name="fourpass" value="dailyc">Daily - Rs.20  <br><br>
+<input type="radio" name="fourpass" value="Rs.20">Daily - Rs.20  <br><br>
 </label>
 
 <label>
-<input type="radio" name="fourpass" value="monthlyc">Monthly - Rs.500  <br><br>
+<input type="radio" name="fourpass" value="Rs.500">Monthly - Rs.500  <br><br>
 </label>
 
 <label>
-<input type="radio" name="fourpass" value="yearlyc">Yearly - Rs.3500  <br><br>
+<input type="radio" name="fourpass" value="Rs.3500">Yearly - Rs.3500  <br><br>
 </label>
 </div>
 
 <div id="fourpassus" align="center">
 <label>
-<input type="radio" name="fourpass" value="dailyc">Daily - 0.28 $ <br><br>
+<input type="radio" name="fourpass" value="0.28$">Daily - 0.28 $ <br><br>
 </label>
 
 <label>
-<input type="radio" name="fourpass" value="monthlyc">Monthly - 6.94$ <br><br>
+<input type="radio" name="fourpass" value="6.94$">Monthly - 6.94$ <br><br>
 </label>
 <label>
-<input type="radio" name="fourpass" value="yearlyc">Yearly - 48.60 <br><br>
+<input type="radio" name="fourpass" value="48.60$">Yearly - 48.60 <br><br>
 </label>
 </div>
 
@@ -249,16 +242,16 @@ Vehicle Registration Form
 
 <div id="fourpassyen" align="center">
 <label>
-<input type="radio" name="fourpass" value="dailyc">Daily - 29.39 ¥ <br><br>
+<input type="radio" name="fourpass" value="29.39¥">Daily - 29.39 ¥ <br><br>
 </label>
 
 <label>
-<input type="radio" name="fourpass" value="monthlyc">Monthly - 734.72 ¥  <br><br>
+<input type="radio" name="fourpass" value="734.72 ¥">Monthly - 734.72 ¥  <br><br>
 </label>
 
 
 <label>
-<input type="radio" name="fourpass" value="monthlyc">Yearly - 5143.07 ¥<br><br>
+<input type="radio" name="fourpass" value="5143.07 ¥">Yearly - 5143.07 ¥<br><br>
 </label>
 </div>
 
@@ -270,7 +263,7 @@ Vehicle Registration Form
 <option value="usd">USD</option>
 <option  value="yen" >YEN</option>
 </select>
-
+<br><br>
 <button id="btn" onclick="showT()"> Get Pass </button>
 </div>
 
@@ -359,26 +352,23 @@ else
 
 </script>
 <script> 
+var x;
 
-    function show2() { 
-	 
-var x =document.getElementById('opted').value;
+function show2() { 
+x =document.getElementById('opted').value;
+//alert(x);
 document.getElementById('secondForm').innerHTML=''; 
 if(x=="cycle")
 {
  document.getElementById('cyclepass').style.display='block';
- 
 }
 else if(x=="motor")
 {
  document.getElementById('motorpass').style.display='block'; 
-
 }
-
 else
 {
  document.getElementById('fourpass').style.display='block'; 
-
 }  
   }   
 </script> 
@@ -389,6 +379,7 @@ var name=document.forms["employee"]["name"].value;
 var email=document.forms["employee"]["email"].value;
 var passwordObtained=document.forms["employee"]["password"].value;
 var contact=document.forms["employee"]["contact"].value;
+var confirmPassword=document.forms["employee"]["confirm"].value;
  var letterNumber = /[0-9]+$/;
  var passwordCheck= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -405,24 +396,27 @@ else if(name.match(letterNumber))
 alert("Name contains numbers");
 return false;
 } 
-
- 
-  else if (!email.match(mailformat))                 
-    { 
-        window.alert("Please enter a valid e-mail address."); 
-         return false; 
-    }
-	else if (!passwordObtained.match(passwordCheck))                 
-    { 
-        window.alert("Password should contain atleast one lowercase,one uppercase and one number and minimum length 8"); 
-         return false; 
-    }
+else if (!email.match(mailformat))                 
+{ 
+window.alert("Please enter a valid e-mail address."); 
+return false; 
+}
+else if (!passwordObtained.match(passwordCheck))                 
+ { 
+ window.alert("Password should contain atleast one lowercase,one uppercase and one number and minimum length 8"); 
+ return false; 
+ }
 	else if(contact.length<=8)
 {
 alert("Contact length should be greater than 8");
 return false;
 }
+else if(confirmPassword!=passwordObtained)
+{
+alert("Please enter the same password in confirm password field");
+return false;
 
+}
 else 
 {
 show();
@@ -432,15 +426,26 @@ show();
 <script>
 function showT()
 {
-var moneyr= document.getElementById("fourpass");
-var moneyu= document.getElementsByName("cyclepass");
-var moneyy= document.getElementsByName("motorpass");
-
+if(x=="cycle")
+{
+var money=document.querySelector('input[name = "cyclepass"]:checked').value;
+document.getElementById('showTicket').innerHTML='<div align="center"><h1>Congratulations !! You have successfully obtained the ticket</h1><br><h2>Total amount paid is '+money+'</div>';
+}
+else if(x=="motor")
+{
+var money=document.querySelector('input[name = "motorpass"]:checked').value;
+document.getElementById('showTicket').innerHTML='<div align="center"><h1>Congratulations !! You have successfully obtained the ticket</h1><br><h2>Total amount paid is '+money+'</div>';
+}
+else
+{
+var money=document.querySelector('input[name = "fourpass"]:checked').value;
+document.getElementById('showTicket').innerHTML='<div align="center"><h1>Congratulations !! You have successfully obtained the ticket</h1><br><h2>Total amount paid is '+money+'</div>';
+}  
 document.getElementById('cyclepass').innerHTML='';
 document.getElementById('motorpass').innerHTML='';
 document.getElementById('fourpass').innerHTML='';
 
-document.getElementById('showTicket').innerHTML='<div align="center"><h1>Congratulations !! You have successfully obtained the ticket</h1><br></div>';
+//document.getElementById('showTicket').innerHTML='<div align="center"><h1>Congratulations !! You have successfully obtained the ticket</h1><br><h2>Total amount paid is '+moneyy+'</div>';
 }
 
 
