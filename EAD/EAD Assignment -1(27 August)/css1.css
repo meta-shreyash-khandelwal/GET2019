@@ -1,0 +1,23 @@
+#main
+{
+	text-align:center;
+	
+}
+.division2 textarea{
+ vertical-align: top;
+}
+.division2{
+	
+display:none;
+
+}
+#motorpass,#cyclepass,#fourpass,#cyclepassus,#cyclepassyen
+{
+	display:none;
+	
+}
+
+#motorpassus,#motorpassyen,#fourpassus,#fourpassyen
+{
+	display:none;
+}
