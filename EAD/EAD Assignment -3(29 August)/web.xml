@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <servlet>
+    <servlet-name>controlServlet1</servlet-name>
+    <servlet-class>svk.StudentDetail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlServlet1</servlet-name>
+    <url-pattern>/AddStudent</url-pattern>
+  </servlet-mapping>
+  <display-name>TestServlet</display-name>
+  <servlet>
+    <servlet-name>controlServlet2</servlet-name>
+    <servlet-class>svk.ShowStudent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlServlet2</servlet-name>
+    <url-pattern>/S</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>controlServlet3</servlet-name>
+    <servlet-class>svk.UpdateStudent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlServlet3</servlet-name>
+    <url-pattern>/update</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>controlServlet4</servlet-name>
+    <servlet-class>svk.SearchStudent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlServlet4</servlet-name>
+    <url-pattern>/search</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+</web-app>
