@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<style>
+label,textarea{
+ vertical-align: middle;
+}
+</style>
+</head>
+<body>
+
+<div align="center" class="division2" id="secondForm">
+<form action="vehicle" method="POST">
+<h2>
+Vehicle Registration Form
+</h2>
+<br>
+<label><b>Vehicle Model Name</b></label>
+<input name="model" type="text" placeholder="Enter vehicle model name">
+<br><br>
+<label><b>Type</b></label>
+<select id="opted" name="optedtype">
+<option value="cycle">Cycle</option>
+<option value="motor">MotorCycle</option>
+<option  value="car" selected>Four Wheeler</option>
+</select>
+<br><br>
+
+<label><b>Vehicle Number</b></label>
+<input name="vehicleNumber" type="text" placeholder="Enter Vehicle Number">
+<br><br>
+<label><b>Identification</b></label>
+<textarea rows="6" name="identify"> 
+</textarea>
+<br><br>
+<input type="submit" value="Register Vehicle & Select Pass">
+<br><br>
+
+</form>
+</div >
+</body>
+</html>

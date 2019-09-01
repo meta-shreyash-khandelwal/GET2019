@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+</head>
+<body>
+<div align="center">
+<h1 align="center" id="main">Select one of the option</h1>
+<hr>
+<button onclick="show1()">Register Form</button><br><br>
+<button onclick="show2()">Login Form </button>
+</div>
+
+
+
+
+
+
+<div align="center" class="division1" id="firstForm" style="display:none;">
+<form  name="employee" action="register" method="POST">
+<h3>
+Employee Registration Form
+</h3>
+<br>
+<label ><b>Full Name</b></label>
+<input name="name" type="text" placeholder="Enter complete name">
+<br><br>
+<label><b>Gender</b></label>
+
+<label>
+<input type="radio" name="gender" value="Male" checked>Male
+</label>
+<label>
+<input type="radio" name="gender" value="Female" >Female
+</label>
+<br><br>
+
+<label><b>Email - ID</b></label>
+<input name="email" type="email" placeholder="Enter Email" >
+<br><br>
+<label><b>Employee - ID (1-1000)</b></label>
+<input name="employeeid" type="number" placeholder="Enter Employee ID" >
+<br><br>
+
+<label><b>Password</b></label>
+<input name="password" type="password" placeholder="Enter Password">
+<br><br>
+<label><b>Confirm Password</b></label>
+<input type="password" name="confirm" placeholder="Confirm Password">
+<br><br>
+<label><b>Contact Number</b></label>
+<input type="number" name="contact" placeholder="Enter Contact Number">
+<br><br>
+<label><b>Organisation</b></label>
+<select name="organisation">
+<option value="Metacube">Metacube</option>
+<option value="Amazon">Amazon</option>
+<option value="Google">Google</option>
+<option value="Facebook">Facebook</option>
+</select><br><br>
+<input type="submit" value="Register">
+<br><br>
+</form>
+</div>
+
+
+
+
+
+
+
+<div align="center" id="loginForm" style="display:none;">
+<form  name="employee" action="login" method="POST">
+<h2>
+Employee Login Form
+</h2>
+<br>
+<label ><b>User Email</b></label>
+<input name="loginEmail" type="email" placeholder="Enter complete email">
+<br><br>
+<label><b>Password</b></label>
+<input name="loginPassword" type="password" placeholder="Enter Password">
+<br><br>
+<input type="submit" value="Login">
+<br><br>
+</form>
+</div>
+
+
+
+
+
+<script>
+function show1()
+{
+	var x=document.getElementById('firstForm');
+	if(x.style.display==="none")
+		{
+		x.style.display="block";
+		}
+	else
+	    {
+		x.style.display="none";
+		}
+	
+	
+}
+function show2()
+{
+	var y=document.getElementById('loginForm');
+	if(y.style.display==="none")
+		{
+		y.style.display="block";
+		}
+	else
+	    {
+		y.style.display="none";
+		}
+}
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
