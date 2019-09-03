@@ -27,6 +27,16 @@ public List<Product> cartItems()
 {
 	return items;
 }
+public void addProduct(Product product)
+{
+	items.add(product);
+}
+public void removeProduct(Product product)
+{
+	items.remove(product);
+}
+
+
 
 
 
