@@ -1,15 +1,21 @@
 package view;
+import java.util.*;
 import model.*;
 import dao.*;
 import facade.*;
 import controller.*;
 public class View {
+	UserController userController =UserController.getInstance();
+	ProductController productController =ProductController.getInstance();
+	CartController cartController =CartController.getInstance();
+
+	
 	//show the general menu options 
 		public static void showMenu()
 		{
 			System.out.println("Choose the option below");
 			System.out.println("1. Add User");
-			System.out.println("2. Login");
+			System.out.println("2. Choose user");
 			System.out.println("Press any other key to exit");
 		}
 		
@@ -20,23 +26,23 @@ public class View {
 			System.out.println("1. Add Product to cart");
 			System.out.println("2. Update product to cart");
 			System.out.println("3. Show Cart");
-
+			System.out.println("4. Exit");
 		}
 		
 		public static void main(String args[])
 		{
+			int userid=1;
 			//displays the general menu
-			View menuView = new View();
+			//View menuView = new View();
 			View.showMenu();
 			
-			UserController userController = new UserController();
-			ProductController productController = new ProductController();
-			CartController cartController = new CartController();
-			
-			Scanner sc = new Scanner(System.in);
+			UserController userController =UserController.getInstance();
+			ProductController productController =ProductController.getInstance();
+			CartController cartController =CartController.getInstance();
+			Scanner in = new Scanner(System.in);
 			int menuChoice,cartChoice;
 			
-			menuChoice = sc.nextInt();
+			menuChoice =in.nextInt();
 			
 			while(menuChoice>0 && menuChoice<3)
 			{
@@ -44,13 +50,15 @@ public class View {
 				{
 				//add user 
 				case 1:
-					System.out.println("Enter the id of the user");
-					int newuserId = sc.nextInt();
+					//System.out.println("Enter the id of the user");
+					//int newuserId = sc.nextInt();
+					
 					System.out.println("Enter the name of the user");
-					String newname = sc.next();
+					String newname = in.next();
 					try {
-						userController.addUser(new User(newuserId, newname));
+						userController.addUser(new User(userid, newname));
 						System.out.println("Added");
+						userid++;
 					}
 					catch (Exception e) 
 					{
@@ -61,12 +69,12 @@ public class View {
 				//login user
 				case 2:
 					System.out.println("Enter the id of the user");
-					int userID = sc.nextInt();
+					int userID = in.nextInt();
 					User user = userController.getUserByID(userID);
 					if(user!=null)
 					{
-						menuView.showCartMenu();
-						cartChoice = sc.nextInt();
+						View.showCartMenu();
+						cartChoice = in.nextInt();
 						
 						while(cartChoice>0 && cartChoice<5)
 						{
@@ -76,17 +84,19 @@ public class View {
 							//add product to cart
 							case 1:
 								List<Product> store = productController.getStoreProduct();
+								System.out.println("ProductCode\tProductName\tProductType\tPrice");
 								for(int i=0;i<store.size();i++)
 								{
-									System.out.println(store.get(i).getProduct_code()+"\t"+store.get(i).getProduct_name()+"\t"
-											+store.get(i).getProduct_price()+"\t"+store.get(i).getProduct_type()+"\t"+store.get(i).getProduct_qty());
+									System.out.println(store.get(i).getProductCode()+" \t "+store.get(i).getProductName()+" \t "
+											+store.get(i).getProductType()+" \t "+store.get(i).getPrice());
 								}
 								System.out.println("Enter the id of the product...");
-								int proID = sc.nextInt();
+								String productID = in.next();
 								System.out.println("Enter the quantity of the product...");
-								int proQty = sc.nextInt();
+								int productQuantity = in.nextInt();
 								try {
-									cartController.addProductToCart(userID, proID, proQty);System.out.println("Added");
+									cartController.addProductToCart(userID, productID, productQuantity);
+									System.out.println("Added the products");
 								} 
 								catch (Exception e) 
 								{
@@ -97,20 +107,19 @@ public class View {
 							//update product to cart	
 							case 2:
 								List<Product> cartList = cartController.getCartList(userID);
-								
 								for(int i=0;i<cartList.size();i++)
 								{
-									Product cartProduct = cartList.get(i);
-									System.out.println(cartProduct.getProduct_code()+"\t"+cartProduct.getProduct_name()+"\t"
-											+cartProduct.getProduct_price()+"\t"+cartProduct.getProduct_type()+"\t"+cartProduct.getProduct_qty());
+									//Product cartProduct = cartList.get(i);
+									System.out.println(cartList.get(i).getProductCode()+"    "+cartList.get(i).getProductName()+"    "
+											+cartList.get(i).getProductType()+"\t"+cartList.get(i).getPrice());
 								}
 								
 								System.out.println("Enter the id of the product to update...");
-								int productID = sc.nextInt();
+								String productID1 = in.next();
 								System.out.println("Enter the Quantity of the product...");
-								int productQTY = sc.nextInt();
+								int productQTY = in.nextInt();
 								try {
-									cartController.deleteProductFromCart(userID, productID, productQTY);
+									cartController.updateCartItem(userID, productID1, productQTY);
 								} 
 								catch (Exception e) 
 								{
@@ -122,15 +131,16 @@ public class View {
 							//show the user cart
 							case 3: 
 								
-								List<Product> cartL = cartController.getCartList(userID);
-								
-								for(int i=0;i<cartL.size();i++)
+								List<Product> cartList1 = cartController.getCartList(userID);
+								int totalPrice=0;
+								for(int i=0;i<cartList1.size();i++)
 								{
-									Product cartProduct = cartL.get(i);
-									System.out.println(cartProduct.getProduct_code()+"\t"+cartProduct.getProduct_name()+"\t"
-											+cartProduct.getProduct_price()+"\t"+cartProduct.getProduct_type()+"\t"+cartProduct.getProduct_qty());
+									Product cartProduct = cartList1.get(i);
+									totalPrice+=cartProduct.getQuantity()*cartProduct.getPrice();
+									System.out.println(cartProduct.getProductCode()+" \t "+cartProduct.getProductName()+" \t "+cartProduct.getQuantity()+" \t "+
+											+cartProduct.getPrice()*cartProduct.getQuantity());
 								}
-								
+								System.out.println("The total to be paid  Rs"+totalPrice);
 								break;
 							case 4:
 								break;
@@ -143,8 +153,8 @@ public class View {
 								break;
 							}
 							
-							menuView.showCartMenu();
-							cartChoice = sc.nextInt();
+							View.showCartMenu();
+							cartChoice = in.nextInt();
 						}
 					}
 					else
@@ -155,15 +165,15 @@ public class View {
 				default:
 					System.out.println("Invalid choice!!!");
 				}
-				
 				System.out.println();
-				menuView.showMenu();
-				menuChoice = sc.nextInt();
 				
+				View.showMenu();
+				in.next();
+				menuChoice = in.nextInt();
+				//main(args);
 			}
 			
-			sc.close();
-		}
+}
 
 	
 }
