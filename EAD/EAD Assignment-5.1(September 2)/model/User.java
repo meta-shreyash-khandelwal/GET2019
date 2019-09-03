@@ -8,6 +8,7 @@ public User(int userID, String userName) {
 	super();
 	this.userID = userID;
 	this.userName = userName;
+	userCart=new Cart();
 }
 public int getUserID() {
 	return userID;
