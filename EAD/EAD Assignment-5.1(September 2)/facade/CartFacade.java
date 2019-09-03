@@ -23,12 +23,17 @@ public void addProductToCart(int userID,String productID,int quantity)
 {
 	Cart cart=cartDAO.getCart(userID);
 	List<Product> productList=productDAO.getList();
+	//System.out.println("IM AHER aboc"+userID);
+	System.out.println("IM AHER aboc addin for"+cart.cartItems());
+	
 	for(int i=0;i<productList.size();i++)
 	{
+		//System.out.println("Iin cart facade loop for"+cart.cartItems());
 		if(productList.get(i).getProductCode().equals(productID))
 		{
 			productList.get(i).setQuantity(quantity);
 			cart.addProduct(productList.get(i));
+			//System.out.println("MATCHED "+i);
 			}
 	}
 	
@@ -64,7 +69,11 @@ public void updateCart(int userID,String productID,int quantity)
 
 public List<Product> getCartProduct(int userID)
 {
+	
 	Cart cart=cartDAO.getCart(userID);
+	//System.out.println("I AM IADE "+cart.cartItems());
+
+	//System.out.println("I AM IN CART FACADE "+cart.cartItems());
 	return cart.cartItems();
 }
 	
