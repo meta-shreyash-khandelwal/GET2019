@@ -1,16 +1,17 @@
 package dao;
 import java.util.*;
-
 import model.Cart;
-import model.Product;
 import model.User;
 public class CartDAO {
 private static CartDAO cartdao;
+List<User> userList=new ArrayList<User>();
 //private List<Cart> cartList=new ArrayList<Cart>();
-private Map<User,Cart> usercart=new HashMap<User,Cart>();
+//private Map<User,Cart> usercart=new HashMap<User,Cart>();
 	private CartDAO()
 	{
-		
+		UserDAO userdao=UserDAO.getInstance();
+	
+		userList=userdao.userList;
 	}
 	public static CartDAO getInstance()
 	{
@@ -18,24 +19,22 @@ private Map<User,Cart> usercart=new HashMap<User,Cart>();
 			cartdao=new CartDAO();
 		return cartdao;
 	}
-
-	public void addToCart(Cart cart,Product product)
+public Cart getCart(int userid)
+{int i=0;
+	for(i=0;i<userList.size();i++)
 	{
-		cart.cartItems().add(product);
+		if(userList.get(i).getUserID()==userid)
+		{
+			break;
+		}
 		
-	}	
-	public void removeFromCart(Cart cart,Product product)
-	{
-		cart.cartItems().remove(product);
-		
-	}	
-	
-public void cartUpdate(Cart cart,int quantity,String productCode)
-{
-	//cart.cartItems().remove()
+	}
+	return userList.get(i).getUserCart();
 }
+
 	
 	
+	/*	
 public void displayCart(Cart cart)
 {
 
@@ -51,16 +50,6 @@ public void displayCart(Cart cart)
 	
 }
 	
-public void addCartForUser(User newUser,Cart cart)
-{
-	usercart.put(newUser, cart);
-}
-public void removeCartForUser(User user)
-{
-	usercart.remove(user);
-	
-}
-	
-	
+*/
 	
 }
