@@ -1,6 +1,8 @@
 package controller;
 import model.*;
+
 import java.util.*;
+
 import dao.*;
 import facade.*;
 public class CartController {
@@ -21,6 +23,7 @@ public CartController() {
 
 	public List<Product> getCartList(int userID)
 	{
+		//System.out.println(" AM IN CARTY CONTROL "+userID);
 		return cartFacade.getCartProduct(userID);
 	}
 
@@ -34,9 +37,11 @@ public CartController() {
 	public void deleteProductFromCart(int userID,String productID) 
 	{
 cartFacade.deleteProductFromCart(userID, productID);
-	
-	
 }
+public void updateCartItem(int userID,String productID,int quantity)
+	{
+		cartFacade.updateCart(userID, productID, quantity);
+	}
 	
 	
 }
