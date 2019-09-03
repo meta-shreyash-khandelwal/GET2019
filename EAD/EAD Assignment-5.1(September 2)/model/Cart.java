@@ -5,10 +5,8 @@ private String cartID;
 private List<Product> items;
 private double totalPrice;
 
-public Cart(String cartID,double totalPrice) {
-	this.cartID = cartID;
+public Cart() {
 	items=new ArrayList<Product>();
-	this.totalPrice = totalPrice;
 }
 public String getCartID() {
 	return cartID;
