@@ -1,18 +1,19 @@
 package model;
 
 public class User {
-private String userID;
+private int userID;
 String userName;
 private Cart userCart;
-public User(String userID, String userName) {
+public User(int userID, String userName) {
 	super();
 	this.userID = userID;
 	this.userName = userName;
+	userCart=new Cart();
 }
-public String getUserID() {
+public int getUserID() {
 	return userID;
 }
-public void setUserID(String userID) {
+public void setUserID(int userID) {
 	this.userID = userID;
 }
 public String getUserName() {

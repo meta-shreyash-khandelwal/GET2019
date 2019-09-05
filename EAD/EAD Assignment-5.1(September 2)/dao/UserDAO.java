@@ -8,7 +8,7 @@ private UserDAO()
 {
 	userList=new ArrayList<User>();
 }
-public static UserDAO getInstnce()
+public static UserDAO getInstance()
 {
 	if(userd==null)
 		userd=new UserDAO();
@@ -24,9 +24,9 @@ public static UserDAO getInstnce()
 		userList.remove(user);
 		
 	}
-public int getAllUser()
+public List<User> getAll()
 {
-	return userList.size();
+	return userList;
 }
 
 }

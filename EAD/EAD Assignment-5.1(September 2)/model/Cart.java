@@ -5,10 +5,8 @@ private String cartID;
 private List<Product> items;
 private double totalPrice;
 
-public Cart(String cartID,double totalPrice) {
-	this.cartID = cartID;
+public Cart() {
 	items=new ArrayList<Product>();
-	this.totalPrice = totalPrice;
 }
 public String getCartID() {
 	return cartID;
@@ -27,6 +25,16 @@ public List<Product> cartItems()
 {
 	return items;
 }
+public void addProduct(Product product)
+{
+	items.add(product);
+}
+public void removeProduct(Product product)
+{
+	items.remove(product);
+}
+
+
 
 
 
