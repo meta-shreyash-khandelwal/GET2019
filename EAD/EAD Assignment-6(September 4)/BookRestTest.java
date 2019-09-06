@@ -1,19 +1,34 @@
 package com.metacuberest.restdemo;
-import static io.restassured.RestAssured.get;
-import static org.hamcrest.CoreMatchers.equalTo;
-import org.junit.BeforeClass;
+package com.metacuberest.restdemo;
+import java.io.IOException;
+import static com.jayway.restassured.RestAssured.given;
 import org.junit.Test;
-
-import static io.restassured.RestAssured.given;
-
-
+import junit.framework.*;
+import static com.jayway.restassured.RestAssured.expect;
+import org.junit.Before;
+import org.junit.Test;
+import com.jayway.restassured.RestAssured;
+import org.junit.*;
+import org.apache.catalina.HttpResponse;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.junit.Before;
+import org.junit.runner.RunWith;
+import static org.hamcrest.Matchers.equalTo;
+import com.sun.grizzly.util.http.ContentType;
+import io.restassured.http.Method;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-
-
-import io.restassured.RestAssured;
-import io.restassured.response.ResponseBody;
-import io.restassured.response.ResponseOptions;
 import io.restassured.specification.RequestSpecification;
+
+import org.junit.Ignore;
+
+import static org.junit.Assert.assertEquals;
 
 public class BookRestTest {
 	  @BeforeClass
