@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  mvc:
+   view:
+    prefix: /WEB-INF/jsp/
+    suffix: .jsp
+  messages:
+    basename: validation
+
+
+
+msg: Welcome to the add Student Form 
+  
