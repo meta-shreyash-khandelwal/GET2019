@@ -1,0 +1,143 @@
+a
+{
+ text-decoration: none;
+padding-right:20px;
+color:white;
+}
+#i1
+{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+nav
+{
+	background-color:#1f1f7a;
+	height:40px;
+	margin-top:0px;
+	padding-top:10px;
+	padding-left:25px;
+	
+}
+#cyclepass
+{
+	border-style: groove;
+	width:200px;
+border-color:#1f1f7a;
+}
+#motorpass
+{
+	border-style: groove;
+		width:200px;
+		border-color:#1f1f7a;
+}
+#fourpass
+{
+	border-style: groove;
+		width:200px;
+		border-color:#1f1f7a;
+}
+
+.content
+{
+	margin-bottom:10px;
+}
+.third
+{
+	display:flex;
+}
+.third > div
+{
+	flex:1;
+	margin-left:10px;
+	margin-bottom:5px;
+	border-radius:25px;
+	border : 1 px 
+}
+#i1
+{
+	margin-left:350px;
+}
+.collapsible {
+  background-color: #1f1f7a;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  margin-bottom:5px;
+}
+
+.collapsible:hover {
+  background-color:#7171da;
+}
+.active
+{
+	 background-color:white;
+	 color:blue;
+}
+
+
+.rnd
+{
+	padding-top:10px;
+	 border-radius: 50%;
+border:1px solid #1f1f7a;
+  height: 70px;
+   width: 75px;
+   font-size:22px;
+   
+}
+hr
+{
+	 padding: 0 !important;
+	 margin-bottom:0px;
+}
+
+#btn
+{
+	  background-color: white;
+  border-color: #1f1f7a;
+  color: #1f1f7a;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-bottom:15px;
+}
+
+
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+table
+{
+	margin-left:500px;
+	
+	
+}
+td
+{padding-bottom:20px;
+}
