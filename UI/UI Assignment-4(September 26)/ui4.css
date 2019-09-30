@@ -1,16 +1,16 @@
 body
 {
-	 margin: 0;
-  padding: 0;
-  border:1px solid black;
+margin: 0;
+padding: 0;
+border:1px solid black;
 }
 header
 {
-	display:flex;
+display:flex;
 }
 nav,p
 {
-	 font-weight: bold;
+font-weight: bold;
 }
 a
 {
@@ -25,38 +25,35 @@ margin-left:200px;
 }
 header>nav
 {
-	flex:1;
-	padding-top:30px;
-	margin-left:200px;
-	margin-right:100px;
+flex:1;
+padding-top:30px;
+margin-left:200px;
+margin-right:100px;
 }
 header>div
 {padding-top:30px;
-	flex:1;
+flex:1;
 }
 .button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
+background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
 }
-
 .button1 {background-color:  #ff471a;} /* orange */
 .button2 {background-color:  #3333cc;} /* Blue */ 
-
-#first
+#firstsection
 {
 background-image: url("images4/homebg.png");
-
-  background-size: 100% 100%;
+background-size: 100% 100%;
 }
-#first1
+#firstdiv
 {
 float:left;
 margin-left:120px;
@@ -70,11 +67,10 @@ padding-top:30px;
 }
 #i2
 {
-
 margin-left:400px;	
-
+height:500px;
 }
-#i22
+#divsecond
 {
 padding-top:100px;
 padding-bottom:100px;
@@ -83,11 +79,9 @@ padding-bottom:100px;
 {
 display:flex;
 }
-
 #fotersection>img
 {
 margin-left:120px;
-
 }
 #fotersection>nav
 {
@@ -103,18 +97,14 @@ flex:1;
 padding-top:50px;
 padding-bottom:50px;
 }
-
-
-
 #i3
 {
-	height:20px;
-	margin-right:30px;
-	padding-top:50px;
-		padding-bottom:50px;
-		margin-left:150px;
+height:20px;
+margin-right:30px;
+padding-top:50px;
+padding-bottom:50px;
+margin-left:150px;
 }
-
 h1
 {
 color:white;
@@ -125,55 +115,70 @@ background-color:#4d4d4d;
 }
 #fot1
 {
-	padding-top:160px;
+padding-top:160px;
 }
 #insvt
 {
 color:black;
- float:left; 
- margin-left:20px;	
+float:left; 
+margin-left:20px;	
 }
 #fourth,#sixth
 {
 width:50%;
-
 }
 #fifthtext
 {
-	width:50%;
+width:50%;
 }
 #sectionthird div
 {
-	
- display: flex;
-  flex-wrap: wrap;	
+display: flex;
+flex-wrap: wrap;	
 }
-
 #fifth img
 {
-	margin-top:30px;
+margin-top:30px;
 }
-#fouth img
+#fourth
 {
-	padding-top:20px;
+margin-bottom:20px;
 }
+
+#fourth img
+{
+margin-left:180px
+}
+#fourthtext
+{
+	padding-left:20px;
+	padding-top:5px;
+}
+#fourthtext p
+{
+	font-size:16px;
+	padding-top:12px;
+	padding-bottom:15px; 
+	color:#a6a6a6; 
+}
+
 #fourthtext p,#sixthtext p
 {
-	margin-top:120px;
-	margin-right:50px;
-	margin-left:100px;
-
+margin-top:120px;
+margin-right:50px;
+margin-left:100px;
 }
-
 #fifthtext
 {
-	margin-left:150px;
+margin-left:150px;
+font-size:18px;
+padding-top:2px;
+ color:#a6a6a6;
 }
 #sectionthird p
 {
-	 font-weight: bold;
-	 font-size:25px;
-	
+font-weight: bold;
+font-size:25px;
 }
 #sixth
 {
@@ -181,54 +186,49 @@ margin-left:120px;
 }
 footer
 {
-	background-color:#504c5c;
-	padding-bottom:0px;
-	margin-bottom:0;
+background-color:#504c5c;
+padding-bottom:0px;
+margin-bottom:0;
 }
-
 footer p
 {
-	margin:0;
-	padding:0;
-	padding-left:700px;
-	padding-bottom:10px;
+margin:0;
+padding:0;
+padding-left:700px;
+padding-bottom:10px;
 }
 hr
 {
- display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
-  border-style: inset;
-  border-width: 1px;
-	opacity:0.3;
-	width:1040px;
-	margin-bottom:50px;
+display: block;
+margin-top: 0.5em;
+margin-bottom: 0.5em;
+margin-left: auto;
+margin-right: auto;
+border-style: inset;
+border-width: 1px;
+opacity:0.3;
+width:1040px;
+margin-bottom:50px;
 }
-
 .flex-container
 {
-	display: flex;
-  flex-wrap: wrap;
-	
+display: flex;
+flex-wrap: wrap;
 }
 .flex-container> div
 {
-
 width: 400px;
 margin: 10px;
 text-align: left;
 font-size: 21px;
 margin-left:200px;
 height:250px;
-
 }
 .head
 {
-	margin-left:500px;
-	padding-bottom:10px;
-	padding-top:40px;
+margin-left:500px;
+padding-bottom:10px;
+padding-top:40px;
 font-size:24px;
 }
 i
@@ -237,5 +237,41 @@ color:#348feb;
 }
 #reviewform
 {
-	margin-top:45px;
+margin-top:45px;
+}
+
+
+#second h1
+{
+	color:#348feb;
+}
+#second p
+{
+	color:#a6a6a6; 
+	font-size:20px;
+}
+.head h1
+{
+color:#348feb;
+font-size:34px;	
+}
+.head  p
+{
+	color:#a6a6a6;
+	font-size:20px;
+	padding-top:2px
+}
+#insvt
+{
+color:black;
+ float:left;
+ margin-left:20px;
+ padding-top:120px;	
+}
+#insvt p
+{
+	color:white; 
+	margin-left:200px;
+	font-size:20px;  
+	text-align: left;
 }
