@@ -1,230 +1,221 @@
 <!Doctype html>
 <html>
-<head>
-<title>
-Metacube Parking System
-</title>
-<link rel="stylesheet" type="text/css" href="ui2.css">
-</head>
-<body >
-
-<h1 id="main" align="center">Metacube Parking System</h1><hr>
-<nav>
-<a href="#firstform">Add Employee</a>
-<a href="#secondform">Add Vehicle</a>
-<a href="#feedback">Give Feedback</a>
-<a href="#thirdform">Pricing</a>
-</nav>
-<img src="i2.jpg" height="400px;" id="i1">
-
-
-<button type="button" class="collapsible" id="firstform">Employee Details</button>
-<div class="content">
- <form  name="employee" onsubmit="return false" align="center">
-<br>
-<table>
-<tr>
-<td>
-<label ><b>Name</b></label>
-</td>
-<td>
-<input name="name" type="text" placeholder="Enter complete name" required>
-</td>
-</tr>
-<tr>
-<td>
-<label><b>Gender</b></label>
-</td>
-<td>
-<label>
-<input type="radio" name="gender" value="Male" checked>Male
-</label>
-<label>
-<input type="radio" name="gender" value="Female" >Female
-</label>
-</td>
-</tr>
-<tr>
-<td><label><b>Email - ID</b></label></td>
-<td><input name="email" type="email" placeholder="Enter Email" required></td>
-</tr>
-<tr>
-<td><label><b>Password</b></label></td>
-<td><input name="password" type="password" placeholder="Enter Password" required></td>
-</tr>
-<tr>
-<td><label><b>Confirm Password</b></label></td>
-<td><input type="password" name="confirm" placeholder="Confirm Password" required></td>
-</tr>
-<tr>
-<td><label><b>Contact Number</b></label></td>
-<td><input type="number" name="contact" placeholder="Enter Contact Number" required></td>
-</tr>
-<tr><td></td><td>
-<button onclick="checkForm()">Register</button>
-</td></tr>
-</table>
-
-</form></div>
-<button type="button" class="collapsible" id="secondform">Vehicle Details</button>
-<div class="content">
- <form action="" onsubmit="show2()" align="center">
-<br>
-<table>
-<tr>
-<td><label><b>Name</b></label></td>
-<td><input type="text" placeholder="Enter complete name" required></td>
-</tr>
-<tr>
-<td><label><b>Type</b></label></td>
-<td><select id="opted" name="opt">
-<option value="cycle">Cycle</option>
-<option value="motor">MotorCycle</option>
-<option  value="car" selected>Four Wheeler</option>
-</select>
-</td>
-</tr>
-<tr>
-<td><label><b>Vehicle Number</b></label></td>
-<td><input type="text" placeholder="Enter Vehicle Number"></td>
-</tr>
-<tr>
-<td><label ><b>Employee ID</b></label></td>
-<td><input id="employee" type="text" readonly></td>
-</tr>
-<tr>
-<td><label><b>Identification</b></label></td>
-<td><textarea rows="6"> 
-</textarea>
-</td>
-</tr>
-<tr><td></td><td>
-<input type="submit" value="Register Vehicle & Select Pass">
-</td></tr>
-</table>
-<br><br>
-
-</form>
-</div>
-
-
-<button type="button" class="collapsible" id="feedback">Feedback Details</button>
-<div class="content">
- <form action="" onsubmit="show2()" align="center">
-<br>
-<table>
-<tr>
-<td><label><b>Name</b></label></td>
-<td><input type="text" placeholder="Enter complete name" required></td>
-</tr>
-<tr>
-<td><label ><b>Employee ID</b></label></td>
-<td><input id="employee" type="text"  required></td>
-</tr>
-<tr>
-<td><label><b>Feedback</b></label></td>
-<td><textarea rows="6"> 
-</textarea>
-</td>
-<tr><td></td><td>
-<input type="submit" value="Submit Feedback">
-</td></tr>
-</table>
-<br>
-</form></div>
-
-
-
-<button type="button" class="collapsible" id="thirdform">Pricing Details</button>
-<div class="content">
-
-<div class ="third" id="thirdform" align="center">
-<div id="cyclepass" align="center">
-<h3 align="center">CYCLE</h3><br>
-<p class="rnd"> $100<br>/month</p>
-<label>
-<input type="radio" name="cyclepass" value="Rs.5">Daily - Rs.5  <br><br>
-</label>
-
-<label>
-<input type="radio" name="cyclepass" value="Rs.100">Monthly - Rs.100  <br><br>
-</label>
-
-<label>
-<input type="radio" name="cyclepass" value="Rs.500">Yearly - Rs.500  <br><br>
-</label>
-
-<br><br>
-<button id="btn"> PURCHASE NOW </button><br>
-</div>
-<br>
-<br>
-<br>
-<div id="motorpass" align="center">
-<h3 align="center"> MOTORCYCLE</h3><br>
-<p class="rnd"> $200<br>/month</p>
-<label>
-<input type="radio" name="motorpass" value="Rs.10">Daily - Rs.10  <br><br>
-</label>
-
-<label>
-<input type="radio" name="motorpass" value="Rs.200">Monthly - Rs.200 <br><br>
-</label>
-
-<label>
-<input type="radio" name="motorpass" value="Rs.1000">Yearly - Rs.1000  <br><br>
-</label>
-
-<br><br>
-<button id="btn" onclick="showT()"> PURCHASE NOW </button>
-<br>
-</div>
-<br>
-<br><br>
-<br>
-<div id="fourpass" align="center">
-<h3 align="center">FOUR-WHEELER </h3><br>
-<p class="rnd"> $300<br>/month</p>
-<label>
-<input type="radio" name="fourpass" value="Rs.20">Daily - Rs.20  <br><br>
-</label>
-
-<label>
-<input type="radio" name="fourpass" value="Rs.500">Monthly - Rs.500  <br><br>
-</label>
-
-<label>
-<input type="radio" name="fourpass" value="Rs.3500">Yearly - Rs.3500  <br><br>
-</label>
-
-<br><br>
-<button id="btn" onclick="showT()"> PURCHASE NOW  </button>
-<br>
-</div>
-<br>
-<br>
-
-
-</div></div>
-
-
-
-
-<script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-</script>
-</body>
+   <head>
+      <title>
+         Metacube Parking System
+      </title>
+      <link rel="stylesheet" type="text/css" href="ui2.css">
+   </head>
+   <body >
+      <h1 id="main" align="center">Metacube Parking System</h1>
+      <hr>
+      <nav>
+         <a href="#firstform">Add Employee</a>
+         <a href="#secondform">Add Vehicle</a>
+         <a href="#feedback">Give Feedback</a>
+         <a href="#thirdform">Pricing</a>
+      </nav>
+      <img src="i2.jpg" height="400px;" id="i1">
+      <button type="button" class="collapsible" id="firstform">Employee Details</button>
+      <div class="content">
+         <form  name="employee" onsubmit="return false" align="center">
+            <br>
+            <table>
+               <tr>
+                  <td>
+                     <label ><b>Name</b></label>
+                  </td>
+                  <td>
+                     <input name="name" type="text" placeholder="Enter complete name" required>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label><b>Gender</b></label>
+                  </td>
+                  <td>
+                     <label>
+                     <input type="radio" name="gender" value="Male" checked>Male
+                     </label>
+                     <label>
+                     <input type="radio" name="gender" value="Female" >Female
+                     </label>
+                  </td>
+               </tr>
+               <tr>
+                  <td><label><b>Email - ID</b></label></td>
+                  <td><input name="email" type="email" placeholder="Enter Email" required></td>
+               </tr>
+               <tr>
+                  <td><label><b>Password</b></label></td>
+                  <td><input name="password" type="password" placeholder="Enter Password" required></td>
+               </tr>
+               <tr>
+                  <td><label><b>Confirm Password</b></label></td>
+                  <td><input type="password" name="confirm" placeholder="Confirm Password" required></td>
+               </tr>
+               <tr>
+                  <td><label><b>Contact Number</b></label></td>
+                  <td><input type="number" name="contact" placeholder="Enter Contact Number" required></td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>
+                     <button >Register</button>
+                  </td>
+               </tr>
+            </table>
+         </form>
+      </div>
+      <button type="button" class="collapsible" id="secondform">Vehicle Details</button>
+      <div class="content">
+         <form action="" onsubmit="return false" align="center">
+            <br>
+            <table>
+               <tr>
+                  <td><label><b>Name</b></label></td>
+                  <td><input type="text" placeholder="Enter complete name" required></td>
+               </tr>
+               <tr>
+                  <td><label><b>Type</b></label></td>
+                  <td>
+                     <select id="opted" name="opt">
+                        <option value="cycle">Cycle</option>
+                        <option value="motor">MotorCycle</option>
+                        <option  value="car" selected>Four Wheeler</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td><label><b>Vehicle Number</b></label></td>
+                  <td><input type="text" placeholder="Enter Vehicle Number"></td>
+               </tr>
+               <tr>
+                  <td><label ><b>Employee ID</b></label></td>
+                  <td><input id="employee" type="text" readonly></td>
+               </tr>
+               <tr>
+                  <td><label><b>Identification</b></label></td>
+                  <td><textarea rows="6"> 
+                     </textarea>
+                  </td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>
+                     <input type="submit" value="Register Vehicle & Select Pass">
+                  </td>
+               </tr>
+            </table>
+            <br><br>
+         </form>
+      </div>
+      <button type="button" class="collapsible" id="feedback">Feedback Details</button>
+      <div class="content">
+         <form action="" onsubmit="show2()" align="center">
+            <br>
+            <table>
+               <tr>
+                  <td><label><b>Name</b></label></td>
+                  <td><input type="text" placeholder="Enter complete name" required></td>
+               </tr>
+               <tr>
+                  <td><label ><b>Employee ID</b></label></td>
+                  <td><input id="employee" type="text"  required></td>
+               </tr>
+               <tr>
+                  <td><label><b>Feedback</b></label></td>
+                  <td><textarea rows="6"> 
+                     </textarea>
+                  </td>
+               <tr>
+                  <td></td>
+                  <td>
+                     <input type="submit" value="Submit Feedback">
+                  </td>
+               </tr>
+            </table>
+            <br>
+         </form>
+      </div>
+      <button type="button" class="collapsible" id="thirdform">Pricing Details</button>
+      <div class="content">
+         <div class ="third" id="thirdform" align="center">
+            <div id="cyclepass" align="center">
+               <h3 align="center">CYCLE</h3>
+               <br>
+               <p class="rnd"> $100<br>/month</p>
+               <label>
+               <input type="radio" name="cyclepass" value="Rs.5">Daily - Rs.5  <br><br>
+               </label>
+               <label>
+               <input type="radio" name="cyclepass" value="Rs.100">Monthly - Rs.100  <br><br>
+               </label>
+               <label>
+               <input type="radio" name="cyclepass" value="Rs.500">Yearly - Rs.500  <br><br>
+               </label>
+               <br><br>
+               <button id="btn"> PURCHASE NOW </button><br>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div id="motorpass" align="center">
+               <h3 align="center"> MOTORCYCLE</h3>
+               <br>
+               <p class="rnd"> $200<br>/month</p>
+               <label>
+               <input type="radio" name="motorpass" value="Rs.10">Daily - Rs.10  <br><br>
+               </label>
+               <label>
+               <input type="radio" name="motorpass" value="Rs.200">Monthly - Rs.200 <br><br>
+               </label>
+               <label>
+               <input type="radio" name="motorpass" value="Rs.1000">Yearly - Rs.1000  <br><br>
+               </label>
+               <br><br>
+               <button id="btn" > PURCHASE NOW </button>
+               <br>
+            </div>
+            <br>
+            <br><br>
+            <br>
+            <div id="fourpass" align="center">
+               <h3 align="center">FOUR-WHEELER </h3>
+               <br>
+               <p class="rnd"> $300<br>/month</p>
+               <label>
+               <input type="radio" name="fourpass" value="Rs.20">Daily - Rs.20  <br><br>
+               </label>
+               <label>
+               <input type="radio" name="fourpass" value="Rs.500">Monthly - Rs.500  <br><br>
+               </label>
+               <label>
+               <input type="radio" name="fourpass" value="Rs.3500">Yearly - Rs.3500  <br><br>
+               </label>
+               <br><br>
+               <button id="btn"> PURCHASE NOW  </button>
+               <br>
+            </div>
+            <br>
+            <br>
+         </div>
+      </div>
+      <script>
+         var coll = document.getElementsByClassName("collapsible");
+         var i;
+         
+         for (i = 0; i < coll.length; i++) {
+           coll[i].addEventListener("click", function() {
+             this.classList.toggle("active");
+             var content = this.nextElementSibling;
+             if (content.style.display === "block") {
+               content.style.display = "none";
+             } else {
+               content.style.display = "block";
+             }
+           });
+         }
+      </script>
+   </body>
 </html>
