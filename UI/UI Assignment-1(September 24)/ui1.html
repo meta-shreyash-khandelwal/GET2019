@@ -1,212 +1,177 @@
 <!Doctype html>
 <html>
-<head>
-<title>
-Metacube Parking System
-</title>
-<style>
-body {
-  background-image: url("i2.jpg");
-
-}
-#cyclepass,#fourpass,#motorpass
-{
-border-style: solid;
-width:50%;
-}
-</style>
-<link rel="stylesheet" type="text/css" href="ui11.css">
-</head>
-<body >
-
-<h1 id="main" align="center">Metacube Parking System</h1>
-<hr>
-<nav>
-<a href="#firstform">Add Employee</a>
-<a href="#secondform">Add Vehicle</a>
-<a href="#feedback">Give Feedback</a>
-<a href="#thirdform">Pricing</a>
-</nav>
-
-
-<div align="center" class="division1" id="firstform">
-<form  name="employee" onsubmit="return false">
-<h2>
-Employee Registration Form
-</h2>
-<br>
-<label ><b>Name</b></label>
-<input name="name" type="text" placeholder="Enter complete name">
-<br><br>
-<label><b>Gender</b></label>
-
-<label>
-<input type="radio" name="gender" value="Male" checked>Male
-</label>
-<label>
-<input type="radio" name="gender" value="Female" >Female
-</label>
-<br><br>
-
-<label><b>Email - ID</b></label>
-<input name="email" type="email" placeholder="Enter Email" >
-<br><br>
-
-
-<label><b>Password</b></label>
-<input name="password" type="password" placeholder="Enter Password">
-<br><br>
-<label><b>Confirm Password</b></label>
-<input type="password" name="confirm" placeholder="Confirm Password">
-<br><br>
-<label><b>Contact Number</b></label>
-<input type="number" name="contact" placeholder="Enter Contact Number">
-<br><br>
-<button onclick="checkForm()">Register</button>
-<br><br>
-
-
-</form>
-</div>
-<br><br><br><br>
-
-
-<!-- Form section for Vehicle-->
-<div align="center" class="division2" id="secondform">
-<form action="" onsubmit="show2()">
-<h2>
-Vehicle Registration Form
-</h2>
-<br>
-<label><b>Name</b></label>
-<input type="text" placeholder="Enter complete name">
-<br><br>
-<label><b>Type</b></label>
-<select id="opted" name="opt">
-<option value="cycle">Cycle</option>
-<option value="motor">MotorCycle</option>
-<option  value="car" selected>Four Wheeler</option>
-</select>
-<br><br>
-
-<label><b>Vehicle Number</b></label>
-<input type="text" placeholder="Enter Vehicle Number">
-<br><br>
-
-<label ><b>Employee ID</b></label>
-<input id="employee" type="text" readonly>
-<br><br>
-
-<label><b>Identification</b></label>
-<textarea rows="6"> 
+   <head>
+      <title>
+         Metacube Parking System
+      </title>
+      <style>
+         body {
+         background-image: url("i2.jpg");
+         }
+         #cyclepass,#fourpass,#motorpass
+         {
+         border-style: solid;
+         width:50%;
+         }
+      </style>
+      <link rel="stylesheet" type="text/css" href="ui11.css">
+   </head>
+   <body >
+      <h1 id="main" align="center">Metacube Parking System</h1>
+      <hr>
+      <nav>
+         <a href="#firstform">Add Employee</a>
+         <a href="#secondform">Add Vehicle</a>
+         <a href="#feedback">Give Feedback</a>
+         <a href="#thirdform">Pricing</a>
+      </nav>
+      <div align="center" class="division1" id="firstform">
+         <form  name="employee" onsubmit="return false">
+            <h2>
+               Employee Registration Form
+            </h2>
+            <br>
+            <label ><b>Name</b></label>
+            <input name="name" type="text" placeholder="Enter complete name">
+            <br><br>
+            <label><b>Gender</b></label>
+            <label>
+            <input type="radio" name="gender" value="Male" checked>Male
+            </label>
+            <label>
+            <input type="radio" name="gender" value="Female" >Female
+            </label>
+            <br><br>
+            <label><b>Email - ID</b></label>
+            <input name="email" type="email" placeholder="Enter Email" >
+            <br><br>
+            <label><b>Password</b></label>
+            <input name="password" type="password" placeholder="Enter Password">
+            <br><br>
+            <label><b>Confirm Password</b></label>
+            <input type="password" name="confirm" placeholder="Confirm Password">
+            <br><br>
+            <label><b>Contact Number</b></label>
+            <input type="number" name="contact" placeholder="Enter Contact Number">
+            <br><br>
+            <button onclick="checkForm()">Register</button>
+            <br><br>
+         </form>
+      </div>
+      <br><br><br><br>
+      <!-- Form section for Vehicle-->
+      <div align="center" class="division2" id="secondform">
+         <form action="" onsubmit="show2()">
+            <h2>
+               Vehicle Registration Form
+            </h2>
+            <br>
+            <label><b>Name</b></label>
+            <input type="text" placeholder="Enter complete name">
+            <br><br>
+            <label><b>Type</b></label>
+            <select id="opted" name="opt">
+               <option value="cycle">Cycle</option>
+               <option value="motor">MotorCycle</option>
+               <option  value="car" selected>Four Wheeler</option>
+            </select>
+            <br><br>
+            <label><b>Vehicle Number</b></label>
+            <input type="text" placeholder="Enter Vehicle Number">
+            <br><br>
+            <label ><b>Employee ID</b></label>
+            <input id="employee" type="text" readonly>
+            <br><br>
+            <label><b>Identification</b></label>
+            <textarea rows="6"> 
 </textarea>
-<br><br>
-<input type="submit" value="Register Vehicle & Select Pass">
-<br><br>
-
-</form>
-</div >
-<br><br><br><br><br><br><br>
-<div id="feedback">
-<form action="" onsubmit="show2()" align="center">
-<h2>
-Feedback Form
-</h2>
-<br>
-<label><b>Name</b></label>
-<input type="text" placeholder="Enter complete name" required>
-<br><br>
-
-<label ><b>Employee ID</b></label>
-<input id="employee" type="text"  required>
-<br><br>
-
-<label><b>Feedback</b></label>
-<textarea rows="6"> 
+            <br><br>
+            <input type="submit" value="Register Vehicle & Select Pass">
+            <br><br>
+         </form>
+      </div >
+      <br><br><br><br><br><br><br>
+      <div id="feedback">
+         <form action="" onsubmit="show2()" align="center">
+            <h2>
+               Feedback Form
+            </h2>
+            <br>
+            <label><b>Name</b></label>
+            <input type="text" placeholder="Enter complete name" required>
+            <br><br>
+            <label ><b>Employee ID</b></label>
+            <input id="employee" type="text"  required>
+            <br><br>
+            <label><b>Feedback</b></label>
+            <textarea rows="6"> 
 </textarea>
-<br><br>
-<input type="submit" value="Submit Feedback">
-<br><br>
-
-</form>
-
-
-</div>
-
-
-<!-- Form section for Pricing-->
-<div id="thirdform" align="center">
-<h2>
-Pricing Form
-</h2>
-<div id="cyclepass" align="center">
-<h3 align="center">Cycle</h3><br>
-
-<label>
-<input type="radio" name="cyclepass" value="Rs.5">Daily - Rs.5  <br><br>
-</label>
-
-<label>
-<input type="radio" name="cyclepass" value="Rs.100">Monthly - Rs.100  <br><br>
-</label>
-
-<label>
-<input type="radio" name="cyclepass" value="Rs.500">Yearly - Rs.500  <br><br>
-</label>
-
-<br><br>
-<button id="btn"> Purchase Now </button>
-</div>
-<br>
-<br>
-<br>
-<div id="motorpass" align="center">
-<h3 align="center"> MotorCycle</h3><br>
-
-<label>
-<input type="radio" name="motorpass" value="Rs.10">Daily - Rs.10  <br><br>
-</label>
-
-<label>
-<input type="radio" name="motorpass" value="Rs.200">Monthly - Rs.200  <br><br>
-</label>
-
-<label>
-<input type="radio" name="motorpass" value="Rs.1000">Yearly - Rs.1000  <br><br>
-</label>
-
-<br><br>
-<button id="btn" onclick="showT()"> Purchase Now  </button>
-</div>
-<br>
-<br><br>
-<br><br>
-<br><br>
-<br>
-<div id="fourpass" align="center">
-<h3 align="center">Four-Wheeler </h3><br>
-
-<label>
-<input type="radio" name="fourpass" value="Rs.20"><b>Daily - Rs.20 </b> <br><br>
-</label>
-
-<label>
-<input type="radio" name="fourpass" value="Rs.500"><b>Monthly - Rs.500 </b> <br><br>
-</label>
-
-<label>
-<input type="radio" name="fourpass" value="Rs.3500"><b>Yearly - Rs.3500</b>  <br><br>
-</label>
-
-<br><br>
-<button id="btn" onclick="showT()"> Purchase Now  </button>
-</div>
-<br>
-<br>
-
-
-</div>
-
-<br><br><br><br>
-</body>
+            <br><br>
+            <input type="submit" value="Submit Feedback">
+            <br><br>
+         </form>
+      </div>
+      <!-- Form section for Pricing-->
+      <div id="thirdform" align="center">
+         <h2>
+            Pricing Form
+         </h2>
+         <div id="cyclepass" align="center">
+            <h3 align="center">Cycle</h3>
+            <br>
+            <label>
+            <input type="radio" name="cyclepass" value="Rs.5">Daily - Rs.5  <br><br>
+            </label>
+            <label>
+            <input type="radio" name="cyclepass" value="Rs.100">Monthly - Rs.100  <br><br>
+            </label>
+            <label>
+            <input type="radio" name="cyclepass" value="Rs.500">Yearly - Rs.500  <br><br>
+            </label>
+            <br><br>
+            <button id="btn"> Purchase Now </button>
+         </div>
+         <br>
+         <br>
+         <br>
+         <div id="motorpass" align="center">
+            <h3 align="center"> MotorCycle</h3>
+            <br>
+            <label>
+            <input type="radio" name="motorpass" value="Rs.10">Daily - Rs.10  <br><br>
+            </label>
+            <label>
+            <input type="radio" name="motorpass" value="Rs.200">Monthly - Rs.200  <br><br>
+            </label>
+            <label>
+            <input type="radio" name="motorpass" value="Rs.1000">Yearly - Rs.1000  <br><br>
+            </label>
+            <br><br>
+            <button id="btn" onclick="showT()"> Purchase Now  </button>
+         </div>
+         <br>
+         <br><br>
+         <br><br>
+         <br><br>
+         <br>
+         <div id="fourpass" align="center">
+            <h3 align="center">Four-Wheeler </h3>
+            <br>
+            <label>
+            <input type="radio" name="fourpass" value="Rs.20"><b>Daily - Rs.20 </b> <br><br>
+            </label>
+            <label>
+            <input type="radio" name="fourpass" value="Rs.500"><b>Monthly - Rs.500 </b> <br><br>
+            </label>
+            <label>
+            <input type="radio" name="fourpass" value="Rs.3500"><b>Yearly - Rs.3500</b>  <br><br>
+            </label>
+            <br><br>
+            <button id="btn" onclick="showT()"> Purchase Now  </button>
+         </div>
+         <br>
+         <br>
+      </div>
+      <br><br><br><br>
+   </body>
 </html>
