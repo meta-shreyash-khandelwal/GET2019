@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="css/ui7.css">
+    
+   </head>
+   <body>
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+         <div class="container">
+            <h1 class="display-3">Metacube Parking System</h1>
+         </div>
+      </div>
+      <div id="container">
+         <h1>Employee Registration Form </h1>
+      </div>
+      <div id="secondContainer">
+         <h1>Vehicle Registration Form</h1>
+      </div>
+      <div id="cyclepass" align="center">
+         <h3>The pass prices for the Cycle are as follows</h3>
+         <br>
+         <h4>Select any one of the following </h4>
+         <div id="cyclepassr" align="center">
+            <label>
+            <input type="radio" name="cyclepass" value="Rs.5">Daily - Rs.5  <br><br>
+            </label>
+            <label>
+            <input type="radio" name="cyclepass" value="Rs.100">Monthly - Rs.100  <br><br>
+            </label>
+            <label>
+            <input type="radio" name="cyclepass" value="Rs.500">Yearly - Rs.500  <br><br>
+            </label>
+         </div>
+         <div id="cyclepassus" align="center">
+            <label>
+            <input type="radio" name="cyclepass" value="0.069 $">Daily - 0.069 $ <br><br>
+            </label>
+            <label>
+            <input type="radio" name="cyclepass" value="1.39$">Monthly - 1.39$ <br><br>
+            </label>
+            <label>
+            <input type="radio" name="cyclepass" value="6.95$">Yearly - 6.95$ <br><br>
+            </label>
+         </div>
+         <div id="cyclepassyen" align="center">
+            <label>
+            <input type="radio" name="cyclepass" value="7.35 ¥">Daily - 7.35 ¥ <br><br>
+            </label>
+            <label>
+            <input type="radio" name="cyclepass" value="147.08 ¥">Monthly - 147.08 ¥  <br><br>
+            </label>
+            <label>
+            <input type="radio" name="cyclepass" value="735.42 ¥">Monthly - 735.42 ¥<br><br>
+            </label>
+         </div>
+         <label><b>Currency</b></label>
+         <select onchange="showCurrencyCycle()" id="currency" name="cry">
+            <option value="inr"  selected>INR</option>
+            <option value="usd">USD</option>
+            <option  value="yen" >YEN</option>
+         </select>
+         <br><br>
+         <button id="btn" onclick="showT()"> Get Pass </button>
+      </div>
+      <div id="motorpass" align="center">
+         <h3>The pass prices for the MotorCycle are as follows</h3>
+         <br>
+         <h4>Select any one of the following </h4>
+         <div id="motorpassr" align="center">
+            <label>
+            <input type="radio" name="motorpass" value="Rs.10">Daily - Rs.10  <br><br>
+            </label>
+            <label>
+            <input type="radio" name="motorpass" value="Rs.200">Monthly - Rs.200  <br><br>
+            </label>
+            <label>
+            <input type="radio" name="motorpass" value="Rs.1000">Yearly - Rs.1000  <br><br>
+            </label>
+         </div>
+         <div id="motorpassus" align="center">
+            <label>
+            <input type="radio" name="motorpass" value="0.14 $">Daily - 0.14 $ <br><br>
+            </label>
+            <label>
+            <input type="radio" name="motorpass" value="2.78 $">Monthly - 2.78$ <br><br>
+            </label>
+            <label>
+            <input type="radio" name="motorpass" value="13.88 $">Yearly - 13.88$ <br><br>
+            </label>
+         </div>
+         <div id="motorpassyen" align="center">
+            <label>
+            <input type="radio" name="motorpass" value="14.69 ¥">Daily - 14.69 ¥ <br><br>
+            </label>
+            <label>
+            <input type="radio" name="motorpass" value="293.89 ¥">Monthly - 293.89 ¥  <br><br>
+            </label>
+            <label>
+            <input type="radio" name="motorpass" value="1469.45 ¥">Yearly - 1469.45 ¥<br><br>
+            </label>
+         </div>
+         <label><b>Currency</b></label>
+         <select onchange="showCurrencyMotor()" id="currency1" name="cry1">
+            <option value="inr"  selected>INR</option>
+            <option value="usd">USD</option>
+            <option  value="yen" >YEN</option>
+         </select>
+         <br><br>
+         <button id="btn" onclick="showT()"> Get Pass </button>
+      </div>
+      <div id="fourpass" align="center">
+         <h3>The pass prices for the Four-Wheeler are as follows</h3>
+         <br>
+         <h4>Select any one of the following </h4>
+         <div id="fourpassr" align="center">
+            <label>
+            <input type="radio" name="fourpass" value="Rs.20">Daily - Rs.20  <br><br>
+            </label>
+            <label>
+            <input type="radio" name="fourpass" value="Rs.500">Monthly - Rs.500  <br><br>
+            </label>
+            <label>
+            <input type="radio" name="fourpass" value="Rs.3500">Yearly - Rs.3500  <br><br>
+            </label>
+         </div>
+         <div id="fourpassus" align="center">
+            <label>
+            <input type="radio" name="fourpass" value="0.28$">Daily - 0.28 $ <br><br>
+            </label>
+            <label>
+            <input type="radio" name="fourpass" value="6.94$">Monthly - 6.94$ <br><br>
+            </label>
+            <label>
+            <input type="radio" name="fourpass" value="48.60$">Yearly - 48.60 <br><br>
+            </label>
+         </div>
+         <div id="fourpassyen" align="center">
+            <label>
+            <input type="radio" name="fourpass" value="29.39¥">Daily - 29.39 ¥ <br><br>
+            </label>
+            <label>
+            <input type="radio" name="fourpass" value="734.72 ¥">Monthly - 734.72 ¥  <br><br>
+            </label>
+            <label>
+            <input type="radio" name="fourpass" value="5143.07 ¥">Yearly - 5143.07 ¥<br><br>
+            </label>
+         </div>
+         <label><b>Currency</b></label>
+         <select onchange="showCurrencyFour()" id="currency2" name="cry2">
+            <option value="inr"  selected>INR</option>
+            <option value="usd">USD</option>
+            <option  value="yen" >YEN</option>
+         </select>
+         <br><br>
+         <button id="btn" onclick="showT()"> Get Pass </button>
+      </div>
+      <p id="showTicket"></p>
+	    <script src="js/ui7js.js"></script>
+   </body>
+</html>

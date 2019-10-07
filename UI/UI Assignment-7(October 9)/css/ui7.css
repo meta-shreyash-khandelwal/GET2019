@@ -1,0 +1,13 @@
+.display-3
+{
+ text-align:center;
+}
+ #secondContainer,#cyclepass,#motorpass,#fourpass
+{
+ display:none;
+}
+#cyclepassus,#cyclepassyen,#motorpassus,#motorpassyen,#fourpassus,#fourpassyen
+{
+	display:none;
+	
+}
