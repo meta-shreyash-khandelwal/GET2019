@@ -1,0 +1,178 @@
+
+/* Custom CSS File for Dash Board */
+.nav-item-my{
+    list-style-type: none;
+    padding: 8px;
+    padding-left: 40px;
+    font-size: 16px;
+}
+.nav-item-my{
+    background: #5b6be8;
+}
+.annex-a{
+    font-size: 30px;
+}
+.nav-item {
+    color: grey;
+}
+
+.nav-item:hover {
+    color: #5b6be8;
+}
+.left-side-nav-item{
+    float: right;
+    margin-right: 2px;
+}
+.left-side-nav-item-span{
+    float: right;
+    margin-top: 4px;
+    margin-right: 1px;
+}
+.my-dropdown-slider li{
+    list-style-type: none;
+    padding: 8px;
+    padding-left: 40px;
+    font-size: 16px;
+}
+
+.nav-item .active {
+    color:purple;
+    background-color: lavender;
+}
+
+.badge-custom-color, .facebook-custom {
+    color: white;
+    background-color: #5b6be8;
+}
+
+.topbar {
+    color: white;
+    background-color: #5b6be8;
+    height: 4%;
+}
+
+.appsearch a,.form-control::placeholder {
+    position:absolute;
+    top:18px;
+    left:160px;
+    display:block;
+    height:34px;
+    line-height:34px;
+    width:36px;
+    color:rgba(255,255,255,.5);
+}
+
+.form-control,.appsearch .form-control:focus{
+    border:1px solid #6d7beb;
+    font-size:13px;
+    height:34px;
+    color:#fff;
+    padding-left:20px;
+    padding-right:40px;
+    background:#6d7beb;
+    border-radius: 1rem;
+}
+
+.noti-icon-badge{
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+}
+
+.noti-img{
+    width: 34px;
+}
+
+.noti-title {
+    margin:0;
+    padding: 10px;
+    font-size:14px;
+}
+
+.notify-details {
+    margin-bottom:0;
+    display: inline-block;
+    overflow:hidden;
+    padding-left:30px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.notify-details small{
+    display:block;
+    white-space:normal;
+}
+
+.fa-shopping-cart{
+    color: #6d7beb;
+}
+
+.notify-icon{
+    float:left;
+    height:36px;
+    width:36px;
+    line-height:36px;
+    text-align:center;
+    margin-right:10px;
+    border-radius:50%;
+    color:#fff
+}
+
+.page-title{
+    font-size: 20px;
+    color: rgba(39, 37, 37, 0.719);
+}
+
+.page-content{
+    background-color: rgba(240, 239, 239, 0.945);
+}
+
+.breadcrumb-custom{
+    background-color: rgba(240, 239, 239, 0.945);
+}
+
+.report-icon{
+    float:left;
+    height:50px;
+    width:50px;
+    line-height:42px;
+    font-size: 28px;
+    text-align:center;
+    margin-right:10px;
+    border: 2px solid rgb(224, 224, 250);
+    border-radius:50%;
+    background-color:lavender;
+    color: #5e6ee4;
+}
+
+.more-info{
+    background-color: #5e6ee4;
+}
+
+.chart-c{
+    color: #5e6ee4;
+}
+
+.chart-b{
+    color: lavender;
+}
+
+.chart-a{
+    color: rgb(13, 167, 214);
+}
+
+.custom-carousel{
+    height: 165px;
+}
+
+.vertical .active.carousel-item-right,.vertical .carousel-item-next{
+    transform: translateY(100%)
+}
+
+.vertical .active.carousel-item-left,.vertical .carousel-item-prev{
+    transform:  translateY(-100%)
+}
+
+.carousel-icon{
+    font-size:50px;
+}
