@@ -1,0 +1,59 @@
+@import 'https://fonts.googleapis.com/css?family=Dosis|Lobster';
+body {
+  font-family: 'Dosis', sans-serif;
+}
+.jumbotron h1
+{
+margin-left:400px;	
+}
+textarea {
+  width: 400px;
+  min-width: 200px;
+  height: 100px;
+}
+
+.container {
+  margin-top: 50px;
+  width: 800px;
+}
+
+.input-new {
+  width: 100%;
+  height: 45.45px;
+  padding-left: 10px;
+  outline: none;
+  box-sizing: border-box;
+}
+.btn {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.complete-toggle {
+  font-size: 1.3em;
+  padding-top: 20px;
+}
+.brief {
+  font-family: 'Lobster', cursive;
+  padding: 20px;
+  font-size: 1.5em;
+  background-color: gray;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+.col-xs-8 {
+  padding: 0;
+}
+.task-view {
+  padding: 0 15px;
+}
+.detail-view {
+  height: 500px;
+  box-sizing: border-box;
+  border: 1px solid gray;
+}
+.inner
+{
+	  height: 50px;
+	  border: 1px solid pink;
+}
